@@ -1,0 +1,300 @@
+body{
+	background-image: url(../images/foto.jpg);
+	background-repeat: repeat
+}
+
+/* *********************************** NEON1 **************************************************************************** */
+.neon1{
+	display: flex;
+	width: 85%;
+	height: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.name{
+	animation: neon 0.5s ease-in-out infinite alternate;
+	/*animation: flicker 1.5s infinite alternate;*/
+	width: 60%;
+	height: 80%;
+	margin-top: auto;
+  margin-bottom: auto;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.logo{
+	margin-top: auto;
+  margin-bottom: auto;
+  margin-right: auto;
+  margin-left: auto;
+	width: 40% ;
+	height: 100%;
+	filter: drop-shadow(0 0 100px #f09);
+	animation: neon 0.6s ease-in-out infinite alternate;
+	/*animation: neon 0.11s ease-in-out infinite alternate;*/
+}
+
+
+
+
+
+
+/* *********************************** NEON2 ******************************************************************************* */
+.neon2{
+	display: grid;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.joystick{
+	animation: flicker 1.5s infinite alternate, wiggle infinite 5s alternate;
+	margin-top: auto;
+  margin-bottom: auto;
+  margin-right: auto;
+  margin-left: 30%;
+  height: 100%;
+  width: 100%;
+  transform-origin: 20% 5%;
+}
+
+
+
+
+
+
+/* *********************************** KeyFrames For Neon ************************************************************************** */
+
+@keyframes neon {
+  0% {
+    filter: 
+    drop-shadow(0 0 2px #fff)
+    drop-shadow( 0 0 5px #fff)
+    /*drop-shadow( 0 0 8px #fff)*/
+    drop-shadow( 0 0 30px #228dff)
+    drop-shadow( 0 0 100px #228dff);
+   /* drop-shadow( 0 0 40px #f09)
+    drop-shadow( 0 0 50px #f09)
+    drop-shadow( 0 0 60px #f09);*/
+  }
+  100% {
+    filter: 
+    drop-shadow( 0 0 1px #fff)
+    drop-shadow( 0 0 3px #fff)
+   /* drop-shadow( 0 0 7px #fff)*/
+    drop-shadow( 0 0 20px #228dff)
+    drop-shadow( 0 0 110px #228dff);
+   /* drop-shadow( 0 0 36px #f09)
+    drop-shadow( 0 0 44px #f09)
+    drop-shadow( 0 0 52px #f09);*/
+  }
+}
+
+@keyframes flicker {   
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+      filter: 
+    drop-shadow( 0 0 1px #fff)
+    drop-shadow( 0 0 3px #fff)
+    drop-shadow( 0 0 20px #228dff)
+    drop-shadow( 0 0 110px #228dff);
+  } 
+  90%, 55% {        
+      filter: drop-shadow(0 0 0);
+  }    
+}
+
+
+@keyframes wiggle {
+  0% {transform: rotate(45deg);}
+  25% {transform: rotate(42deg);}
+  50% {transform: rotate(47deg);}
+  75% {transform: rotate(44deg);}
+  100% {transform: rotate(46deg);}
+}
+
+
+
+
+
+
+
+
+/* *********************************** Media **************************************************************************************** */
+.media{
+	margin-right: auto;
+	margin-left: auto;
+	display: grid;
+	margin-top: 350px;
+	width: 70%;
+}
+
+.mediaList{
+	display: flex;
+}
+
+.mediaUrl{
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+}
+
+
+.mediaYoutube{
+  display: block;
+	margin-right: auto;
+	margin-left: auto;
+	width: 90%;
+	height: 90%;
+	transition: 2s;
+	filter: 
+    drop-shadow( 0 0 1px #fff)
+    drop-shadow( 0 0 3px #fff)
+    drop-shadow( 0 0 20px #D82B2B)
+    drop-shadow( 0 0 30px #D82B2B)
+    drop-shadow( 0 0 50px #D82B2B);
+  transition-duration: 1s;
+}
+
+.mediaYoutube:hover {
+	filter: 
+	drop-shadow( 0 0 1px #fff)
+    drop-shadow( 0 0 3px #fff)
+    drop-shadow( 0 0 20px #228dff)
+    drop-shadow( 0 0 50px #228dff);
+}
+
+
+
+.mediaGithub{
+  display: block;
+	margin-right: auto;
+	margin-left: auto;
+	width: 90%;
+	height: 90%;
+	filter: 
+    drop-shadow( 0 0 1px #fff)
+    drop-shadow( 0 0 3px #fff)
+    drop-shadow( 0 0 20px #BD32DD)
+    drop-shadow( 0 0 50px #BD32DD);
+  transition-duration: 1s;
+}
+
+.mediaGithub:hover{
+	filter: 
+	drop-shadow( 0 0 1px #fff)
+    drop-shadow( 0 0 3px #fff)
+    drop-shadow( 0 0 20px #228dff)
+    drop-shadow( 0 0 50px #228dff);
+}
+
+
+
+.mediaSteam{
+  display: block;
+	margin-right: auto;
+	margin-left: auto;
+	width: 90%;
+	height: 90%;
+	filter: 
+    drop-shadow( 0 0 1px #fff)
+    drop-shadow( 0 0 3px #fff)
+    drop-shadow( 0 0 20px #083EDF)
+    drop-shadow( 0 0 50px #083EDF);
+  transition-duration: 1s;
+}
+
+.mediaSteam:hover{
+	filter: 
+	drop-shadow( 0 0 1px #fff)
+    drop-shadow( 0 0 3px #fff)
+    drop-shadow( 0 0 20px #228dff)
+    drop-shadow( 0 0 50px #228dff);
+}
+
+
+
+.mediaInstagram{
+  display: block;
+	margin-right: auto;
+	margin-left: auto;
+	width: 90%;
+	height: 90%;
+	filter: 
+    drop-shadow( 0 0 1px #fff)
+    drop-shadow( 0 0 3px #fff)
+    drop-shadow( 0 0 20px #FA0A6D)
+    drop-shadow( 0 0 50px #FA0A6D);
+    transition-duration: 1s;
+}
+
+.mediaInstagram:hover{
+	filter: 
+	drop-shadow( 0 0 1px #fff)
+    drop-shadow( 0 0 3px #fff)
+    drop-shadow( 0 0 20px #228dff)
+    drop-shadow( 0 0 50px #228dff);
+}
+
+
+/* *********************************** Games *********************************************************************************** */
+.games{
+  margin-top: 200px;
+}
+
+.order {
+	margin-top: 100px;
+	display: flex;
+	width: 90%;
+	height: 400px;
+	margin-right: auto;
+	margin-left: auto;	
+}
+
+/*.gameUrl {
+	margin-right: auto;
+	margin-left: auto;
+	width: 50%;
+}*/
+
+.games_title{
+  display: block;
+  animation: neon 0.5s ease-in-out infinite alternate;
+  margin-right: auto;
+  margin-left: auto;
+  width: 250px;
+  height: 125px
+}
+
+.blocky {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: auto;
+  margin-bottom: auto;
+  width: 90%;
+  height: 90%;
+  border-radius: 20px;
+  transition-duration: 1s;
+}
+
+.blocky:hover {
+	box-shadow: 0 0 50px 5px #F6C410;
+}
+
+
+
+.fall_balls {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: auto;
+  margin-bottom: auto;
+  width: 90%;
+  height: 90%;
+  border-radius: 20px;
+  transition-duration: 1s;
+}
+ 
+.fall_balls:hover {
+  box-shadow: 0 0 50px 5px #A49E89;
+} 

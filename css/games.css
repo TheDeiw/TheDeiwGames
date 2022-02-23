@@ -1,0 +1,233 @@
+body{
+	background-image: url(../images/foto.jpg);
+	background-repeat: repeat
+}
+
+/******************************************************* REPRESENTION *****************************************************************/
+
+.represent{
+	margin-top: 40px;
+	display: flex;
+}
+
+/******************************************************* EXAMPLE *****************************************************************/
+
+.example{
+	margin-top: 100px;
+	display: flex;
+}
+
+/******************************************************* SCREENSHOTS *****************************************************************/
+
+.screenshots{
+    margin-top: 200px;
+	display: flex;
+}
+
+/******************************************************* BLOCKY *****************************************************************/
+/*-------------------------------------- Representation ------------------------------------------*/
+.logoBl {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: auto;
+    margin-bottom: auto;
+    width: 40%;
+    height: 40%;
+    border-radius: 20px;
+    box-shadow: 0px 2px 20px 5px #947B0C;
+}
+
+.textBl{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: auto;
+    margin-bottom: auto;
+	width: 50%;
+}
+
+.nameBl{
+	color: white;
+	font-size: 80pt;
+	text-align: center;
+	margin-bottom: 20px;
+	margin-top: 30px;
+	font-family: 'Londrina Shadow', cursive;
+	text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 40px #F9CD09,
+      0 0 80px #F9CD09;
+}
+
+.descriptionBl{
+	color: white;
+	text-align: center;
+	font-size: 15pt;
+	font-family: 'Merriweather Sans', sans-serif;
+	text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 40px #F9CD09,
+      0 0 60px #F9CD09;
+}
+
+/*------------------------ Languages -----------------------------*/
+.languages{
+	display: flex;
+}
+
+.choosen{
+	display: block;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: auto;
+    margin-bottom: auto;
+    color: white;
+    font-size: 25pt;
+    font-family: 'Fredoka One', cursive;
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #F9CD09,
+      0 0 20px #F9CD09;
+}
+
+.notchoosen{
+	display: block;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: auto;
+    margin-bottom: auto;
+    color: #393737;
+    font-size: 25pt;
+    font-family: 'Fredoka One', cursive;
+    transition-duration: 0.5s;
+}
+
+.notchoosen:hover{
+	color: white;
+	text-shadow:
+      0 0 5px #fff,
+      0 0 10px #F9CD09,
+      0 0 20px #F9CD09;
+}
+
+
+/*-------------------------------------- Example ------------------------------------------*/
+
+.linksBl{
+	display: block;
+	width: 50%;
+    height: 40%;
+}
+
+.linksList{
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.link{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: auto;
+    margin-bottom: auto;
+}
+
+.itchBl{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: auto;
+    margin-bottom: auto;
+    filter: 
+     drop-shadow( 0 0 1px #fff)
+     drop-shadow( 0 0 2px #fff)
+     drop-shadow( 0 0 20px #F50707)
+     drop-shadow( 0 0 40px #F50707);
+    transition-duration: 0.5s;
+}
+
+.itchBl:hover{
+	filter: 
+     drop-shadow( 0 0 1px #fff)
+     drop-shadow( 0 0 3px #fff)
+     drop-shadow( 0 0 20px #F9CD09)
+     drop-shadow( 0 0 40px #F9CD09);
+}
+
+
+
+
+.dropboxBl{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: auto;
+    margin-bottom: auto;
+    filter: 
+     drop-shadow( 0 0 1px #fff)
+     drop-shadow( 0 0 2px #fff)
+     drop-shadow( 0 0 20px #4769ED)
+     drop-shadow( 0 0 40px #4769ED);
+    transition-duration: 0.5s;
+}
+.dropboxBl:hover{
+	filter: 
+     drop-shadow( 0 0 1px #fff)
+     drop-shadow( 0 0 3px #fff)
+     drop-shadow( 0 0 20px #F9CD09)
+     drop-shadow( 0 0 40px #F9CD09);
+}
+
+
+
+.googledriveBl{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: auto;
+    margin-bottom: auto;
+    filter: 
+     drop-shadow( 0 0 1px #fff)
+     drop-shadow( 0 0 2px #fff)
+     drop-shadow( 0 0 10px #36EB6F)
+     drop-shadow( 0 0 30px #36EB6F);
+    transition-duration: 0.5s;
+}
+.googledriveBl:hover{
+	filter: 
+     drop-shadow( 0 0 1px #fff)
+     drop-shadow( 0 0 3px #fff)
+     drop-shadow( 0 0 20px #F9CD09)
+     drop-shadow( 0 0 40px #F9CD09);
+}
+
+
+
+.videoBl{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: auto;
+    margin-bottom: auto;
+    width: 40%;
+    height: 40%;
+    border-radius: 10px;
+    box-shadow: 0px 2px 20px 5px #947B0C;
+}
+
+
+.screensh{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 20%;
+    height: 100%;
+}
+
