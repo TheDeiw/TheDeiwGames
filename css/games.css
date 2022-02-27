@@ -20,12 +20,28 @@ body{
 /******************************************************* SCREENSHOTS *****************************************************************/
 
 .screenshots{
-    margin-top: 200px;
+    margin-top: 150px;
+    margin-bottom: 50px;
 	display: flex;
 }
 
 /******************************************************* BLOCKY *****************************************************************/
 /*-------------------------------------- Representation ------------------------------------------*/
+
+.backLinkBl{
+    position: fixed;
+    right: 10px;
+    top: 10px;
+}
+.backButtonBl{
+    width: 80%;
+    height: 80%;
+    filter: 
+     drop-shadow( 0 0 3px #fff)
+     drop-shadow( 0 0 20px #F9CD09)
+}
+
+
 .logoBl {
 	display: block;
 	margin-right: auto;
@@ -64,13 +80,13 @@ body{
 .descriptionBl{
 	color: white;
 	text-align: center;
-	font-size: 15pt;
-	font-family: 'Merriweather Sans', sans-serif;
+	font-size: 14pt;
+	font-family: 'Balsamiq Sans', cursive;
 	text-shadow:
-      0 0 5px #fff,
+      0 0 1px #fff,
       0 0 10px #fff,
-      0 0 40px #F9CD09,
-      0 0 60px #F9CD09;
+      0 0 20px #F9CD09,
+      0 0 40px #F9CD09;
 }
 
 /*------------------------ Languages -----------------------------*/
@@ -78,7 +94,7 @@ body{
 	display: flex;
 }
 
-.choosen{
+.choosenBl{
 	display: block;
 	text-align: center;
 	margin-right: auto;
@@ -94,7 +110,7 @@ body{
       0 0 20px #F9CD09;
 }
 
-.notchoosen{
+.notchoosenBl{
 	display: block;
 	text-align: center;
 	margin-right: auto;
@@ -107,7 +123,7 @@ body{
     transition-duration: 0.5s;
 }
 
-.notchoosen:hover{
+.notchoosenBl:hover{
 	color: white;
 	text-shadow:
       0 0 5px #fff,
@@ -221,7 +237,7 @@ body{
 }
 
 
-.screensh{
+.screenshBl{
     display: block;
     margin-right: auto;
     margin-left: auto;
@@ -229,5 +245,237 @@ body{
     margin-bottom: auto;
     width: 20%;
     height: 100%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px 5px #947B0C;
 }
 
+
+
+
+
+
+
+
+/******************************************************* FALL-BALLS *****************************************************************/
+/*-------------------------------------- Representation ------------------------------------------*/
+
+.backLinkFl{
+    position: fixed;
+    right: 10px;
+    top: 10px;
+}
+.backButtonFl{
+    width: 80%;
+    height: 80%;
+    filter: 
+     drop-shadow( 0 0 3px #fff)
+     drop-shadow( 0 0 20px #A49E89)
+}
+
+
+.logoFl {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 40%;
+    height: 40%;
+    border-radius: 20px;
+    box-shadow: 0px 2px 20px 5px #484646;
+}
+
+.textFl{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 50%;
+}
+
+.nameFl{
+    color: white;
+    font-size: 80pt;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    font-family: 'Londrina Shadow', cursive;
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 40px #A49E89,
+      0 0 80px #A49E89;
+}
+
+.descriptionFl{
+    color: white;
+    text-align: center;
+    font-size: 15pt;
+    font-family: 'Balsamiq Sans', cursive;
+    text-shadow:
+      0 0 1px #fff,
+      0 0 10px #fff,
+      0 0 20px #A49E89,
+      0 0 40px #A49E89;
+}
+
+/*------------------------ Languages -----------------------------*/
+.languages{
+    display: flex;
+}
+
+.choosenFl{
+    display: block;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: white;
+    font-size: 25pt;
+    font-family: 'Fredoka One', cursive;
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #A49E89,
+      0 0 20px #A49E89;
+}
+
+.notchoosenFl{
+    display: block;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: #393737;
+    font-size: 25pt;
+    font-family: 'Fredoka One', cursive;
+    transition-duration: 0.5s;
+}
+
+.notchoosenFl:hover{
+    color: white;
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #A49E89,
+      0 0 20px #A49E89;
+}
+
+
+/*-------------------------------------- Example ------------------------------------------*/
+
+.linksFl{
+    display: block;
+    width: 50%;
+    height: 40%;
+}
+
+.linksList{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.link{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.itchFl{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    filter: 
+     drop-shadow( 0 0 1px #fff)
+     drop-shadow( 0 0 2px #fff)
+     drop-shadow( 0 0 20px #F50707)
+     drop-shadow( 0 0 40px #F50707);
+    transition-duration: 0.5s;
+}
+
+.itchFl:hover{
+    filter: 
+     drop-shadow( 0 0 1px #fff)
+     drop-shadow( 0 0 3px #fff)
+     drop-shadow( 0 0 20px #A49E89)
+     drop-shadow( 0 0 40px #A49E89);
+}
+
+
+
+
+.dropboxFl{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    filter: 
+     drop-shadow( 0 0 1px #fff)
+     drop-shadow( 0 0 2px #fff)
+     drop-shadow( 0 0 20px #4769ED)
+     drop-shadow( 0 0 40px #4769ED);
+    transition-duration: 0.5s;
+}
+.dropboxFl:hover{
+    filter: 
+     drop-shadow( 0 0 1px #fff)
+     drop-shadow( 0 0 3px #fff)
+     drop-shadow( 0 0 20px #A49E89)
+     drop-shadow( 0 0 40px #A49E89);
+}
+
+
+
+.googledriveFl{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    filter: 
+     drop-shadow( 0 0 1px #fff)
+     drop-shadow( 0 0 2px #fff)
+     drop-shadow( 0 0 10px #36EB6F)
+     drop-shadow( 0 0 30px #36EB6F);
+    transition-duration: 0.5s;
+}
+.googledriveFl:hover{
+    filter: 
+     drop-shadow( 0 0 1px #fff)
+     drop-shadow( 0 0 3px #fff)
+     drop-shadow( 0 0 20px #A49E89)
+     drop-shadow( 0 0 40px #A49E89);
+}
+
+
+
+.videoFl{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 40%;
+    height: 40%;
+    border-radius: 10px;
+    box-shadow: 0px 2px 20px 5px #484646;
+}
+
+
+.screenshFl{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 20%;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px 5px #484646;
+}

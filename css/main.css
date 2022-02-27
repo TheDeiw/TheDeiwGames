@@ -14,7 +14,6 @@ body{
 
 .name{
 	animation: neon 0.5s ease-in-out infinite alternate;
-	/*animation: flicker 1.5s infinite alternate;*/
 	width: 60%;
 	height: 80%;
 	margin-top: auto;
@@ -32,7 +31,6 @@ body{
 	height: 100%;
 	filter: drop-shadow(0 0 100px #f09);
 	animation: neon 0.6s ease-in-out infinite alternate;
-	/*animation: neon 0.11s ease-in-out infinite alternate;*/
 }
 
 
@@ -245,16 +243,16 @@ body{
 	margin-top: 100px;
 	display: flex;
 	width: 90%;
-	height: 400px;
+	height: 350px;
 	margin-right: auto;
 	margin-left: auto;	
 }
 
-/*.gameUrl {
+.gameUrl {
 	margin-right: auto;
 	margin-left: auto;
 	width: 50%;
-}*/
+}
 
 .games_title{
   display: block;
@@ -298,3 +296,97 @@ body{
 .fall_balls:hover {
   box-shadow: 0 0 50px 5px #A49E89;
 } 
+
+
+
+
+
+/* *********************************** Media ЗАПРОСИ *********************************************************************************** */
+
+@media only screen and (max-width: 700px){
+/*********** NEON1 **********/
+  .neon1{
+    display: grid;
+    height: 400px;
+    width: 90%;
+  }
+  .name{
+  width: 100%;
+  height: 80%;
+  }
+  .logo{
+    width: 70% ;
+    height: 70%;
+  }
+/*********** NEON2 **********/
+  .neon2{
+    display: none;
+  }
+/*********** MEDIA **********/
+.media{
+    margin-top: 100px;
+}
+.mediaList{
+  display: grid;
+}
+.mediaYoutube{
+  width: 100%;
+  height: 100%;
+}
+.mediaInstagram{
+  width: 100%;
+  height: 100%;
+}
+
+/*********** GAMES **********/
+.gameUrl{
+  width: 100%;
+}
+
+.order {
+  display: grid;
+  margin-top: 50px;
+}
+.games_title{
+  width: 50% ;
+  height: 60% ;
+}
+}
+
+
+
+@media only screen and (min-width: 1700px){
+.neon1{
+    height: 1000px;
+    width: 90%;
+  }
+
+.media{
+  margin-top: 500px;
+  width: 80%;
+ }
+ .mediaYoutube{
+  width: 110%;
+  height: 120%;
+ }
+ .mediaGithub{
+  width: 110%;
+  height: 120%;
+ }
+ .mediaSteam{
+  width: 110%;
+  height: 120%;
+ }
+ .mediaInstagram{
+  width: 110%;
+  height: 120%;
+ }
+
+ .games{
+  margin-top: 300px;
+}
+ .order {
+  height: 600px;
+}
+
+}

@@ -1,0 +1,176 @@
+@media only screen and (max-width: 700px){
+.represent{
+	margin-top: 40px;
+	display: grid;
+}
+.example{
+	margin-top: 100px;
+	display: grid;
+}
+.screenshots{
+    margin-top: 150px;
+    margin-bottom: 50px;
+	display: grid;
+}
+
+/************BLOCKY***********************/
+.backLinkBl{
+    right: 5px;
+    top: 10px;
+}
+.logoBl{
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+.textBl{
+	width: 80%;
+}
+.nameBl{
+	font-size: 60pt;
+}
+.descriptionBl{
+	font-size: 12pt;
+}
+.linksBl{
+	width: 100%;
+    height: 40%;
+}
+.itchBl{
+	width: 90%;
+	height: 90%;
+}
+.dropboxBl{
+	width: 90%;
+	height: 90%;
+}
+.googledriveBl{
+	width: 70%;
+	height: 70%;
+}
+.videoBl{
+	margin-top: 50px;
+	width: 90%;
+    height: 90%;
+}
+.screenshBl{
+	width: 90%;
+    height: 90%;
+}
+
+/************FALL-BALLS***********************/
+.backLinkFl{
+    right: 5px;
+    top: 10px;
+}
+.logoFl{
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+.textFl{
+	width: 80%;
+}
+.nameFl{
+	font-size: 60pt;
+}
+.descriptionFl{
+	font-size: 12pt;
+}
+.linksFl{
+	width: 100%;
+    height: 40%;
+}
+.itchFl{
+	width: 90%;
+	height: 90%;
+}
+.dropboxFl{
+	width: 90%;
+	height: 90%;
+}
+.googledriveFl{
+	width: 70%;
+	height: 70%;
+}
+.videoFl{
+	margin-top: 50px;
+	width: 90%;
+    height: 90%;
+}
+.screenshFl{
+	width: 90%;
+    height: 90%;
+}
+}
+
+@media only screen and (min-width: 1700px){
+/************BLOCKY***********************/
+.backLinkBl{
+    right: 100px;
+    top: 50px;
+}
+.backButtonBl{
+    width: 150%;
+    height: 150%;
+}
+.nameBl{
+	font-size: 100pt;
+}
+.descriptionBl{
+	font-size: 25pt;
+}
+.choosenBl{
+	font-size: 30pt;
+}
+.notchoosenBl{
+	font-size: 30pt;
+}
+.itchBl{
+	width:  150%;
+	height: 150%;
+}
+.dropboxBl{
+	width: 150%;
+	height: 150%;
+}
+.googledriveBl{
+	width: 40%;
+	height: 40%;
+}
+
+/************FALLBALLS***********************/
+.backLinkFl{
+    right: 100px;
+    top: 50px;
+}
+.backButtonFl{
+    width: 150%;
+    height: 150%;
+}
+.nameFl{
+	font-size: 100pt;
+}
+.descriptionFl{
+	font-size: 25pt;
+}
+.choosenFl{
+	font-size: 30pt;
+}
+.notchoosenFl{
+	font-size: 30pt;
+}
+.itchFl{
+	width:  150%;
+	height: 150%;
+}
+.dropboxFl{
+	width: 150%;
+	height: 150%;
+}
+.googledriveFl{
+	width: 40%;
+	height: 40%;
+}
+
+}
