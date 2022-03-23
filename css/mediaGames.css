@@ -140,8 +140,8 @@
 }
 
 .videoBl{
-	width: 800px;
-    height: 500px;
+	width: 1100px;
+    height: 550px;
 }
 
 /************FALLBALLS***********************/
@@ -177,5 +177,9 @@
 	width: 40%;
 	height: 40%;
 }
+
+.videoFl{
+	width: 1100px;
+    height: 550px;
 
 }
