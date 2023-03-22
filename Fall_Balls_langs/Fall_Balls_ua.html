@@ -40,19 +40,34 @@
 			</h1>
 
 		<div class="languages">
-			<a class="choosenFl" href="">Ua</a>	
-			<a class="notchoosenFl" href="Fall_Balls_ru.html">Ru</a>
-			<a class="notchoosenFl" href="Fall_Balls_en.html">En</a>
+			<p class="choosenFl" id="uaFl">Ua</p>
+			<p class="notchoosenFl" id="enFl">En</p>
 		</div>
 
-			<p class="descriptionFl">
+			<p class="descriptionFl" id="txFl">
 				Невелика гра, в якій вам треба ловити різнокольрові кульки, щоб вони не погасли у вічній темряві. Ви граєте за платформу, яка може рухатись лише вліво та вправо. Цього разу в грі присутні меню та пауза, завдяки яким ви можете зупинити гру та попити чай </br> Преспективи розробки: гра завершена, оновлення не плануються.
 			</p>
 		</div>
 
 	</section>
 
+	<script>
+		const uaFl = document.getElementById('uaFl');
+		const enFl = document.getElementById('enFl');
+		const tx = document.getElementById('txFl');
 
+		uaFl.addEventListener('click', function handleClick() {
+  		tx.innerHTML = "Невелика гра, в якій вам треба ловити різнокольрові кульки, щоб вони не погасли у вічній темряві. Ви граєте за платформу, яка може рухатись лише вліво та вправо. Цього разу в грі присутні меню та пауза, завдяки яким ви можете зупинити гру та попити чай </br> Преспективи розробки: гра завершена, оновлення не плануються.";
+  		document.getElementById('enFl').classList = "notchoosenFl";
+  		document.getElementById('uaFl').classList = "choosenFl";
+		});
+
+		enFl.addEventListener('click', function handleClick() {
+  		tx.innerHTML = "A small game in which you need to catch multi-colored balls so that they do not go out in eternal darkness. You play as a platform that can only move left and right. This time the game has a menu and a pause, thanks to which you can stop the game and drink tea.</br>  Development prospects: the game is over, no updates are planned.";
+  		document.getElementById('enFl').classList = "choosenFl";
+  		document.getElementById('uaFl').classList = "notchoosenFl";
+		});
+	</script>
 
 	<section class="example">
 
