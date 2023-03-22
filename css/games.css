@@ -48,6 +48,7 @@ body{
 	margin-left: auto;
 	margin-top: auto;
     margin-bottom: auto;
+    user-select: none;
     width: 40%;
     height: 40%;
     border-radius: 20px;
@@ -70,6 +71,7 @@ body{
 	margin-bottom: 20px;
 	margin-top: 30px;
 	font-family: 'Londrina Shadow', cursive;
+    user-select: none;
 	text-shadow:
       0 0 5px #fff,
       0 0 10px #fff,
@@ -102,8 +104,10 @@ body{
 	margin-top: auto;
     margin-bottom: auto;
     color: white;
-    font-size: 25pt;
+    text-decoration: underline;
+    font-size: 27pt;
     font-family: 'Fredoka One', cursive;
+    user-select: none;
     text-shadow:
       0 0 5px #fff,
       0 0 10px #F9CD09,
@@ -118,9 +122,11 @@ body{
 	margin-top: auto;
     margin-bottom: auto;
     color: #393737;
-    font-size: 25pt;
+    text-decoration: underline;
+    font-size:27pt;
     font-family: 'Fredoka One', cursive;
     transition-duration: 0.5s;
+    user-select: none;
 }
 
 .notchoosenBl:hover{
@@ -274,6 +280,7 @@ body{
 
 
 .logoFl {
+    user-select: none;
     display: block;
     margin-right: auto;
     margin-left: auto;
@@ -295,6 +302,7 @@ body{
 }
 
 .nameFl{
+    user-select: none;
     color: white;
     font-size: 80pt;
     text-align: center;
@@ -326,6 +334,8 @@ body{
 }
 
 .choosenFl{
+    text-decoration: underline;
+    user-select: none;
     display: block;
     text-align: center;
     margin-right: auto;
@@ -333,7 +343,7 @@ body{
     margin-top: auto;
     margin-bottom: auto;
     color: white;
-    font-size: 25pt;
+    font-size: 27pt;
     font-family: 'Fredoka One', cursive;
     text-shadow:
       0 0 5px #fff,
@@ -342,6 +352,8 @@ body{
 }
 
 .notchoosenFl{
+    text-decoration: underline;
+    user-select: none;
     display: block;
     text-align: center;
     margin-right: auto;
@@ -349,7 +361,7 @@ body{
     margin-top: auto;
     margin-bottom: auto;
     color: #393737;
-    font-size: 25pt;
+    font-size: 27pt;
     font-family: 'Fredoka One', cursive;
     transition-duration: 0.5s;
 }
