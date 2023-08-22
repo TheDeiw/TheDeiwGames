@@ -313,10 +313,24 @@ body{
   .name{
   width: 100%;
   height: 80%;
+  animation: neon paused;
+  filter: 
+    drop-shadow(0 0 2px #fff)
+    drop-shadow( 0 0 5px #fff)
+    /*drop-shadow( 0 0 8px #fff)*/
+    drop-shadow( 0 0 30px #228dff)
+    drop-shadow( 0 0 100px #228dff);
   }
   .logo{
     width: 70% ;
     height: 70%;
+    animation: neon paused;
+  filter: 
+    drop-shadow(0 0 2px #fff)
+    drop-shadow( 0 0 5px #fff)
+    /*drop-shadow( 0 0 8px #fff)*/
+    drop-shadow( 0 0 30px #228dff)
+    drop-shadow( 0 0 100px #228dff);
   }
 /*********** NEON2 **********/
   .neon2{
