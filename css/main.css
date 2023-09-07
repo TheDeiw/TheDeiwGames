@@ -111,9 +111,89 @@ body{
 }
 
 
+@keyframes border-flicker {   
+  0% {
+    box-shadow:
+      0 0 1px #fff,
+     0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #3390FF,
+      inset 0 0 1px #fff,
+     inset 0 0 5px #fff,
+    inset 0 0 10px #fff,
+     inset 0 0 20px #3390FF;
+  }
+
+  50% {
+    box-shadow:
+      0 0 1px #fff,
+     0 0 5px #fff,
+      0 0 15px #fff,
+      0 0 20px #3390FF,
+      inset 0 0 1px #fff,
+     inset 0 0 5px #fff,
+    inset 0 0 15px #fff,
+     inset 0 0 20px #3390FF;
+  }
+
+  75% {
+    box-shadow:
+      0 0 1px #fff,
+     0 0 5px #fff,
+      inset 0 0 1px #fff,
+     inset 0 0 5px #fff,
+  }
+
+  100% {        
+      box-shadow:
+      0 0 1px #fff,
+      0 0 7px #fff,
+      0 0 20px #3390FF,
+      0 0 35px #3390FF,
+      inset 0 0 1px #fff,
+      inset 0 0 7px #fff,
+      inset 0 0 10px #fff,
+      inset 0 0 25px #3390FF;
+  }    
+}
 
 
+/* *********************************** Description **************************************************************************************** */
+.description{
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  width: 70%;
+  font-size: 18pt;
+  text-align: center;
+  margin: auto;
+  margin-top: 500px;
+  color: white;
+  font-family: 'Balsamiq Sans', cursive;
+  border-radius: 50px;
+ /* box-shadow:
+      0 0 1px #fff,
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #3390FF,
+      inset 0 0 1px #fff,
+      inset 0 0 5px #fff,
+      inset 0 0 10px #fff,
+      inset 0 0 20px #3390FF;*/
+  animation: border-flicker 1s ease-in-out infinite alternate;
+      
+}
 
+.descriptionText{
+  margin-top: 2%;
+  margin-bottom: 2%;
+  text-shadow:
+      0 0 1px #fff,
+      0 0 10px #fff,
+      0 0 20px #3390FF,
+      0 0 40px #3390FF;
+}
 
 
 
@@ -312,7 +392,7 @@ body{
   }
   .name{
   width: 100%;
-  height: 80%;
+  height: 90%;
   animation: neon paused;
   filter: 
     drop-shadow(0 0 2px #fff)
@@ -323,7 +403,7 @@ body{
   }
   .logo{
     width: 70% ;
-    height: 70%;
+    height: 80%;
     animation: neon paused;
   filter: 
     drop-shadow(0 0 2px #fff)
@@ -336,6 +416,18 @@ body{
   .neon2{
     display: none;
   }
+/*********** DESCRIPTION **********/
+.description{
+  margin-top: 50%;
+  font-size: 13pt;
+  padding-left: 8%;
+  padding-right: 8%;
+  animation: border-flicker paused;
+}
+.descriptionText{
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
 /*********** MEDIA **********/
 .media{
     margin-top: 100px;
@@ -364,6 +456,13 @@ body{
 .games_title{
   width: 50% ;
   height: 60% ;
+  animation: neon paused;
+   filter: 
+    drop-shadow(0 0 2px #fff)
+    drop-shadow( 0 0 5px #fff)
+    /*drop-shadow( 0 0 8px #fff)*/
+    drop-shadow( 0 0 30px #228dff)
+    drop-shadow( 0 0 100px #228dff);
 }
 }
 
@@ -377,23 +476,23 @@ body{
 
 .media{
   margin-top: 500px;
-  width: 80%;
+  width: 90%;
  }
  .mediaYoutube{
   width: 110%;
-  height: 120%;
+  height: 125%;
  }
  .mediaGithub{
   width: 110%;
-  height: 120%;
+  height: 125%;
  }
  .mediaSteam{
   width: 110%;
-  height: 120%;
+  height: 125%;
  }
  .mediaInstagram{
   width: 110%;
-  height: 120%;
+  height: 125%;
  }
 
  .games{
@@ -402,5 +501,17 @@ body{
  .order {
   height: 600px;
 }
+.description{
+  margin-top: 30%;
+  font-size: 35pt;
+  padding-left: 3%;
+  padding-right: 3%;
+  border-radius: 100px;
+}
+.descriptionText{
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
 
 }
