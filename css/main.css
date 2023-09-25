@@ -159,6 +159,66 @@ body{
 
 
 /* *********************************** Description **************************************************************************************** */
+.description_title{
+  display: block;
+  animation: neon 1s ease-in-out infinite alternate;
+  margin-right: auto;
+  margin-left: auto;
+  width: 425px;
+  height: 115px
+}
+
+.languages{
+  display: flex;
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 40px;
+}
+
+.choosen{
+  display: block;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: white;
+  text-decoration: underline;
+  font-size: 30pt;
+  font-family: 'Fredoka One', cursive;
+  user-select: none;
+  text-shadow:
+      0 0 5px #fff,
+      0 0 10px #3390FF,
+      0 0 20px #3390FF;
+}
+
+
+.notchoosen{
+  display: block;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: #393737;
+  text-decoration: underline;
+  font-size:30pt;
+  font-family: 'Fredoka One', cursive;
+  transition-duration: 0.5s;
+  user-select: none;
+}
+
+.notchoosen:hover{
+  color: white;
+  text-shadow:
+      0 0 5px #fff,
+      0 0 10px #3390FF,
+      0 0 20px #3390FF;
+}
+
+
 .description{
   padding-left: 2%;
   padding-right: 2%;
@@ -171,7 +231,7 @@ body{
   margin-top: 500px;
   color: white;
   font-family: 'Balsamiq Sans', cursive;
-  border-radius: 50px;
+  /*border-radius: 50px;
  /* box-shadow:
       0 0 1px #fff,
       0 0 5px #fff,
@@ -181,7 +241,7 @@ body{
       inset 0 0 5px #fff,
       inset 0 0 10px #fff,
       inset 0 0 20px #3390FF;*/
-  animation: border-flicker 1s ease-in-out infinite alternate;
+  /*animation: border-flicker 1s ease-in-out infinite alternate;*/
       
 }
 
@@ -195,41 +255,153 @@ body{
       0 0 40px #3390FF;
 }
 
+.gotogames{
+  margin-top: 20px;
+  width: 20%;
+  filter: 
+    drop-shadow(0 0 5px #fff)
+    /*drop-shadow( 0 0 5px #fff)*/
+    /*drop-shadow( 0 0 8px #fff)*/
+    drop-shadow( 0 0 30px #228dff)
+    /*drop-shadow( 0 0 100px #228dff)*/;
+}
+
 
 
 /* *********************************** Media **************************************************************************************** */
-.media{
+#media{
 	margin-right: auto;
 	margin-left: auto;
 	display: grid;
 	margin-top: 350px;
-	width: 70%;
+	width: 90%;
+}
+
+.social_title{
+  display: block;
+  animation: neon 0.5s ease-in-out infinite alternate;
+  margin-right: auto;
+  margin-left: auto;
+  width: 250px;
+  height: 120px
 }
 
 .mediaList{
 	display: flex;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.imagePresentation{
+  margin: auto;
+  width: 50%;
+  user-select: none;
+  filter: 
+    drop-shadow( 0 0 1px #fff)
+    drop-shadow( 0 0 3px #fff)
+    drop-shadow( 0 0 20px #228dff)
+    drop-shadow( 0 0 70px #228dff);
+}
+
+.linksList{
+  width: 50%;
+  height: 100%;
+}
+
+#link{
+  margin-top: 30px;
 }
 
 .mediaUrl{
 	margin-right: auto;
 	margin-left: auto;
-	margin-top: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-bottom: 100px;
 }
 
 
+/* *********************************** Work ******************************* */
+.mediaLinkedin{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 55%;
+  height: 25%;
+  filter: 
+    drop-shadow( 0 0 1px #fff)
+    drop-shadow( 0 0 3px #fff)
+    drop-shadow( 0 0 20px #083EDF)
+    drop-shadow( 0 0 50px #083EDF);
+  transition-duration: 1s;
+}
+
+.mediaLinkedin:hover {
+  filter: 
+  drop-shadow( 0 0 1px #fff)
+    drop-shadow( 0 0 3px #fff)
+    drop-shadow( 0 0 20px #228dff)
+    drop-shadow( 0 0 50px #228dff);
+}
+
+.mediaGithub{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 47%;
+  height: 27%;
+  filter: 
+    drop-shadow( 0 0 1px #fff)
+    drop-shadow( 0 0 3px #fff)
+    drop-shadow( 0 0 20px #BD32DD)
+    drop-shadow( 0 0 50px #BD32DD);
+  transition-duration: 1s;
+}
+
+.mediaGithub:hover{
+  filter: 
+  drop-shadow( 0 0 1px #fff)
+    drop-shadow( 0 0 3px #fff)
+    drop-shadow( 0 0 20px #228dff)
+    drop-shadow( 0 0 50px #228dff);
+}
+
+.mediaTwitter{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 50%;
+  height: 25%;
+  filter: 
+    drop-shadow( 0 0 1px #fff)
+    drop-shadow( 0 0 3px #fff)
+    drop-shadow( 0 0 20px #31D0F0)
+    drop-shadow( 0 0 50px #31D0F0);
+  transition-duration: 1s;
+}
+
+.mediaTwitter:hover {
+  filter: 
+  drop-shadow( 0 0 1px #fff)
+    drop-shadow( 0 0 3px #fff)
+    drop-shadow( 0 0 20px #228dff)
+    drop-shadow( 0 0 50px #228dff);
+}
+
+
+/* *********************************** Social ******************************* */
 .mediaYoutube{
   display: block;
 	margin-right: auto;
 	margin-left: auto;
-	width: 90%;
-	height: 90%;
-	transition: 2s;
+  width: 58%;
+  height: 25%;
 	filter: 
     drop-shadow( 0 0 1px #fff)
     drop-shadow( 0 0 3px #fff)
+    drop-shadow( 0 0 7px #D82B2B)
     drop-shadow( 0 0 20px #D82B2B)
-    drop-shadow( 0 0 30px #D82B2B)
-    drop-shadow( 0 0 50px #D82B2B);
+    drop-shadow( 0 0 40px #D82B2B);
   transition-duration: 1s;
 }
 
@@ -241,25 +413,45 @@ body{
     drop-shadow( 0 0 50px #228dff);
 }
 
-
-
-.mediaGithub{
+.mediaReddit{
   display: block;
-	margin-right: auto;
-	margin-left: auto;
-	width: 90%;
-	height: 90%;
-	filter: 
+  margin-right: auto;
+  margin-left: auto;
+  width: 50%;
+  height: 28%;
+  filter: 
     drop-shadow( 0 0 1px #fff)
     drop-shadow( 0 0 3px #fff)
-    drop-shadow( 0 0 20px #BD32DD)
-    drop-shadow( 0 0 50px #BD32DD);
+    drop-shadow( 0 0 20px #F06A30)
+    drop-shadow( 0 0 50px #F06A30);
   transition-duration: 1s;
 }
 
-.mediaGithub:hover{
-	filter: 
-	drop-shadow( 0 0 1px #fff)
+.mediaReddit:hover {
+  filter: 
+  drop-shadow( 0 0 1px #fff)
+    drop-shadow( 0 0 3px #fff)
+    drop-shadow( 0 0 20px #228dff)
+    drop-shadow( 0 0 50px #228dff);
+}
+
+.mediaInstagram{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 65%;
+  height: 28%;
+  filter: 
+    drop-shadow( 0 0 1px #fff)
+    drop-shadow( 0 0 3px #fff)
+    drop-shadow( 0 0 20px #FA0A6D)
+    drop-shadow( 0 0 50px #FA0A6D);
+    transition-duration: 1s;
+}
+
+.mediaInstagram:hover{
+  filter: 
+  drop-shadow( 0 0 1px #fff)
     drop-shadow( 0 0 3px #fff)
     drop-shadow( 0 0 20px #228dff)
     drop-shadow( 0 0 50px #228dff);
@@ -267,12 +459,16 @@ body{
 
 
 
+
+/* *********************************** GamesLinks ******************************* */
 .mediaSteam{
   display: block;
 	margin-right: auto;
 	margin-left: auto;
-	width: 90%;
-	height: 90%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+	width: 52%;
+  height: 32%;
 	filter: 
     drop-shadow( 0 0 1px #fff)
     drop-shadow( 0 0 3px #fff)
@@ -289,34 +485,39 @@ body{
     drop-shadow( 0 0 50px #228dff);
 }
 
-
-
-.mediaInstagram{
+.mediaEpic{
   display: block;
-	margin-right: auto;
-	margin-left: auto;
-	width: 90%;
-	height: 90%;
-	filter: 
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  width: 60%;
+  height: 30%;
+  filter: 
     drop-shadow( 0 0 1px #fff)
     drop-shadow( 0 0 3px #fff)
-    drop-shadow( 0 0 20px #FA0A6D)
-    drop-shadow( 0 0 50px #FA0A6D);
-    transition-duration: 1s;
+    drop-shadow( 0 0 20px #929193)
+    drop-shadow( 0 0 50px #929193);
+  transition-duration: 1s;
 }
 
-.mediaInstagram:hover{
-	filter: 
-	drop-shadow( 0 0 1px #fff)
+.mediaEpic:hover{
+  filter: 
+  drop-shadow( 0 0 1px #fff)
     drop-shadow( 0 0 3px #fff)
     drop-shadow( 0 0 20px #228dff)
     drop-shadow( 0 0 50px #228dff);
 }
 
 
-/* *********************************** Games *********************************************************************************** */
-.games{
+
+
+
+
+/* *********************************** Games *************************************************************************************************** */
+#games{
   margin-top: 200px;
+  width: 100%;
 }
 
 .order {
@@ -353,6 +554,7 @@ body{
   height: 90%;
   border-radius: 20px;
   transition-duration: 1s;
+  /*box-shadow: 0 0 10px 2px #F6C410;*/
 }
 
 .blocky:hover {
@@ -371,6 +573,7 @@ body{
   height: 90%;
   border-radius: 20px;
   transition-duration: 1s;
+  /*box-shadow: 0 0 10px 2px #A49E89;*/
 }
  
 .fall_balls:hover {
@@ -420,29 +623,96 @@ body{
 .description{
   margin-top: 50%;
   font-size: 13pt;
-  padding-left: 8%;
-  padding-right: 8%;
+  padding-left: 5%;
+  padding-right: 5%;
   animation: border-flicker paused;
 }
+.description_title{
+ width: 100% ;
+  height: 70% ;
+  animation: neon paused;
+  filter: 
+    drop-shadow(0 0 2px #fff)
+    drop-shadow( 0 0 5px #fff)
+    /*drop-shadow( 0 0 8px #fff)*/
+    drop-shadow( 0 0 30px #228dff)
+    drop-shadow( 0 0 100px #228dff);
+}
+.languages{
+  width: 80%;
+  margin-bottom: 30px;
+}
+.choosen{
+  font-size: 25pt;
+}
+.notchoosen{
+  font-size: 25pt;
+}
 .descriptionText{
-  margin-top: 5%;
+  margin-top: 3%;
   margin-bottom: 5%;
 }
+.gotogames{
+  width: 60%;
+}
+
 /*********** MEDIA **********/
-.media{
-    margin-top: 100px;
+.imagePresentation{
+  display: none;
+}
+.social_title{
+  width: 50% ;
+  height: 100% ;
+  animation: neon paused;
+  filter: 
+    drop-shadow(0 0 2px #fff)
+    drop-shadow( 0 0 5px #fff)
+    /*drop-shadow( 0 0 8px #fff)*/
+    drop-shadow( 0 0 30px #228dff)
+    drop-shadow( 0 0 100px #228dff);
+}
+.linksList{
+ width: 100%;
 }
 .mediaList{
-  display: grid;
+  margin-top: 3%px;
+  margin-bottom: 0px;
 }
-.mediaYoutube{
-  width: 100%;
-  height: 100%;
+#media{
+    margin-top: 200px;
 }
-.mediaInstagram{
-  width: 100%;
-  height: 100%;
-}
+ .mediaLinkedin{
+  width: 70%;
+  height: 25%;
+ }
+ .mediaTwitter{
+  width: 70%;
+  height: 25%;
+ }
+ .mediaReddit{
+  width: 65%;
+  height: 25%;
+ }
+ .mediaYoutube{
+  width: 75%;
+  height: 25%;
+ }
+ .mediaGithub{
+  width: 70%;
+  height: 25%;
+ }
+ .mediaSteam{
+  width: 70%;
+  height: 35%;
+ }
+ .mediaInstagram{
+  width: 80%;
+  height: 25%;
+ }
+ .mediaEpic{
+  width: 80%;
+  height: 30%;
+ }
 
 /*********** GAMES **********/
 .gameUrl{
@@ -474,32 +744,15 @@ body{
     width: 90%;
   }
 
-.media{
-  margin-top: 500px;
-  width: 90%;
- }
- .mediaYoutube{
-  width: 110%;
-  height: 125%;
- }
- .mediaGithub{
-  width: 110%;
-  height: 125%;
- }
- .mediaSteam{
-  width: 110%;
-  height: 125%;
- }
- .mediaInstagram{
-  width: 110%;
-  height: 125%;
- }
-
- .games{
-  margin-top: 300px;
+.description_title{
+  width: 45%;
+  height: 50%;
 }
- .order {
-  height: 600px;
+.choosen{
+  font-size: 50pt;
+}
+.notchoosen{
+  font-size: 50pt;
 }
 .description{
   margin-top: 30%;
@@ -512,6 +765,65 @@ body{
   margin-top: 2%;
   margin-bottom: 2%;
 }
+
+
+.social_title{
+  width: 25%;
+  height: 100%;
+}
+.media{
+  margin-top: 500px;
+  width: 90%;
+ }
+ #link{
+  margin-top: 50px;
+}
+
+ .mediaLinkedin{
+  width: 55%;
+  height: 25%;
+ }
+ .mediaTwitter{
+  width: 55%;
+  height: 25%;
+ }
+ .mediaReddit{
+  width: 50%;
+  height: 25%;
+ }
+ .mediaYoutube{
+  width: 55%;
+  height: 25%;
+ }
+ .mediaGithub{
+  width: 55%;
+  height: 25%;
+ }
+ .mediaSteam{
+  width: 50%;
+  height: 25%;
+ }
+ .mediaInstagram{
+  width: 55%;
+  height: 25%;
+ }
+.mediaEpic{
+  width: 55%;
+  height: 25%;
+ }
+
+
+.games_title{
+  width: 20%;
+  height: 45%;
+}
+ .games{
+  margin-top: 300px;
+}
+ .order {
+  height: 600px;
+}
+
 
 
 }
