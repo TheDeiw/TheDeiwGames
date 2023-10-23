@@ -1,6 +1,10 @@
+html{
+  scroll-behavior: smooth;
+}
+
 body{
 	background-image: url(../images/foto.jpg);
-	background-repeat: repeat
+	background-repeat: repeat;
 }
 
 /* *********************************** NEON1 **************************************************************************** */
