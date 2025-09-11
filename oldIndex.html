@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<head>
+	 <meta charset="utf-8">
+	 <meta property="og:title" content="TheDeiw's Games" />
+	 <meta property="og:site_name" content="TheDeiw's Games here" />
+	 <meta property="og:url" content="https://thedeiw.github.io/TheDeiwGames/" />
+	 <meta property="og:image" content="images/urlimg.png" />
+	 <meta property="og:description" content="TheDeiw Games - це сайт, де ви можете знайти безкоштовні, захоплюючі ігри для всіх рівнів навичок. Наші ігри мають унікальний геймплей, який неодмінно сподобається вам." />
+
+	 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	 <meta name="keywords" content="TheDeiw, Games, Blocky, FallBalls, ігри">
+	 <meta name="description" content="TheDeiw Games - це сайт, де ви можете знайти безкоштовні, захоплюючі ігри для всіх рівнів навичок. Наші ігри мають унікальний геймплей, який неодмінно сподобається вам." />
+	 
+	 <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet" />
+	 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+	 <link href="css/main.css" rel="stylesheet" />
+	 <link rel="shortcut icon" href="images/favicon.ico" sizes="192x192" />
+	 <link rel="icon" href="images/favicon.ico" />
+	 <title>TheDeiw's Games | Main</title>
+
+	 <!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-WFTR7WMRRZ"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-WFTR7WMRRZ');
+	</script>
+	
+</head>
+
+<body>
+
+	<section class="neon">
+		<div class="neon1">	
+			<img class="name" src="images/IndexPhotos/Name.png">
+			<img class="logo" src="images/IndexPhotos/Logo.png">	
+		</div>
+		<div class="neon2">	
+			<img class="joystick" src="images/IndexPhotos/Joystik1.png">
+		</div>
+	</section>
+
+
+	<section class="description">
+		<img class="description_title" src="images/IndexPhotos/Description.png">
+		<div class="languages">
+				<p class="choosen" id="ua">Ua</p>
+				<p class="notchoosen" id="en">En</p>
+		</div>
+		<p class="descriptionText" id="tx"> Привіт! Мене звуть TheDeiw, і я - геймдевелопер-початківець.</br> Цей сайт - мій творчий куточок, де я ділюся своїми іграми та досвідом розробки.<br> Моя мета - створювати цікаві та захоплюючі відеоігри, які приносять радість гравцям. Долучайтесь до мене на цьому захоплюючому шляху розвитку геймдеву і дізнавайтеся більше про мої проекти та пригоди у світі ігор. </p>
+		<a class="goto" href="index.html#games"><img class="gotogames" src="images/IndexPhotos/gotoGames.png"></a>
+	</section>
+
+
+	<script>
+		const uaBl = document.getElementById('ua');
+		const enBl = document.getElementById('en');
+		const tx = document.getElementById('tx');
+
+		ua.addEventListener('click', function handleClick() {
+  		tx.innerHTML = "Привіт! Мене звуть TheDeiw, і я - геймдевелопер-початківець.<br> Цей сайт - мій творчий куточок, де я ділюся своїми іграми та досвідом розробки.<br> Моя мета - створювати цікаві та захоплюючі відеоігри, які приносять радість гравцям. Долучайтесь до мене на цьому захоплюючому шляху розвитку геймдеву і дізнавайтеся більше про мої проекти та пригоди у світі ігор.";
+  		document.getElementById('en').classList = "notchoosen";
+  		document.getElementById('ua').classList = "choosen";
+		});
+
+		en.addEventListener('click', function handleClick() {
+  		tx.innerHTML = "Hello! My name is TheDeiw, and I'm a beginner game developer.<br> This website is my creative corner where I share my games and development experiences.<br> My goal is to create interesting and exciting video games that bring joy to players. Join me on this exciting journey in the world of game development and learn more about my projects and adventures in the gaming world.";
+  		document.getElementById('en').classList = "choosen";
+  		document.getElementById('ua').classList = "notchoosen";
+		});
+	</script>
+
+
+
+	<section id="media">
+		<img class="social_title" src="images/IndexPhotos/Social.png">
+		<div class="mediaList">
+			<img class="imagePresentation" src="images/IndexPhotos/Work.png">
+			<div class="linksList">
+				<a class="mediaUrl" href="https://www.linkedin.com/in/dmytro-chekhovskyi-81baba291/"><img class="mediaLinkedin" id="link" src="images/Media/LinkedIn.png"></a>
+				<a class="mediaUrl" href="https://github.com/TheDeiw"><img class="mediaGithub" id="link" src="images/Media/GitHub.png"></a>
+				<a class="mediaUrl" href="https://twitter.com/TheDeiw150"><img class="mediaTwitter" id="link" src="images/Media/Twitter.png"></a>
+			</div>
+		</div>
+
+		<div class="mediaList">
+			<div class="linksList">
+				<a class="mediaUrl" href="https://www.youtube.com/channel/UCvSeI0zKOtyaYU0QuL38Zow"><img class="mediaYoutube" id="link" src="images/Media/Youtube.png"></a>
+				<a class="mediaUrl" href="https://www.instagram.com/the_deiw_/"><img class="mediaInstagram" id="link" src="images/Media/Instagram.png"></a>
+				<a class="mediaUrl" href="https://www.reddit.com/user/TheDeiw"><img class="mediaReddit" id="link" src="images/Media/Reddit.png"></a>
+			</div>
+			<img class="imagePresentation" src="images/IndexPhotos/SocialMedia.png">
+		</div>
+
+		<div class="mediaList">
+			<img class="imagePresentation" src="images/IndexPhotos/GamesMedia.png">
+			<div class="linksList">
+				<a class="mediaUrl" href="https://steamcommunity.com/profiles/76561199062207702/"><img class="mediaSteam" src="images/Media/Steam.png"></a>
+				<a class="mediaUrl" href="https://store.epicgames.com/ru/u/8aa14e32c3f14a4a807b689225cd8ecf"><img class="mediaEpic"  src="images/Media/EpicGames.png"></a>
+			</div>
+		</div>
+	</section>
+
+	<section id="games">
+		<img class="games_title" src="images/IndexPhotos/Games.png">
+		<div class="order">
+			<a class="gameUrl" href="Blocky_langs/Blocky_ua.html"><img class="blocky" src="images/GamesPhotos/Blocky/Blocky.png"></a>
+			<a class="gameUrl" href="Fall_Balls_langs/Fall_Balls_ua.html"><img class="fall_balls" src="images//GamesPhotos/Fall_Balls/FallBalls.png"></a>
+		</div>
+	</section>
+
+<!--
+<section class="media">
+		<img class="social_title" src="images/IndexPhotos/Social.png">
+		<a class="mediaUrl" href="https://www.youtube.com/channel/UCvSeI0zKOtyaYU0QuL38Zow"><img class="mediaYoutube" src="images/Media/Youtube.png"></a>
+		<div class="mediaList">
+			<a class="mediaUrl" href="https://github.com/TheDeiw"><img class="mediaGithub" src="images/Media/GitHub.png"></a>
+			<a class="mediaUrl" href="https://steamcommunity.com/profiles/76561199062207702/"><img class="mediaSteam" src="images/Media/Steam.png"></a>
+		</div>
+		<a class="mediaUrl" href="https://www.instagram.com/the_deiw_/"><img class="mediaInstagram" src="images/Media/Instagram.png"></a>
+	</section>
+-->
+</body>
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="shortcut icon" href="../images/favicon.ico">
+	<link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+	<link href="../css/games.css" rel="stylesheet">
+	<link href="../css/mediaGames.css" rel="stylesheet">
+	<title>Fall_Balls_ua</title>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-50EVT105MT"></script>
+	<script>
+ 	 window.dataLayer = window.dataLayer || [];
+ 	 function gtag(){dataLayer.push(arguments);}
+ 	  gtag('js', new Date());
+
+	  gtag('config', 'G-50EVT105MT');
+	</script>
+
+</head>
+
+<body>
+
+	<div>
+		<a class="backLinkFl" href="../index.html"><img class="backButtonFl" src="../images/GamesLinks/Back.png"></a>
+	</div>
+
+	<section class="represent">
+
+		<img class="logoFl" src="../images/GamesPhotos/Fall_Balls/FallBalls.png">
+
+		<div class="textFl">
+			<h1 class="nameFl">
+				Fall Balls
+			</h1>
+
+		<div class="languages">
+			<p class="choosenFl" id="uaFl">Ua</p>
+			<p class="notchoosenFl" id="enFl">En</p>
+		</div>
+
+			<p class="descriptionFl" id="txFl">
+				Невелика гра, в якій вам треба ловити різнокольрові кульки, щоб вони не погасли у вічній темряві. Ви граєте за платформу, яка може рухатись лише вліво та вправо. Цього разу в грі присутні меню та пауза, завдяки яким ви можете зупинити гру та попити чай </br> Преспективи розробки: гра завершена, оновлення не плануються.
+			</p>
+		</div>
+
+	</section>
+
+	<script>
+		const uaFl = document.getElementById('uaFl');
+		const enFl = document.getElementById('enFl');
+		const tx = document.getElementById('txFl');
+
+		uaFl.addEventListener('click', function handleClick() {
+  		tx.innerHTML = "Невелика гра, в якій вам треба ловити різнокольрові кульки, щоб вони не погасли у вічній темряві. Ви граєте за платформу, яка може рухатись лише вліво та вправо. Цього разу в грі присутні меню та пауза, завдяки яким ви можете зупинити гру та попити чай </br> Преспективи розробки: гра завершена, оновлення не плануються.";
+  		document.getElementById('enFl').classList = "notchoosenFl";
+  		document.getElementById('uaFl').classList = "choosenFl";
+		});
+
+		enFl.addEventListener('click', function handleClick() {
+  		tx.innerHTML = "A small game in which you need to catch multi-colored balls so that they do not go out in eternal darkness. You play as a platform that can only move left and right. This time the game has a menu and a pause, thanks to which you can stop the game and drink tea.</br>  Development prospects: the game is over, no updates are planned.";
+  		document.getElementById('enFl').classList = "choosenFl";
+  		document.getElementById('uaFl').classList = "notchoosenFl";
+		});
+	</script>
+
+	<section class="example">
+
+		<div class="linksFl">
+			<div class="linksList">
+				<a class="link" href="https://thedeiw.itch.io/fall-balls"><img class="itchFl" src="../images/GamesLinks/itchio.png"></a>
+				<a class="link" href="https://www.dropbox.com/s/xd4emxg8gbkaavx/Fall_Balls.zip?dl=0"><img class="dropboxFl" src="../images/GamesLinks/dropbox.png"></a>
+			</div>
+			<a class="link" href="https://drive.google.com/file/d/1fFPHh8Z89UX4OKKnYLA53pVAQDLQ8-1v/view"><img class="googledriveFl" src="../images/GamesLinks/google drive.png"></a>
+		</div>
+
+		<!-- <img class="videoFl" src="../images/GamesPhotos/Fall_Balls/Fall-balls.gif"> -->
+		<iframe class="videoFl" src="https://www.youtube.com/embed/HVgRHYtuen0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+	</section>
+
+
+
+	<section class="screenshots">
+		<img class="screenshFl" src="../images/GamesPhotos/Fall_Balls/sc1.png">
+		<img class="screenshFl" src="../images/GamesPhotos/Fall_Balls/sc2.png">
+		<img class="screenshFl" src="../images/GamesPhotos/Fall_Balls/sc3.png">
+		<img class="screenshFl" src="../images/GamesPhotos/Fall_Balls/sc4.png">
+	</section>
+</body>

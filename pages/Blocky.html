@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="shortcut icon" href="../images/favicon.ico">
+	<link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+	<link href="../css/games.css" rel="stylesheet">
+	<link href="../css/mediaGames.css" rel="stylesheet">
+	<title>Blocky_ua</title>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-BH2CRK7V9M"></script>
+	<script>
+ 	 window.dataLayer = window.dataLayer || [];
+ 	 function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-BH2CRK7V9M');
+	</script>
+	
+</head>
+
+<body>
+
+	<div>
+		<a class="backLinkBl" href="../index.html"><img class="backButtonBl" src="../images/GamesLinks/Back.png"></a>
+	</div>
+
+	<section class="represent">
+
+		<img class="logoBl" src="../images/GamesPhotos/Blocky/Blocky.png">
+
+		<div class="textBl">
+			<h1 class="nameBl">
+				Blocky
+			</h1>
+
+		<div class="languages">
+				<p class="choosenBl" id="uaBl">Ua</p>
+		<!--		<button class="notchoosenBl" id="enBl">En</button> -->
+				<p class="notchoosenBl" id="enBl">En</p>
+		<!--	<a class="choosenBl" href="">Ua</a>	
+			<a class="notchoosenBl" href="Blocky_ru.html">Ru</a>
+			<a class="notchoosenBl" href="Blocky_en.html">En</a> -->
+		</div>
+
+			<p class="descriptionBl" id="txBl">
+				Проста 3D головоломка з ортографічною камерою. Зробив по відео-уроку.</br> Ви граєте за червоний рямокутник, який треба визволити з цієї пастки. Але не так все просто: крім вас існують ще фігури, які рухаються лише по вертикалі та горизонталі. Через них прийти рівень набагато складнішею, але не забувайте про кнопки, які знатні активовувати та деактивовувати об'єкти.</br> Преспективи розробки: гра завершена, оновлення не плануються.
+			</p>
+		</div>
+
+	</section>
+
+		<script>
+		const uaBl = document.getElementById('uaBl');
+		const enBl = document.getElementById('enBl');
+		const tx = document.getElementById('txBl');
+
+		uaBl.addEventListener('click', function handleClick() {
+  		tx.innerHTML = "Проста 3D головоломка з ортографічною камерою. Зробив по відео-уроку.<br>Ви граєте за червоний рямокутник, який треба визволити з цієї пастки. Але не так все просто: крім вас існують ще фігури, які рухаються лише по вертикалі та горизонталі. Через них прийти рівень набагато складнішею, але не забувайте про кнопки, які знатні активовувати та деактивовувати об'єкти.<br>Преспективи розробки: гра завершена, оновлення не плануються.";
+  		document.getElementById('enBl').classList = "notchoosenBl";
+  		document.getElementById('uaBl').classList = "choosenBl";
+		});
+
+		enBl.addEventListener('click', function handleClick() {
+  		tx.innerHTML = "Simple 3D puzzle with orthographic camera. Made a video tutorial. </br> You're playing for a red rectangle that needs to be freed from this trap. But it's not that simple: in addition to you, there are other figures that move only vertically and horizontally. They make it much harder to get through, but don't forget the buttons that are great for activating and deactivating objects. </br> Development prospects: the game is over, no updates are planned.";
+  		document.getElementById('enBl').classList = "choosenBl";
+  		document.getElementById('uaBl').classList = "notchoosenBl";
+		});
+		</script>
+
+	<section class="example">
+
+		<div class="linksBl">
+			<div class="linksList">
+				<a class="link" href="https://thedeiw.itch.io/blocky"><img class="itchBl" src="../images/GamesLinks/itchio.png"></a>
+				<a class="link" href="https://www.dropbox.com/s/dxd3lfrhc67gqpq/It%20is%20game.zip?dl=0"><img class="dropboxBl" src="../images/GamesLinks/dropbox.png"></a>
+			</div>
+			<a class="link" href="https://drive.google.com/file/d/1lqfOnZF-W6BK72DfBar7rd0-gdzAQuLb/view"><img class="googledriveBl" src="../images/GamesLinks/google drive.png"></a>
+		</div>
+
+		<!---<img class="videoBl" src="../images/GamesPhotos/Blocky/Blocky.gif">-->
+		<iframe class="videoBl" src="https://www.youtube.com/embed/eN5y_5Yjnl4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+	</section>
+
+
+
+	<section class="screenshots">
+		<img class="screenshBl" src="../images/GamesPhotos/Blocky/sc1.png">
+		<img class="screenshBl" src="../images/GamesPhotos/Blocky/sc2.png">
+		<img class="screenshBl" src="../images/GamesPhotos/Blocky/sc3.png">
+		<img class="screenshBl" src="../images/GamesPhotos/Blocky/sc4.png">
+	</section>
+</body>
