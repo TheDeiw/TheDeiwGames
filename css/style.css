@@ -1,12 +1,76 @@
-html, body {
+html {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: #222;
+    overflow-y: hidden;
+    font-size: max(2vw, 16px);
+    font-family: "Lexend Deca", sans-serif;
 }
 
 body {
     min-height: 100vh;
     overflow: hidden;
+    line-height: 1;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    padding: 0;
+    border: none;
+    background: none;
+    text-decoration: none;
+    font: inherit;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+    margin: 0;
+}
+
+h1 {
+    all: unset;
+}
+
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+[class*="__container"] {
+    max-width: 1200px;
+}
+
+@media (max-width: 1199.98px) {
+    [class*="__container"] {
+        max-width: 970px;
+    }
+}
+
+@media (max-width: 990.98px) {
+    [class*="__container"] {
+        max-width: 750px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    [class*="__container"] {
+        max-width: none;
+    }
+}
+
+@media (min-width: 2200px) {
+    [class*="__container"] {
+        max-width: 2000px;
+    }
 }
 
 .fullpage {
@@ -24,6 +88,378 @@ body {
     scroll-snap-align: start;
 }
 
+/* ============================================= */
+header {
+    position: fixed;
+    top: 3vh;
+    left: 50%; /* замість left: 40vh */
+    transform: translateX(-50%); /* додаємо для точного центрування */
+    z-index: 10; 
+    border-radius: 25px;
+    border: 1.5px solid rgba(67, 67, 67, 0.6);
+    background-blend-mode: darken;
+    /* box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.30) inset; */
+    backdrop-filter: blur(64px);
+}
+
+.menu__list{
+    display: flex;
+    align-items: flex-start;
+    /* gap: 25px; */
+    gap: 2vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu__item {
+    color: #CDCDCD;
+    font-family: "Lexend Deca";
+    font-size: max(1vw, 16px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+}
+/* .menu__link {
+}
+.header__menu_games {
+} */
+.menu_games__button {
+    color: #CDCDCD;
+    font-family: "Lexend Deca";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 120% */
+}
+.menu__link_downloader {
+}
+.menu_games__drop-down {
+}
+.menu_games__list {
+    display: none;
+}
+.menu_games__item {
+}
+.menu_games__link {
+}
+/* ============================================= */
+
+#hero {
+    background-image: url(../assets/img/wall-background.webp);
+	background-repeat: repeat;
+}
+
+.hero__logo__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10vh;
+}
+
+@keyframes neonFlicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+        fill: #fff;
+        filter: drop-shadow(0 0 10px #307FF6) drop-shadow(0 0 20px #307FF6);
+    }
+    20%, 22%, 24%, 55% {
+        opacity: 0.5;
+        fill: #aaa;
+        filter:drop-shadow(0 0 5px #1a4a96);
+    }
+}
+
+@keyframes neonTextFlicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 10px #307FF6, 0 0 20px #307FF6, 0 0 5px #307FF6;
+    }
+    20%, 22%, 24%, 55% {
+        opacity: 0.5;
+        text-shadow: none;
+    }
+}
+
+.logo_container__logo {
+    width: auto;
+    height: 50vh;
+    margin: auto;
+    opacity: 0;
+    animation: neonFlicker 2.5s ease-in-out forwards;
+    will-change: stroke, stroke-width, opacity, fill;
+    fill: #fff;
+    stroke: #307FF6;
+    stroke-width: 100;
+}
+
+h1 {
+    text-align: center;
+    color: #FFF;
+    font-family: Pacifico;
+    font-size: max(6vw, 40px);
+    font-style: normal;
+    font-weight: 300;
+    line-height: 50%;
+    letter-spacing: 0.1em;
+    opacity: 0;
+    animation: neonTextFlicker 2.5s ease-in-out 0.5s forwards;
+    will-change: text-shadow, opacity;
+}
+
+.indented-line {
+  padding-left: 4.5rem; 
+  display: inline-block; 
+}
+
+/* ============================================= */
+#about {
+    position: relative; /* Встановлює контекст позиціонування для дочірніх елементів */
+    overflow: hidden;   /* Обрізає все, що виходить за межі секції */
+}
+
+/* Створюємо шар-накладення з градієнтом */
+#about::before {
+    content: ''; /* Обов'язкова властивість для псевдо-елементів */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(117deg, rgba(18, 18, 22, 0.55) 0%, rgba(34, 34, 77, 0.55) 100%);
+    z-index: 1; /* Розміщуємо градієнт над відео */
+}
+
+.background_video {
+    position: absolute; /* Вириваємо відео з потоку */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0; /* Відео на найнижчому шарі (під градієнтом) */
+}
+
+.about__container {
+    position: relative; /* Щоб контент був поверх псевдо-елемента */
+    z-index: 2; /* Контент на найвищому шарі (над градієнтом) */
+}
+
+.about__grid {
+    display: grid;
+    /* max-height: 70vh; */
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: auto;
+    gap: 0.5rem;;
+}
+
+.card {
+    box-sizing: border-box; /* враховує padding в розмірах */
+    height: 100%; /* заповнює висоту грід клітинки */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 0.05rem solid rgba(84, 84, 84, 0.6);
+    background: rgba(29, 31, 46, 0.5); 
+    backdrop-filter: blur(64px); 
+    color: #CDCDCD;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.card h3 {
+    margin: 0;
+    font-size: max(1.1vw, 14px);
+    font-weight: 600;
+}
+
+.card h2 {
+    margin: 0;
+    font-weight: bold;
+    color: #FFF;
+    font-size: max(1.5vw, 20px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+/* -------------------------------------------- */
+
+.card__main {
+    grid-column: span 2;
+    grid-row: span 2;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.card__main .card__icon{
+    height: auto;
+    width: 10vh;
+    margin-bottom: 10px;
+}
+
+.card__main p {
+    font-size: max(1vw, 14px);
+    line-height: 156.25%;
+    letter-spacing: 0.8px;
+}
+
+.card_main__description{
+    text-align: left;
+    color: #FFF;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 156.25% ; 
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+/* -------------------------------------------- */
+
+.card__location {
+    grid-row: span 2;
+    justify-content: space-evenly;
+    gap: 2rem;
+}
+
+.card__location_block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.card__location_block_h{
+    margin: 0px;
+    color: #FFF;
+    font-size: max(1.7vw, 20px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 75% */
+}
+
+.card__location_block_p{
+    margin: 0px;
+    color: #FFF;
+    font-size: max(1.2vw, 20px);
+    font-style: normal;
+    font-weight: 200;
+    line-height: 24px; /* 120% */
+}
+
+.card__location .card__icon{
+    width: 5vh;
+    height: auto;
+}
+
+/* -------------------------------------------- */
+
+.card__portfolio {
+    grid-column: span 2;
+    background: linear-gradient(146deg, rgba(41, 22, 217, 0.1) 4.59%, rgba(20, 69, 137, 0.10) 78.97%);
+}
+
+.card__icon_portfolio{
+    width: 4vw;
+    height: auto;
+}
+
+
+/* -------------------------------------------- */
+
+.card__social {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.card__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.card__social p {
+    font-size: max(1vw, 14px);
+    line-height: 180%;
+    font-weight: 200;
+    margin: 0;
+}
+
+.card__social .card__icon{
+    width: 2vw;
+    height: auto;
+}
+
+.card__linkedin{
+    background: linear-gradient(146deg, rgba(60, 117, 198, 0.10) 4.59%, rgba(20, 69, 137, 0.10) 78.97%);
+}
+
+.card__tumblr{
+    background: linear-gradient(146deg, rgba(49, 50, 51, 0.10) 4.59%, rgba(1, 1, 2, 0.10) 78.97%);
+}
+
+.card__itchio{
+    background: linear-gradient(134deg, rgba(197, 21, 21, 0.10) 7.08%, rgba(95, 10, 10, 0.10) 94.87%);
+}
+
+/* -------------------------------------------- */
+
+.card__games-created{
+    font-size: max(1.5vw, 14px);
+    gap: auto;
+}
+
+.card__games-created .card__icon{
+    width: 3vw;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.card__games-created p{
+    margin: 0;
+    line-height: 180%;
+}
+
+.card__games_number{
+    font-size: max(2vw, 30px);
+    margin: 0;
+}
+
+
+
+/* Адаптивність: на екранах менше 1024px переходимо до 2 колонок */
+@media (max-width: 1024px) {
+    .about__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* Скидаємо розтягування для всіх карток */
+    .card--main, .card--portfolio {
+        grid-column: span 2; /* Зробимо так, щоб вони займали всю ширину */
+        grid-row: auto;
+    }
+}
+
+/* Адаптивність: на мобільних переходимо до 1 колонки */
+@media (max-width: 767.98px) {
+    .about__grid {
+        grid-template-columns: 1fr;
+    }
+     .card--main, .card--portfolio {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+
+
 footer {
     text-align: center;
     padding: 1rem 0;
@@ -31,7 +467,4 @@ footer {
     color: #fff;
 }
 
-#hero {
-    background-image: url(../assets/img/wall-background.jpg);
-	background-repeat: repeat;
-}
+

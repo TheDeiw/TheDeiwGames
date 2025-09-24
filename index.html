@@ -1,71 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	 <meta charset="utf-8">
-	 <meta property="og:title" content="TheDeiw's Games" />
-	 <meta property="og:site_name" content="TheDeiw's Games here" />
-	 <meta property="og:url" content="https://thedeiw.github.io/TheDeiwGames/" />
-	 <meta property="og:image" content="images/urlimg.png" />
-	 <meta property="og:description" content="TheDeiw Games - це сайт, де ви можете знайти безкоштовні, захоплюючі ігри для всіх рівнів навичок. Наші ігри мають унікальний геймплей, який неодмінно сподобається вам." />
+	<meta charset="utf-8">
+	<meta property="og:title" content="TheDeiw's Games" />
+	<meta property="og:site_name" content="TheDeiw's Games here" />
+	<meta property="og:url" content="https://thedeiw.github.io/TheDeiwGames/" />
+	<meta property="og:image" content="images/urlimg.png" />
+	<meta property="og:description"
+		content="TheDeiw Games - це сайт, де ви можете знайти безкоштовні, захоплюючі ігри для всіх рівнів навичок. Наші ігри мають унікальний геймплей, який неодмінно сподобається вам." />
 
-	 <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	 <meta name="keywords" content="TheDeiw, Games, Blocky, FallBalls, ігри">
-	 <meta name="description" content="TheDeiw Games - це сайт, де ви можете знайти безкоштовні, захоплюючі ігри для всіх рівнів навичок. Наші ігри мають унікальний геймплей, який неодмінно сподобається вам." />
-	 
-	 <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet" />
-	 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-	 <link href="css/style.css" rel="stylesheet" />
-	 <link rel="shortcut icon" href="images/favicon.ico" sizes="192x192" />
-	 <link rel="icon" href="images/favicon.ico" />
-	 <title>TheDeiw's Games | Main</title>
+	<meta name="keywords" content="TheDeiw, Games, Blocky, FallBalls, ігри">
+	<meta name="description"
+		content="TheDeiw Games - це сайт, де ви можете знайти безкоштовні, захоплюючі ігри для всіх рівнів навичок. Наші ігри мають унікальний геймплей, який неодмінно сподобається вам." />
 
-	 <!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-WFTR7WMRRZ"></script>
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet" />
+	 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet"> -->
+	<link href="css/style.css" rel="stylesheet" />
+	<link rel="shortcut icon" href="images/favicon.ico" sizes="192x192" />
+	<link rel="icon" href="images/favicon.ico" />
+	<title>TheDeiw's Games | Main</title>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFTR7WMRRZ"></script>
 	<script>
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
 	  gtag('js', new Date());
 
 	  gtag('config', 'G-WFTR7WMRRZ');
-	</script>
+	</script> -->
 
 </head>
+
 <body>
-	<div class ="wrapper">
-		<!-- <header>
-			<h1>TheDeiw's Games</h1>
-			<p>Welcome to TheDeiw's Games! Here you can find free, exciting games for all skill levels. Our games feature unique gameplay that you're sure to enjoy.</p>
-		</header> -->
-
-		<main class="fullpage">
-			<section id="hero" class="section">
-					<div class="logo">
-						
+	<header>
+		<nav class="header__menu menu" aria-label="Main navigation">
+			<ul class="menu__list">
+				<li class="menu__item">
+					<a href="#" class="menu__link" data-key="about_me">Home</a>
+				</li>
+				<li class="menu__item">
+					<a href="#" class="menu__link" data-key="games">About</a>
+				</li>
+				<li class="menu__item">
+					<div class="header__menu_games" role="menu">
+						<div class="menu_games__button">
+							<button class="menu__link_downloader" id="dropdownBtn" data-key="download_games">Games</button>
+							<img src="assets/img/header/Drop Down.svg" alt="" class="menu_games__drop-down">
+						</div>
+						<ul class="menu_games__list" id="dropdownMenu">
+							<li class="menu_games__item"><a
+									href="https://thedeiw.github.io/TheDeiwGames/Blocky_langs/Blocky_ua.html" target="_blank"
+									role="menuitem" class="menu_games__link">Blocky</a></li>
+							<li class="menu_games__item"><a
+									href="https://thedeiw.github.io/TheDeiwGames/Fall_Balls_langs/Fall_Balls_ua.html"
+									target="_blank" role="menuitem" class="menu_games__link">Fall Balls</a></li>
+						</ul>
 					</div>
-			</section>
+				</li>
+			</ul>
+		</nav>
+	</header>
 
-			<section id="blocky-game" class="section">
-					<h2>Blocky</h2>
-					<a href="games/blocky/"><img src="images/blocky.png" alt="Blocky Game Thumbnail" /></a>
-					<p>Dodge the falling blocks and survive as long as you can in this addictive game!</p>
-					<a href="games/blocky/" class="play-button">Play Blocky</a>
-			</section>
+	<main class="fullpage">
+		<section id="hero" class="section">
+			<div class="hero__logo__container">
+				<img class="logo_container__logo" src="assets/img/Logo/Logo2.svg" alt="TheDeiw's Games Logo" />
+				<h1 class="logo_container__title">TheDeiw's <br> <span class="indented-line">games</span></h1>
+			</div>
+		</section>
 
-			<section id="fallballs-game" class="section">
-					<h2>FallBalls</h2>
-					<a href="games/fallballs/"><img src="images/fallballs.png" alt="FallBalls Game Thumbnail" /></a>
-					<p>Catch the falling balls and score points in this fun and challenging game!</p>
-					<a href="games/fallballs/" class="play-button">Play FallBalls</a>
-			</section>
-		</main>
+		<section id="about" class="section">
 
-		<footer>
-			<p>&copy; 2024 TheDeiw's Games. All rights reserved.</p>
-		</footer>
+			<video class="background_video" autoplay loop muted playsinline poster="fallback-image.jpg">
+				<source src="assets/vid/thedeiw3d.webm" type="video/webm">
+				<source src="assets/vid/thedeiw3d.mp4" type="video/mp4">
+				Ваш браузер не підтримує відтворення відео.
+			</video>
 
-</div>	
-	
+			<div class="about__container">
+				<div class="about__grid">
+					<div class="card card__location">
+						<div class="card__location_block">
+							<p class="card__location_block_h">From</p>
+							<img src="assets/img/AboutSection/Flag.svg"
+								alt="Ukraine Flag" class="card__icon">
+							<p class="card__location_block_p">Ukraine</p>
+						</div>
+						<div class="card__location_block">
+							<p class="card__location_block_h">To</p>
+							<img src="assets/img/AboutSection/Map.svg"
+								alt="World Flag" class="card__icon">
+							<p class="card__location_block_p">The World</p>
+						</div>
+					</div>
+
+					<div class="card card__main">
+						<div class="card_main__logoname">
+							<img src="assets/img/Logo/Logo_Min.svg" alt="TheDeiw's Games Logo" class="card__icon">
+							<h2>TheDeiw's Games</h2>
+						</div>
+						<p class="card_main__description">
+							Hello! My name is TheDeiw, and I'm a beginner game developer. This website is my creative corner
+							where I share my games and development experiences.
+							My goal is to create interesting and exciting video games that bring joy to players. Join me on
+							this exciting journey in the world of game development and learn more about my projects and
+							adventures in the gaming world.
+						</p>
+					</div>
+
+					<!-- Картка "LinkedIn" -->
+					<a href="" class="card card__linkedin card__social">
+						<img src="assets/img/LinksLogo/LinkedIn.svg" alt="LinkedIn" class="card__icon">
+						<div class="card__content">
+							<h3>LinkedIn</h3>
+							<p>@thedeiw-s-games</p>
+						</div>
+					</a>
+
+					<!-- Картка "Tumblr" -->
+					<a href="" class="card card__tumblr card__social">
+						<img src="assets/img/LinksLogo/Tumblr.svg" alt="Tumblr" class="card__icon">
+						<div class="card__content">
+							<h3>Tumblr</h3>
+							<p>@thedeiw</p>
+						</div>
+					</a>
+
+					<!-- Картка "Games created" -->
+					<div class="card card__games-created">
+						<img src="assets/img/AboutSection/Controller.svg" alt="Games" class="card__icon">
+						<p class="card__games_number">2</p>
+						<p>Games created</p>
+					</div>
+
+					<!-- Картка "Portfolio" -->
+					<a href="https://thedeiw.github.io/TheDeiwPortfolio/" class="card card__portfolio card__social">
+						<img src="assets/img/AboutSection/ThedeiwPortfolio.svg" alt="Portfolio Icon" class="card__icon_portfolio">
+						<div class="card__content">
+							<h3>My portfolio website</h3>
+							<p>https://thedeiw.github.io/TheDeiwPortfolio/</p>
+						</div>
+					</a>
+
+					<!-- Картка "Itch.io" -->
+					<a href="" class="card card__itchio card__social">
+						<img src="assets/img/LinksLogo/Itchio.svg" alt="Itch.io" class="card__icon">
+						<div class="card__content">
+							<h3>Itch.io</h3>
+							<p>thedeiw.itch.io</p>
+						</div>
+					</a>
+
+				</div>
+			</div>
+		</section>
+
+		<section id="blocky-game" class="section">
+			<h2>Blocky</h2>
+
+			<p>Dodge the falling blocks and survive as long as you can in this addictive game!</p>
+			<a href="games/blocky/" class="play-button">Play Blocky</a>
+		</section>
+
+		<section id="fallballs-game" class="section">
+			<h2>FallBalls</h2>
+
+			<p>Catch the falling balls and score points in this fun and challenging game!</p>
+			<a href="games/fallballs/" class="play-button">Play FallBalls</a>
+		</section>
+	</main>
+
 </body>
 
 </html>
