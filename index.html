@@ -18,7 +18,12 @@
 
 	<!-- <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet" />
 	 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet"> -->
+	 <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+
 	<link href="css/style.css" rel="stylesheet" />
+	<link href="css/mobile-adaptation.css" rel="stylesheet" />
 	<link rel="shortcut icon" href="images/favicon.ico" sizes="192x192" />
 	<link rel="icon" href="images/favicon.ico" />
 	<title>TheDeiw's Games | Main</title>
@@ -40,17 +45,17 @@
 		<nav class="header__menu menu" aria-label="Main navigation">
 			<ul class="menu__list">
 				<li class="menu__item">
-					<a href="#" class="menu__link" data-key="about_me">Home</a>
+					<a href="#hero" class="menu__link active" data-scroll-to="hero">Home</a>
 				</li>
 				<li class="menu__item">
-					<a href="#" class="menu__link" data-key="games">About</a>
+					<a href="#about" class="menu__link" data-scroll-to="about">About</a>
 				</li>
 				<li class="menu__item">
 					<div class="header__menu_games" role="menu">
-						<div class="menu_games__button">
-							<button class="menu__link_downloader" id="dropdownBtn" data-key="download_games">Games</button>
-							<img src="assets/img/header/Drop Down.svg" alt="" class="menu_games__drop-down">
-						</div>
+						<a class="menu_games__button menu__link_downloader" id="dropdownBtn" data-key="download_games">
+							Games
+							<img src="assets/img/DropDown.svg" alt="" class="menu_games__drop-down">
+						</a>
 						<ul class="menu_games__list" id="dropdownMenu">
 							<li class="menu_games__item"><a
 									href="https://thedeiw.github.io/TheDeiwGames/Blocky_langs/Blocky_ua.html" target="_blank"
@@ -73,9 +78,9 @@
 			</div>
 		</section>
 
-		<section id="about" class="section">
+		<section id="about" class="section gradient-section" data-gradient-start="#121216" data-gradient-end="#22224d">
 
-			<video class="background_video" autoplay loop muted playsinline poster="fallback-image.jpg">
+			<video class="background_video" autoplay loop muted playsinline>
 				<source src="assets/vid/thedeiw3d.webm" type="video/webm">
 				<source src="assets/vid/thedeiw3d.mp4" type="video/mp4">
 				Ваш браузер не підтримує відтворення відео.
@@ -86,14 +91,12 @@
 					<div class="card card__location">
 						<div class="card__location_block">
 							<p class="card__location_block_h">From</p>
-							<img src="assets/img/AboutSection/Flag.svg"
-								alt="Ukraine Flag" class="card__icon">
+							<img src="assets/img/AboutSection/Flag.svg" alt="Ukraine Flag" class="card__icon">
 							<p class="card__location_block_p">Ukraine</p>
 						</div>
 						<div class="card__location_block">
 							<p class="card__location_block_h">To</p>
-							<img src="assets/img/AboutSection/Map.svg"
-								alt="World Flag" class="card__icon">
+							<img src="assets/img/AboutSection/Map.svg" alt="World Flag" class="card__icon">
 							<p class="card__location_block_p">The World</p>
 						</div>
 					</div>
@@ -139,7 +142,8 @@
 
 					<!-- Картка "Portfolio" -->
 					<a href="https://thedeiw.github.io/TheDeiwPortfolio/" class="card card__portfolio card__social">
-						<img src="assets/img/AboutSection/ThedeiwPortfolio.svg" alt="Portfolio Icon" class="card__icon_portfolio">
+						<img src="assets/img/AboutSection/ThedeiwPortfolio.svg" alt="Portfolio Icon"
+							class="card__icon_portfolio">
 						<div class="card__content">
 							<h3>My portfolio website</h3>
 							<p>https://thedeiw.github.io/TheDeiwPortfolio/</p>
@@ -159,21 +163,41 @@
 			</div>
 		</section>
 
-		<section id="blocky-game" class="section">
-			<h2>Blocky</h2>
+		<section id="blocky-game" class="section gradient-section" data-gradient-start="#6c5600" data-gradient-end="#000000">
 
-			<p>Dodge the falling blocks and survive as long as you can in this addictive game!</p>
-			<a href="games/blocky/" class="play-button">Play Blocky</a>
+			<video class="background_video" autoplay loop muted playsinline>
+				<source src="assets/vid/blockyBackground.webm" type="video/webm">
+				<source src="assets/vid/blockyBackground.mp4" type="video/mp4">
+				Ваш браузер не підтримує відтворення відео.
+			</video>
+
+			<div class="game__container">
+				<img src="assets/img/GamesPhotos/Blocky/Blocky.png" alt="Blocky" class="game__logo">
+				<div class="game__content">
+					<div class="game__content_text">
+						<h2 class="game__header">Blocky</h2>
+						<p class="game__sub_header">Puzzle</p>
+						<p class="game__description">Simple 3D puzzle with orthographic camera. Made a video tutorial. You're playing for a red rectangle that needs to be freed from this trap. </p>	
+					</div>
+					<div class="game__button_platforms">
+						<a href="" class="game__button">View Game</a>
+						<div class="game__platforms">
+							<img src="" alt="" class="platforms__platform">
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</section>
 
-		<section id="fallballs-game" class="section">
+		<section id="fallballs-game" class="section gradient-section" data-gradient-start="#ff0000" data-gradient-end="#0000ff">
 			<h2>FallBalls</h2>
 
 			<p>Catch the falling balls and score points in this fun and challenging game!</p>
 			<a href="games/fallballs/" class="play-button">Play FallBalls</a>
 		</section>
 	</main>
-
+	<script src="js/script.js"></script>
 </body>
 
 </html>

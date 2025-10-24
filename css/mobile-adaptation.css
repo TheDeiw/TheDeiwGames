@@ -1,0 +1,262 @@
+/* Mobile screens (768px and below) */
+@media (max-width: 767.98px) {
+    .about__grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.7rem;
+        padding: max(1.5vw, 16px);
+    }
+    
+    .card {
+        padding: 0.8rem;
+        border-radius: max(1vw, 16px);
+    }
+    
+    .card__main {
+        grid-column: span 3;
+        grid-row: auto;
+        order: 1;
+    }
+    
+    /* .card__main .card__icon {
+        width: max(10vh, 60px);
+        margin-bottom: max(1vh, 12px);
+    } */
+    
+    /* .card__main h2 {
+        font-size: max(2vw, 24px);
+        margin-bottom: max(1vh, 12px);
+    } */
+    
+    .card_main__description {
+        font-size: max(1vw, 14px);
+        line-height: 150%;
+        letter-spacing: max(0.5px, 0.4px);
+        text-align: center;
+    }
+    
+    .card__location {
+        grid-column: 1 / 2;
+        grid-row: auto;
+        order: 2;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: max(0.8vw, 10px);
+        min-height: max(12vh, 100px);
+		  font-style: normal;
+			font-weight: 300;
+			line-height: 24px; /* 75% */
+			letter-spacing: 1.92px;
+    }
+
+	 .card__location_block_h{
+		font-weight: 300;
+	 }
+    
+    .card__location_block:last-child {
+        display: none;
+    }
+    
+    .card__location_block {
+        gap: max(0.8vw, 10px);
+        flex: 1;
+        justify-content: center;
+    }
+    
+    
+    .card__location .card__icon {
+        width: 20px;
+        height: auto;
+    }
+    
+    .card__games-created {
+		gap: max(0.6vw, 8px);
+        grid-column: 2 / 4;
+        grid-row: auto;
+        order: 2;
+        text-align: center;
+        /* min-height: max(12vh, 100px); */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+		  font-style: normal;
+			font-weight: 300;
+			line-height: 200%;
+			letter-spacing: 1.92px;
+			color: #FFF;
+    }
+    
+    .card__games-created .card__icon {
+        width: max(3vw, 26px);
+        height: auto;
+    }
+    
+    .card__games_number {
+        font-size: max(2.2vw, 18px);
+			font-weight: 400;
+        margin: max(0.5vh, 6px) 0;
+    }
+    
+    
+    /* Portfolio button - spans full width */
+    .card__portfolio {
+        order: 3;
+        grid-column: span 3;
+        text-align: center;
+        justify-content: center;
+        /* min-height: max(8vh, 60px); */
+		gap: 5px;
+    }
+    
+    .card__icon_portfolio {
+        width: max(4vw, 32px);
+        height: auto;
+    }
+    
+    .card__portfolio h3 {
+        font-size: max(1.1vw, 14px);
+		font-style: normal;
+		font-weight: 350;
+		line-height: 160%;
+    }
+    
+    .card__portfolio p {
+        font-size: max(0.9vw, 13px);
+        line-height: 140%;
+        word-break: break-all;
+    }
+    
+    .card__social {
+        padding: max(1.2vw, 16px);
+        min-height: max(8vh, 60px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .card__linkedin {
+        grid-column: 1;
+        order: 4;
+    }
+    
+    .card__tumblr {
+        grid-column: 2;
+        order: 4;
+    }
+    
+    .card__itchio {
+        grid-column: 3;
+        order: 4;
+    }
+    
+    .card__social .card__icon {
+        width: max(2vw, 22px);
+        height: auto;
+    }
+    
+    .card__linkedin h3,
+    .card__linkedin p,
+    .card__tumblr h3,
+    .card__tumblr p,
+    .card__itchio h3,
+    .card__itchio p,
+	 .card__portfolio p {
+        display: none;
+    }
+    
+    .card__linkedin {
+        order: 4;
+    }
+    
+    .card__tumblr {
+        order: 4;
+    }
+    
+    .card__itchio {
+        order: 4;
+    }
+}
+
+/* Small mobile screens (480px and below) */
+/* @media (max-width: 480px) {
+    .about__grid {
+        gap: max(1.2vw, 12px);
+        padding: max(1vw, 12px);
+    }
+    
+    .card {
+        padding: max(1.2vw, 16px);
+    }
+    
+    .card__main .card__icon {
+        width: max(8vh, 48px);
+    }
+    
+    .card__main h2 {
+        font-size: max(1.8vw, 20px);
+    }
+    
+    .card_main p {
+        font-size: max(0.7vw, 10px);
+        line-height: 145%;
+    }
+    
+    .card__location {
+        gap: max(1.5vw, 16px);
+        min-height: max(10vh, 80px);
+    }
+    
+    .card__location_block_h {
+        font-size: max(1.4vw, 16px);
+    }
+    
+    .card__location_block_p {
+        font-size: max(1vw, 14px);
+    }
+    
+    .card__location .card__icon {
+        width: max(4vh, 32px);
+    }
+    
+    .card__social .card__icon {
+        width: max(2.5vw, 28px);
+    }
+    
+    .card__social h3,
+    .card__social p {
+        display: none;
+    }
+    
+    .card__games-created {
+        min-height: max(10vh, 80px);
+    }
+    
+    .card__games-created .card__icon {
+        width: max(2.5vw, 20px);
+    }
+    
+    .card__games_number {
+        font-size: max(2vw, 24px);
+    }
+    
+    .card__games-created p {
+        font-size: max(1.2vw, 16px);
+    }
+    
+    .card__portfolio {
+        min-height: max(6vh, 50px);
+    }
+    
+    .card__icon_portfolio {
+        width: max(3.5vw, 28px);
+    }
+    
+    .card__portfolio h3 {
+        font-size: max(1vw, 14px);
+    }
+    
+    .card__portfolio p {
+        font-size: max(0.8vw, 11px);
+    }
+} */

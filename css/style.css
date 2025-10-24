@@ -6,6 +6,7 @@ html {
     overflow-y: hidden;
     font-size: max(2vw, 16px);
     font-family: "Lexend Deca", sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -32,6 +33,9 @@ ol,
 li {
     list-style: none;
     margin: 0;
+    padding: 0;
+    border: none;
+    margin-block: 0;
 }
 
 h1 {
@@ -92,56 +96,134 @@ h1 {
 header {
     position: fixed;
     top: 3vh;
-    left: 50%; /* замість left: 40vh */
-    transform: translateX(-50%); /* додаємо для точного центрування */
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 10; 
-    border-radius: 25px;
+    border-radius: 50px; 
     border: 1.5px solid rgba(67, 67, 67, 0.6);
-    background-blend-mode: darken;
-    /* box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.30) inset; */
+    background: rgba(29, 31, 46, 0.5);
     backdrop-filter: blur(64px);
+    padding: 0.3rem 0.5rem; 
 }
 
-.menu__list{
+.menu__list {
     display: flex;
-    align-items: flex-start;
-    /* gap: 25px; */
-    gap: 2vw;
-    justify-content: center;
     align-items: center;
+    gap: 1vw; /* Зменшимо відстань між елементами */
+    justify-content: center;
 }
 
 .menu__item {
     color: #CDCDCD;
-    font-family: "Lexend Deca";
+    font-family: "Lexend Deca", sans-serif;
     font-size: max(1vw, 16px);
     font-style: normal;
     font-weight: 600;
-    line-height: 150%;
+    line-height: 1.5;
 }
-/* .menu__link {
-}
-.header__menu_games {
-} */
-.menu_games__button {
+
+/* ОСНОВНІ ЗМІНИ ТУТ */
+.menu__link, .menu__link_downloader {
+    padding: 0.2rem 0.5rem;
+    border-radius: 30px; /* Заокруглення для кнопок */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: block; /* Робимо посилання блочним для правильних відступів */
     color: #CDCDCD;
-    font-family: "Lexend Deca";
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px; /* 120% */
 }
-.menu__link_downloader {
+
+/* Ефект наведення (сіре виділення) */
+.menu__link:hover, .menu__link_downloader:hover {
+    background-color: rgba(205, 205, 205, 0.15);
 }
+
+/* Активний стан (як "About" на фото) */
+.menu__link.active {
+    background-color: #CDCDCD;
+    color: #222; /* Темний колір тексту */
+    font-weight: 700;
+}
+
+.menu_games__button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
 .menu_games__drop-down {
+    margin-left: 8px;
+    width: 12px; /* Зменшений розмір іконки */
+    height: auto;
 }
+
+/* --- Dropdown Menu Styles --- */
+
+/* State when menu is open */
+.main-blurred {
+    filter: blur(8px) brightness(0.7);
+    transition: filter 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.header__menu_games {
+    position: relative;
+}
+
 .menu_games__list {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: calc(3vh + 60px); /* Позиція під хедером (3vh + приблизна висота хедера) */
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto; /* Автоматична ширина під контент */
+    min-width: 200px; /* Мінімальна ширина */
+    max-width: 300px; /* Максимальна ширина для блоків ігор */
+    
+    background: transparent; /* Прибираємо фон */
+    backdrop-filter: none; /* Прибираємо блюр */
+    border: none; /* Прибираємо рамку */
+    
+    padding: 0; /* Прибираємо відступи */
+    box-sizing: border-box;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(-10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    z-index: 20; /* Вищий z-index ніж у хедера */
 }
-.menu_games__item {
+
+.menu_games__list.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
 }
-.menu_games__link {
+
+/* Окремі елементи списку */
+.menu_games__item .menu_games__link {
+    display: block;
+    padding: 1rem;
+    color: #CDCDCD;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+    border-radius: 20px; /* Такий самий border radius як у меню */
+    margin: 0.3rem 0; /* Збільшені відступи між елементами для відокремлення */
+    background: rgba(29, 31, 46, 0.8); /* Фон для кожного блоку */
+    backdrop-filter: blur(20px); /* Блюр для кожного блоку */
+    border: 1px solid rgba(67, 67, 67, 0.6); /* Рамка для кожного блоку */
+    width: 100%; /* Повна ширина контейнера */
+    box-sizing: border-box;
 }
+
+/* Ефект наведення на елементи списку */
+.menu_games__item .menu_games__link:hover {
+    background-color: rgba(48, 127, 246, 0.2);
+    color: #FFF;
+}
+
 /* ============================================= */
 
 #hero {
@@ -214,27 +296,31 @@ h1 {
 }
 
 /* ============================================= */
-#about {
+/* Загальний клас для секцій з градієнтним фоном */
+.gradient-section {
     position: relative; /* Встановлює контекст позиціонування для дочірніх елементів */
     overflow: hidden;   /* Обрізає все, що виходить за межі секції */
 }
 
 /* Створюємо шар-накладення з градієнтом */
-#about::before {
+.gradient-section::before {
     content: ''; /* Обов'язкова властивість для псевдо-елементів */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(117deg, rgba(18, 18, 22, 0.55) 0%, rgba(34, 34, 77, 0.55) 100%);
+    background: var(--gradient-overlay, linear-gradient(117deg, rgba(18, 18, 22, 0.55) 0%, rgba(34, 34, 77, 0.55) 100%));
     z-index: 1; /* Розміщуємо градієнт над відео */
 }
+
+/* #about - специфічні стилі для about секції, якщо потрібні */
 
 .background_video {
     position: absolute; /* Вириваємо відео з потоку */
     top: 0;
     left: 0;
+    opacity: 0.5;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -304,7 +390,7 @@ h1 {
 }
 
 .card__main p {
-    font-size: max(1vw, 14px);
+    font-size: max(1vw, 12px);
     line-height: 156.25%;
     letter-spacing: 0.8px;
 }
@@ -337,7 +423,7 @@ h1 {
 .card__location_block_h{
     margin: 0px;
     color: #FFF;
-    font-size: max(1.7vw, 20px);
+    font-size: max(1.7vw, 12px);
     font-style: normal;
     font-weight: 400;
     line-height: 24px; /* 75% */
@@ -346,7 +432,7 @@ h1 {
 .card__location_block_p{
     margin: 0px;
     color: #FFF;
-    font-size: max(1.2vw, 20px);
+    font-size: max(1.2vw, 12px);
     font-style: normal;
     font-weight: 200;
     line-height: 24px; /* 120% */
@@ -414,19 +500,18 @@ h1 {
 /* -------------------------------------------- */
 
 .card__games-created{
-    font-size: max(1.5vw, 14px);
-    gap: auto;
+    font-size: max(1.5vw, 12px);
+    
 }
 
 .card__games-created .card__icon{
     width: 3vw;
     height: auto;
-    margin-bottom: 5px;
 }
 
 .card__games-created p{
     margin: 0;
-    line-height: 180%;
+    line-height: 170%;
 }
 
 .card__games_number{
@@ -437,19 +522,19 @@ h1 {
 
 
 /* Адаптивність: на екранах менше 1024px переходимо до 2 колонок */
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
     .about__grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    /* Скидаємо розтягування для всіх карток */
+
     .card--main, .card--portfolio {
-        grid-column: span 2; /* Зробимо так, щоб вони займали всю ширину */
+        grid-column: span 2; /
         grid-row: auto;
     }
-}
+} */
 
 /* Адаптивність: на мобільних переходимо до 1 колонки */
-@media (max-width: 767.98px) {
+/* @media (max-width: 767.98px) {
     .about__grid {
         grid-template-columns: 1fr;
     }
@@ -457,8 +542,153 @@ h1 {
         grid-column: auto;
         grid-row: auto;
     }
+} */
+
+/* #blocky-game - специфічні стилі для blocky-game секції, якщо потрібні */
+
+.game__container {
+    position: relative;
+    z-index: 2;
+    width: 40vw;
+    height: 80vh;
+    border-radius: max(1.5vw, 20px);
+    border: 0.05rem solid rgba(84, 84, 84, 0.6);
+    background-blend-mode: darken;
+    backdrop-filter: blur(64px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
+.game__logo {
+    border-radius: max(1.2vw, 15px);
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    object-fit: contain;
+    object-position: center;
+}
+
+.game__content {
+    display: flex;
+    padding: max(1.5vw, 20px);
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 0 0;
+    align-self: stretch;
+    background: #212121;
+    background: radial-gradient(circle at 80% 50%, rgba(255, 0, 0, 0.1) 0%, rgba(0, 255, 0, 0.05) 30%, rgba(0, 0, 255, 0.05) 60%, transparent 100%);
+}
+
+.game__content_text {
+    display: flex;
+    padding: 0 max(0.4vw, 6px);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: max(0.6vw, 10px);
+    align-self: stretch;
+}
+
+.game__header {
+    margin: 0;
+    color: #FFF;
+    font-family: "Lexend Deca";
+    font-size: max(2.5vw, 30px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.game__sub_header {
+    margin: 0;
+    color: #D9DA7B;
+    font-family: "Lexend Deca";
+    font-size: max(1.2vw, 16px);
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    letter-spacing: max(0.15vw, 2px);
+}
+
+.game__description {
+    margin: 0;
+    align-self: stretch;
+    color: var(--shade-2, #B3B3B3);
+    font-family: "Lexend Deca";
+    font-size: max(0.9vw, 14px);
+    font-style: normal;
+    font-weight: 200;
+    line-height: 150%;
+}
+
+.game__button_platforms{
+    display: flex;
+    padding: max(0.6vw, 10px);
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.game__button {
+    width: 35%;
+    border-radius: max(0.8vw, 8px);
+    border: 1px solid #FFF;
+    padding: max(0.6vw, 8px) max(1.2vw, 16px);
+    color: #FFFFFF;
+    font-family: "Lexend Deca";
+    font-size: max(1vw, 15px);
+    font-weight: 300;
+    text-decoration: none;
+    background: transparent;
+    transition: background-color 0.3s ease;
+    color: #FFF;
+    text-align: center;
+    font-family: "Lexend Deca";
+    font-size: 20px;
+    font-style: normal;
+    line-height: 120%;
+    letter-spacing: 2px;
+}
+
+.game__button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.game__platforms {
+    display: flex;
+    gap: max(0.5vw, 8px);
+}
+
+.platforms__platform {
+    width: max(1.5vw, 24px);
+    height: max(1.5vw, 24px);
+    opacity: 0.7;
+}
+
+/* ============================================= */
+
+/* Адаптивність для game__container */
+@media (max-width: 1024px) {
+    .game__container {
+        width: 60vw;
+        height: calc(60vw * 1.2);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .game__container {
+        width: 90vw;
+        height: calc(90vw * 1.2);
+    }
+}
+
+@media (min-width: 2200px) {
+    .game__container {
+        width: 35vw;
+        height: calc(35vw * 1.2);
+    }
+}
 
 footer {
     text-align: center;
