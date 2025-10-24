@@ -7,12 +7,20 @@ html {
     font-size: max(2vw, 16px);
     font-family: "Lexend Deca", sans-serif;
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 
 body {
     min-height: 100vh;
     overflow: hidden;
     line-height: 1;
+    touch-action: pan-y;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 a {
@@ -81,6 +89,8 @@ h1 {
     height: 100vh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
 }
 
 .section {
@@ -90,6 +100,8 @@ h1 {
     justify-content: center;
     align-items: center;
     scroll-snap-align: start;
+    touch-action: pan-y;
+    -webkit-touch-callout: none;
 }
 
 /* ============================================= */
@@ -103,7 +115,9 @@ header {
     border: 1.5px solid rgba(67, 67, 67, 0.6);
     background: rgba(29, 31, 46, 0.5);
     backdrop-filter: blur(64px);
+    -webkit-backdrop-filter: blur(64px);
     padding: 0.3rem 0.5rem; 
+    will-change: transform;
 }
 
 .menu__list {
@@ -116,13 +130,12 @@ header {
 .menu__item {
     color: #CDCDCD;
     font-family: "Lexend Deca", sans-serif;
-    font-size: max(1vw, 16px);
+    font-size: max(1vw, 12px);
     font-style: normal;
     font-weight: 600;
     line-height: 1.5;
 }
 
-/* ОСНОВНІ ЗМІНИ ТУТ */
 .menu__link, .menu__link_downloader {
     padding: 0.2rem 0.5rem;
     border-radius: 30px; /* Заокруглення для кнопок */
@@ -274,6 +287,8 @@ header {
     fill: #fff;
     stroke: #307FF6;
     stroke-width: 100;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 
 h1 {
@@ -348,12 +363,14 @@ h1 {
     border: 0.05rem solid rgba(84, 84, 84, 0.6);
     background: rgba(29, 31, 46, 0.5); 
     backdrop-filter: blur(64px); 
+    -webkit-backdrop-filter: blur(64px);
     color: #CDCDCD;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    will-change: transform;
 }
 
 .card h3 {

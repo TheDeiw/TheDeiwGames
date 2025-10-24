@@ -1,9 +1,49 @@
 /* Mobile screens (768px and below) */
 @media (max-width: 767.98px) {
+	.logo_container__logo{
+		width: 30vh;
+		height: auto;
+	}
+
+	/* Зменшуємо backdrop-filter для кращої продуктивності на мобільних */
+	header {
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+	}
+
+	.card {
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+	}
+
+	.menu_games__item .menu_games__link {
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+	}
+
+	/* Відключаємо анімації на мобільних для кращої продуктивності */
+	@media (prefers-reduced-motion: reduce) {
+		.logo_container__logo {
+			animation: none;
+			opacity: 1;
+		}
+		
+		h1 {
+			animation: none;
+			opacity: 1;
+		}
+	}
+
+
+
+
+
     .about__grid {
         grid-template-columns: 1fr 1fr 1fr;
         gap: 0.7rem;
         padding: max(1.5vw, 16px);
+        min-height: auto;
+        max-height: none;
     }
     
     .card {
@@ -175,6 +215,49 @@
     
     .card__itchio {
         order: 4;
+    }
+}
+
+/* Дуже малі екрани (480px і менше) */
+@media (max-width: 480px) {
+    .about__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        padding: max(1vw, 12px);
+    }
+    
+    .card__main {
+        grid-column: span 2;
+        order: 1;
+    }
+    
+    .card__location {
+        grid-column: 1;
+        order: 2;
+    }
+    
+    .card__games-created {
+        grid-column: 2;
+        order: 2;
+    }
+    
+    .card__portfolio {
+        grid-column: span 2;
+        order: 3;
+    }
+    
+    .card__linkedin {
+        grid-column: 1;
+        order: 4;
+    }
+    
+    .card__tumblr {
+        grid-column: 2;
+        order: 4;
+    }
+    
+    .card__itchio {
+        display: none; /* Приховуємо на дуже малих екранах */
     }
 }
 
