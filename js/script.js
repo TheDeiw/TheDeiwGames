@@ -100,28 +100,52 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // --- НОВА ЧАСТИНА: Відстеження активної секції при скролі ---
+    // --- Global Background Manager ---
+    const globalCanvas = document.getElementById("global-canvas");
+    const globalBgColor = document.getElementById("global-background-color");
+
+    if (globalCanvas) {
+        // Initialize single global background with mixed shapes
+        // Using neutral colors for shapes to be visible on different backgrounds
+        new CanvasBackground(globalCanvas, {
+            shapeType: "mixed",
+            shapeCount: 12, // Reduced for performance
+            colors: ["#ffffff", "#e0e0e0", "#c0c0c0", "#a0a0a0"],
+            speed: 0.3,
+            rotationSpeed: 0.003,
+            minSize: 20,
+            maxSize: 100,
+            opacity: 0.2,
+        });
+    }
+
+    // --- Active Section Tracking (Nav & Background) ---
     const sections = document.querySelectorAll(".section");
     const navLinks = document.querySelectorAll(".menu__link[data-scroll-to]");
 
     const observerOptions = {
-        root: null, // спостерігаємо за перетином у viewport
-        rootMargin: "0px",
-        threshold: 0.7, // секція має бути видима на 70%, щоб вважатись активною
+        root: null,
+        rootMargin: "-20% 0px -20% 0px", // Trigger when section takes up significant part of screen
+        threshold: 0.2,
     };
 
-    const observerCallback = (entries, observer) => {
+    const observerCallback = (entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                // Видаляємо клас 'active' з усіх посилань
+                const section = entry.target;
+                const sectionId = section.id;
+
+                // 1. Update Navigation
                 navLinks.forEach((link) => link.classList.remove("active"));
-
-                // Знаходимо посилання, що відповідає видимій секції
-                const sectionId = entry.target.id;
                 const correspondingLink = document.querySelector(`.menu__link[data-scroll-to="${sectionId}"]`);
-
                 if (correspondingLink) {
                     correspondingLink.classList.add("active");
+                }
+
+                // 2. Update Background Color
+                const bgColor = section.getAttribute("data-bg-color");
+                if (bgColor && globalBgColor) {
+                    globalBgColor.style.backgroundColor = bgColor;
                 }
             }
         });
@@ -152,4 +176,68 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    // --- Canvas Background Animations ---
+    // (Legacy code removed, using global background now)
+
+    /* 
+    const canvasBackgrounds = {};
+    const canvasElements = document.querySelectorAll(".background_canvas");
+    ...
+    */
+
+    // Функція для генерації палітри кольорів на основі градієнта
+    function generateColorPalette(startHex, endHex) {
+        const start = hexToRgb(startHex);
+        const end = hexToRgb(endHex);
+        const colors = [];
+
+        // Генеруємо 3-4 кольори між початковим та кінцевим
+        for (let i = 0; i <= 3; i++) {
+            const ratio = i / 3;
+            const r = Math.round(start[0] + (end[0] - start[0]) * ratio);
+            const g = Math.round(start[1] + (end[1] - start[1]) * ratio);
+            const b = Math.round(start[2] + (end[2] - start[2]) * ratio);
+            colors.push(
+                `#${r.toString(16).padStart(2, "0")}${g.toString(16).padStart(2, "0")}${b
+                    .toString(16)
+                    .padStart(2, "0")}`
+            );
+        }
+
+        return colors;
+    }
+
+    /*
+    // Розширюємо IntersectionObserver для управління анімаціями canvas
+    const canvasObserverCallback = (entries, observer) => {
+        entries.forEach((entry) => {
+            const sectionId = entry.target.id;
+            const canvasBackground = canvasBackgrounds[sectionId];
+
+            if (canvasBackground) {
+                if (entry.isIntersecting) {
+                    canvasBackground.show();
+                } else {
+                    canvasBackground.hide();
+                }
+            }
+
+            // Викликаємо оригінальний callback для навігації
+            if (entry.isIntersecting) {
+                navLinks.forEach((link) => link.classList.remove("active"));
+                const correspondingLink = document.querySelector(`.menu__link[data-scroll-to="${sectionId}"]`);
+                if (correspondingLink) {
+                    correspondingLink.classList.add("active");
+                }
+            }
+        });
+    };
+
+    // Пересоздаємо observer з новим callback
+    const canvasObserver = new IntersectionObserver(canvasObserverCallback, observerOptions);
+    sections.forEach((section) => {
+        canvasObserver.observe(section);
+    });
+    */
 });

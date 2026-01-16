@@ -24,6 +24,7 @@
 
 	<link href="css/style.css" rel="stylesheet" />
 	<link href="css/mobile-adaptation.css" rel="stylesheet" />
+	<link href="css/global-bg.css" rel="stylesheet" />
 	<link rel="shortcut icon" href="images/favicon.ico" sizes="192x192" />
 	<link rel="icon" href="images/favicon.ico" />
 	<title>TheDeiw's Games | Main</title>
@@ -70,22 +71,20 @@
 		</nav>
 	</header>
 
+	<!-- Global Background Elements -->
+	<div id="global-background-color"></div>
+	<canvas id="global-canvas"></canvas>
+
 	<main class="fullpage">
-		<section id="hero" class="section">
+		<section id="hero" class="section" data-bg-color="#1e1e2f">
 			<div class="hero__logo__container">
 				<img class="logo_container__logo" src="assets/img/Logo/Logo2.svg" alt="TheDeiw's Games Logo" />
 				<h1 class="logo_container__title">TheDeiw's <br> <span class="indented-line">games</span></h1>
 			</div>
 		</section>
 
-		<section id="about" class="section gradient-section" data-gradient-start="#121216" data-gradient-end="#22224d">
-
-			<video class="background_video" autoplay loop muted playsinline preload="metadata">
-				<source src="assets/vid/thedeiw3d.webm" type="video/webm">
-				<source src="assets/vid/thedeiw3d.mp4" type="video/mp4">
-				Ваш браузер не підтримує відтворення відео.
-			</video>
-
+		<section id="about" class="section gradient-section" data-bg-color="#1e1e2f">
+			<!-- <canvas class="background_canvas" data-animation-type="about"></canvas> -->
 			<div class="about__container">
 				<div class="about__grid">
 					<div class="card card__location">
@@ -158,45 +157,40 @@
 							<p>thedeiw.itch.io</p>
 						</div>
 					</a>
-
 				</div>
 			</div>
 		</section>
 
-		<section id="blocky-game" class="section gradient-section" data-gradient-start="#6c5600" data-gradient-end="#000000">
-
-			<video class="background_video" autoplay loop muted playsinline preload="metadata">
-				<source src="assets/vid/blockyBackground.webm" type="video/webm">
-				<source src="assets/vid/blockyBackground.mp4" type="video/mp4">
-				Ваш браузер не підтримує відтворення відео.
-			</video>
-
+		<section id="blocky-game" class="section gradient-section" data-bg-color="#3d3200">
 			<div class="game__container">
-				<img src="assets/img/GamesPhotos/Blocky/Blocky.png" alt="Blocky" class="game__logo">
+				<div class="game__image-wrapper">
+					<img src="assets/img/GamesPhotos/Blocky/Blocky.png" alt="Blocky" class="game__logo">
+				</div>
 				<div class="game__content">
 					<div class="game__content_text">
 						<h2 class="game__header">Blocky</h2>
 						<p class="game__sub_header">Puzzle</p>
-						<p class="game__description">Simple 3D puzzle with orthographic camera. Made a video tutorial. You're playing for a red rectangle that needs to be freed from this trap. </p>	
+						<p class="game__description">Simple 3D puzzle with orthographic camera. Made a video tutorial.<br>You're playing for a red rectangle that needs to be freed from this trap.</p>	
 					</div>
 					<div class="game__button_platforms">
-						<a href="" class="game__button">View Game</a>
+						<a href="" class="game__button">View game</a>
 						<div class="game__platforms">
-							<img src="" alt="" class="platforms__platform">
+							<!-- <img src="assets/img/GamePlatforms/Linux.svg" alt="Linux" class="platforms__platform"> -->
+							<img src="assets/img/GamePlatforms/Windows.svg" alt="Windows" class="platforms__platform">
 						</div>
 					</div>
 				</div>
 			</div>
-
 		</section>
 
-		<section id="fallballs-game" class="section gradient-section" data-gradient-start="#ff0000" data-gradient-end="#0000ff">
+		<section id="fallballs-game" class="section gradient-section" data-bg-color="#2e2e2e">
+			<!-- <canvas class="background_canvas" data-animation-type="fallballs"></canvas> -->
 			<h2>FallBalls</h2>
-
 			<p>Catch the falling balls and score points in this fun and challenging game!</p>
 			<a href="games/fallballs/" class="play-button">Play FallBalls</a>
 		</section>
 	</main>
+	<script src="js/canvas-backgrounds.js"></script>
 	<script src="js/script.js"></script>
 </body>
 

@@ -21,11 +21,22 @@
 		-webkit-backdrop-filter: blur(10px);
 	}
 
+	/* Зменшуємо blur для canvas на мобільних для кращої продуктивності */
+	.background_canvas {
+		filter: blur(4px);
+	}
+
 	/* Відключаємо анімації на мобільних для кращої продуктивності */
 	@media (prefers-reduced-motion: reduce) {
 		.logo_container__logo {
 			animation: none;
 			opacity: 1;
+		}
+		
+		/* Відключаємо blur для canvas при reduced motion */
+		.background_canvas {
+			filter: none;
+			opacity: 0.3;
 		}
 		
 		h1 {

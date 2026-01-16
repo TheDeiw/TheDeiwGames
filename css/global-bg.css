@@ -1,0 +1,30 @@
+#global-background-color {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #222; /* Default color */
+    z-index: -2;
+    transition: background-color 0.8s ease-in-out;
+}
+
+#global-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none; /* Let clicks pass through */
+}
+
+/* Ensure sections are transparent so global background shows */
+.section {
+    background-color: transparent !important;
+}
+
+/* Remove gradient overlay that was previously there */
+.gradient-section::before {
+    display: none;
+}
