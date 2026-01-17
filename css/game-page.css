@@ -1,0 +1,511 @@
+/* Game Page Styles */
+:root {
+    --game-accent-color: #FBBC05; /* Yellow - will be set per game */
+    --game-bg-dark: #121216;
+    --game-bg-card: #2a2a32;
+    --text-primary: #ffffff;
+    --text-secondary: #cdcdcd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lexend Deca', sans-serif;
+    background-color: var(--game-bg-dark);
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+/* Header - Fixed Top Right */
+.game-header {
+    position: fixed;
+    top: max(2vw, 26px);
+    right: max(2vw, 26px);
+    z-index: 100;
+    backdrop-filter: blur(64px);
+    -webkit-backdrop-filter: blur(64px);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    border-radius: max(1.5vw, 25px);
+    padding: max(0.8vw, 12px) max(2vw, 35px);
+    box-shadow: inset 0px 0px 8px 0px rgba(255, 255, 255, 0.3);
+    mix-blend-mode: darken;
+    transition: all 0.3s ease;
+}
+
+.game-header:hover {
+    transform: scale(1.05);
+    box-shadow: inset 0px 0px 12px 0px rgba(255, 255, 255, 0.5);
+}
+
+.game-header a {
+    font-size: max(1.2vw, 20px);
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-decoration: none;
+    line-height: 24px;
+}
+
+/* Video Section - Parallax Background */
+.video-section {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: -1;
+}
+
+.video-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to bottom, transparent 0%, #121216 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    will-change: transform;
+}
+
+.video-section:hover .video-thumbnail {
+    transform: scale(1.02);
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: max(8vw, 100px);
+    height: max(8vw, 100px);
+    background: rgba(18, 18, 22, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: max(1vw, 15px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.play-button::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: max(1.5vw, 20px) 0 max(1.5vw, 20px) max(2.5vw, 30px);
+    border-color: transparent transparent transparent rgba(255, 255, 255, 0.9);
+    margin-left: max(0.5vw, 6px);
+}
+
+.video-section:hover .play-button {
+    background: rgba(251, 188, 5, 0.3);
+    border-color: rgba(251, 188, 5, 0.5);
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 12px 48px rgba(251, 188, 5, 0.5);
+}
+
+.video-section:hover .play-button::after {
+    border-color: transparent transparent transparent #ffffff;
+}
+
+/* Modal Video */
+.video-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(18, 18, 22, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.video-modal.active {
+    display: flex;
+}
+
+.video-modal-content {
+    position: relative;
+    width: 90vw;
+    max-width: 1200px;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: max(1vw, 12px);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.video-modal-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.close-modal {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: max(2vw, 32px);
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.3s ease;
+    z-index: 1001;
+}
+
+.close-modal:hover {
+    transform: scale(1.2) rotate(90deg);
+    color: var(--game-accent-color);
+}
+
+/* Background Blur Effects */
+.bg-blur {
+    position: absolute;
+    width: max(40vw, 542px);
+    height: max(35vw, 690px);
+    border-radius: max(15vw, 233px);
+    filter: blur(150px);
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.bg-blur-1 {
+    background: var(--game-accent-color);
+    top: 60vh;
+    left: -20vw;
+    transform: rotate(75deg);
+}
+
+.bg-blur-2 {
+    background: var(--game-accent-color);
+    top: 70vh;
+    right: -15vw;
+    transform: rotate(75deg);
+}
+
+/* About Game Section */
+.about-game {
+    max-width: 80%;
+    width: 80%;
+    margin: 80vh auto 0 auto;
+    padding: max(3vw, 50px) max(6vw, 120px);
+    position: relative;
+    min-height: 960px;
+    background: rgba(18, 18, 22, 0.65);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: max(1.5vw, 24px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: max(3vw, 50px);
+}
+
+.game-title {
+    font-size: max(3.5vw, 64px);
+    font-weight: 600;
+    margin-bottom: max(1.5vw, 20px);
+}
+
+.game-tags {
+    display: flex;
+    gap: max(0.6vw, 10px);
+    margin-bottom: max(1.5vw, 20px);
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.1);
+    padding: max(0.5vw, 8px) max(0.8vw, 12px);
+    border-radius: max(0.6vw, 10px);
+    font-size: max(0.9vw, 16px);
+    font-weight: 300;
+    letter-spacing: 0.8px;
+}
+
+.info-section {
+    margin-bottom: max(1.5vw, 20px);
+    padding: max(0.6vw, 10px) max(0.3vw, 5px);
+}
+
+.info-label {
+    display: inline-flex;
+    background: rgba(242, 255, 0, 0.1);
+    padding: max(0.5vw, 8px) max(0.8vw, 12px);
+    border-radius: max(0.6vw, 10px);
+    font-size: max(0.9vw, 16px);
+    font-weight: 400;
+    letter-spacing: 0.8px;
+    margin-bottom: max(1.2vw, 20px);
+}
+
+.info-content {
+    font-size: max(0.8vw, 18px);
+    font-weight: 200;
+    line-height: 1.5;
+    letter-spacing: 0.9px;
+    max-width: max(35vw, 609px);
+}
+
+.game-content {
+    flex: 1;
+    min-width: 50%;
+}
+
+/* Screenshots Section */
+.screenshots-section {
+    flex: 0 0 auto;
+    width: max(20vw, 350px);
+    padding: 0;
+    align-self: flex-start;
+    margin-top: max(9vw, 150px);
+}
+
+.screenshots-grid {
+    display: flex;
+    flex-direction: column;
+    gap: max(1.5vw, 25px);
+}
+
+.screenshot {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: max(0.6vw, 10px);
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.screenshot:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Install Section - Fixed Bottom Right */
+.install-section {
+    position: fixed;
+    bottom: max(4vw, 60px);
+    right: max(4vw, 60px);
+    width: max(20vw, 343px);
+    background: var(--game-bg-card);
+    border-radius: max(1.2vw, 20px);
+    padding: max(1.8vw, 30px);
+    z-index: 50;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.install-section.hidden {
+    transform: translateX(calc(100% + max(4vw, 60px)));
+    opacity: 0.7;
+}
+
+.install-section h2 {
+    font-size: max(2.3vw, 40px);
+    font-weight: 600;
+    margin-bottom: max(2vw, 30px);
+}
+
+.install-links {
+    display: flex;
+    flex-direction: column;
+    gap: max(1vw, 15px);
+}
+
+.install-link {
+    display: flex;
+    align-items: center;
+    gap: max(1.2vw, 20px);
+    padding: max(0.6vw, 10px) max(1.2vw, 20px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: max(0.6vw, 10px);
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: max(1.2vw, 20px);
+    font-weight: 500;
+    height: max(3.3vw, 56px);
+    transition: all 0.3s ease;
+}
+
+.install-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.7);
+    transform: translateX(-5px);
+}
+
+.install-link img {
+    width: max(2.5vw, 40px);
+    height: auto;
+    flex-shrink: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 767.98px) {
+    .game-header {
+        top: 15px;
+        right: 15px;
+        padding: 10px 20px;
+        border-radius: 20px;
+    }
+
+    .game-header a {
+        font-size: 16px;
+    }
+
+    .video-section {
+        height: 100vh;
+    }
+
+    .about-game {
+        margin-top: 80vh;
+        background: rgba(18, 18, 22, 0.85);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+    }
+
+    .play-button {
+        width: 80px;
+        height: 80px;
+    }
+
+    .play-button::after {
+        border-width: 16px 0 16px 24px;
+        margin-left: 4px;
+    }
+
+    .video-modal-content {
+        width: 95vw;
+        border-radius: 8px;
+    }
+
+    .close-modal {
+        top: -45px;
+        font-size: 28px;
+    }
+
+    .bg-blur {
+        filter: blur(80px);
+    }
+
+    .about-game {
+        padding: 30px 20px;
+        min-height: auto;
+    }
+
+    .game-title {
+        font-size: 36px;
+    }
+
+    .tag {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    .info-label {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    .info-content {
+        font-size: 16px;
+        max-width: 100%;
+    }
+
+    .screenshots-section {
+        padding: 30px 5px 20px;
+    }
+
+    .screenshots-grid {
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .screenshot {
+        width: calc(50% - 7.5px);
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+
+    /* Install section moves below video on mobile */
+    .install-section {
+        position: static;
+        width: calc(100% - 40px);
+        margin: 20px auto;
+        padding: 25px;
+        border-radius: 15px;
+    }
+
+    .install-section.absolute-position {
+        position: static;
+        top: auto;
+    }
+
+    .install-section h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .install-links {
+        gap: 12px;
+    }
+
+    .install-link {
+        gap: 15px;
+        padding: 12px 16px;
+        font-size: 16px;
+        height: 48px;
+        border-radius: 8px;
+    }
+
+    .install-link img {
+        width: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-section {
+        height: 50vh;
+    }
+
+    .game-title {
+        font-size: 28px;
+    }
+
+    .screenshot {
+        width: 100%;
+    }
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}

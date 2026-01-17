@@ -208,6 +208,101 @@ document.addEventListener("DOMContentLoaded", () => {
         return colors;
     }
 
+    // --- 3D Tilt Effect for Cards ---
+    class CardTilt {
+        constructor(card, options = {}) {
+            this.card = card;
+            this.maxTilt = options.maxTilt || 10;
+            this.perspective = options.perspective || 1000;
+            this.scale = options.scale || 1.03;
+            this.speed = options.speed || 600;
+
+            this.init();
+        }
+
+        init() {
+            this.card.style.transformOrigin = "center center";
+            this.bound = {
+                mouseenter: this.onMouseEnter.bind(this),
+                mousemove: this.onMouseMove.bind(this),
+                mouseleave: this.onMouseLeave.bind(this),
+            };
+
+            this.card.addEventListener("mouseenter", this.bound.mouseenter);
+            this.card.addEventListener("mousemove", this.bound.mousemove);
+            this.card.addEventListener("mouseleave", this.bound.mouseleave);
+        }
+
+        onMouseEnter() {
+            // Show spotlight
+            this.card.style.setProperty("--spotlight-opacity", "1");
+        }
+
+        onMouseMove(e) {
+            const rect = this.card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const xPercent = (x / rect.width) * 100;
+            const yPercent = (y / rect.height) * 100;
+
+            const rotateY = (x / rect.width - 0.5) * this.maxTilt * 2;
+            const rotateX = (y / rect.height - 0.5) * this.maxTilt * -2;
+
+            requestAnimationFrame(() => {
+                // Update spotlight position
+                this.card.style.setProperty("--spotlight-x", `${xPercent}%`);
+                this.card.style.setProperty("--spotlight-y", `${yPercent}%`);
+
+                // Update transform with smoother transition
+                this.card.style.transform = `
+                    perspective(${this.perspective}px)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                    scale3d(${this.scale}, ${this.scale}, ${this.scale})
+                `;
+            });
+        }
+
+        onMouseLeave() {
+            // Hide spotlight
+            this.card.style.setProperty("--spotlight-opacity", "0");
+
+            // Reset transform
+            this.card.style.transform = `
+                perspective(${this.perspective}px)
+                rotateX(0deg)
+                rotateY(0deg)
+                scale3d(1, 1, 1)
+            `;
+        }
+
+        destroy() {
+            this.card.removeEventListener("mouseenter", this.bound.mouseenter);
+            this.card.removeEventListener("mousemove", this.bound.mousemove);
+            this.card.removeEventListener("mouseleave", this.bound.mouseleave);
+            this.card.style.transform = "";
+            this.card.style.removeProperty("--spotlight-opacity");
+            this.card.style.removeProperty("--spotlight-x");
+            this.card.style.removeProperty("--spotlight-y");
+        }
+    }
+
+    // Initialize 3D tilt effect only on desktop devices with hover capability
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isDesktop = window.matchMedia("(min-width: 768px) and (hover: hover)").matches;
+
+    if (!prefersReducedMotion && isDesktop) {
+        const cards = document.querySelectorAll(".about__grid .card");
+        cards.forEach((card) => {
+            new CardTilt(card, {
+                maxTilt: 10,
+                scale: 1.03,
+                speed: 600,
+            });
+        });
+    }
+
     /*
     // Розширюємо IntersectionObserver для управління анімаціями canvas
     const canvasObserverCallback = (entries, observer) => {

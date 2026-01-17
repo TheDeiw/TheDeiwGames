@@ -5,6 +5,42 @@
 		height: auto;
 	}
 
+	/* Mobile alternative: subtle continuous tilt animation */
+	@keyframes subtle-float {
+		0%, 100% { 
+			transform: translateY(0) rotate(0deg); 
+		}
+		25% { 
+			transform: translateY(-2px) rotate(0.5deg); 
+		}
+		50% { 
+			transform: translateY(0) rotate(0deg); 
+		}
+		75% { 
+			transform: translateY(-2px) rotate(-0.5deg); 
+		}
+	}
+
+	/* Apply gentle animation to cards */
+	.about__grid .card {
+		animation: subtle-float 4s ease-in-out infinite;
+	}
+
+	/* Stagger animation for each card */
+	.about__grid .card:nth-child(1) { animation-delay: 0s; }
+	.about__grid .card:nth-child(2) { animation-delay: 0.3s; }
+	.about__grid .card:nth-child(3) { animation-delay: 0.6s; }
+	.about__grid .card:nth-child(4) { animation-delay: 0.9s; }
+	.about__grid .card:nth-child(5) { animation-delay: 1.2s; }
+	.about__grid .card:nth-child(6) { animation-delay: 1.5s; }
+	.about__grid .card:nth-child(7) { animation-delay: 1.8s; }
+
+	/* Touch tap effect */
+	.about__grid .card:active {
+		transform: scale(0.98);
+		transition: transform 0.1s ease;
+	}
+
 	/* Зменшуємо backdrop-filter для кращої продуктивності на мобільних */
 	header {
 		backdrop-filter: blur(20px);
