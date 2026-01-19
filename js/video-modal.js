@@ -3,10 +3,10 @@ const videoThumbnail = document.getElementById("videoThumbnail");
 const videoModal = document.getElementById("videoModal");
 const videoFrame = document.getElementById("videoFrame");
 const closeModal = document.getElementById("closeModal");
-const videoUrl = "https://www.youtube.com/embed/eN5y_5Yjnl4?autoplay=1";
 
 // Open modal
 videoThumbnail.addEventListener("click", function () {
+    const videoUrl = videoThumbnail.dataset.videoUrl || "https://www.youtube.com/embed/eN5y_5Yjnl4?autoplay=1";
     videoModal.classList.add("active");
     videoFrame.src = videoUrl;
 

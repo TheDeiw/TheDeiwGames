@@ -70,24 +70,21 @@ body {
     z-index: 100;
     backdrop-filter: blur(var(--blur-heavy));
     -webkit-backdrop-filter: blur(var(--blur-heavy));
-    background: rgba(255, 255, 255, 0.9);
-    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    background: rgba(29, 31, 46, 0.5);
+    border: 1.5px solid rgba(67, 67, 67, 0.6);
     border-radius: max(1.5vw, 25px);
     padding: max(0.8vw, 12px) max(2vw, 35px);
-    box-shadow: inset 0px 0px 8px 0px rgba(255, 255, 255, 0.3);
-    mix-blend-mode: darken;
     transition: all 0.3s ease;
 }
 
 .game-header:hover {
     transform: scale(1.05);
-    box-shadow: inset 0px 0px 12px 0px rgba(255, 255, 255, 0.5);
 }
 
 .game-header a {
     font-size: max(1.2vw, 20px);
     font-weight: 600;
-    color: var(--text-secondary);
+    color: #CDCDCD;
     text-decoration: none;
     line-height: 24px;
 }
@@ -159,10 +156,10 @@ body {
 }
 
 .video-section:hover .play-button {
-    background: rgba(251, 188, 5, 0.3);
-    border-color: rgba(251, 188, 5, 0.5);
+    background: color-mix(in srgb, var(--game-accent-color) 30%, transparent);
+    border-color: color-mix(in srgb, var(--game-accent-color) 50%, transparent);
     transform: translate(-50%, -50%) scale(1.1);
-    box-shadow: 0 12px 48px rgba(251, 188, 5, 0.5);
+    box-shadow: 0 12px 48px color-mix(in srgb, var(--game-accent-color) 50%, transparent);
 }
 
 .video-section:hover .play-button::after {
@@ -299,7 +296,7 @@ body {
 
 .info-label {
     display: inline-flex;
-    background: rgba(242, 255, 0, 0.1);
+    background: color-mix(in srgb, var(--game-accent-color) 15%, transparent);
     padding: max(0.5vw, 8px) max(0.8vw, 12px);
     border-radius: max(0.6vw, 10px);
     font-size: max(0.9vw, 16px);
@@ -327,6 +324,7 @@ body {
     width: max(20vw, 350px);
     padding: 0;
     align-self: flex-start;
+    margin-top: max(9vw, 150px);
 }
 
 .screenshots-grid {

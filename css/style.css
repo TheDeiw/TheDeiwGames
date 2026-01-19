@@ -211,20 +211,23 @@ header {
     margin-left: 8px;
     width: 12px; /* Зменшений розмір іконки */
     height: auto;
+    filter: brightness(0) invert(1); /* Робимо іконку білою */
+    stroke-width: 2px; /* Збільшуємо товщину */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Анімація перевертання при відкритті меню */
+.is-open .menu_games__drop-down {
+    transform: rotate(180deg);
 }
 
 /* --- Dropdown Menu Styles --- */
 
 /* State when menu is open */
 .main-blurred {
-    filter: blur(var(--blur-canvas)) brightness(0.7);
+    filter: brightness(0.5);
     transition: filter var(--transition-normal) ease-in-out;
     pointer-events: none;
-}
-
-/* Disable blur on low performance */
-.perf-low .main-blurred {
-    filter: brightness(0.7);
 }
 
 .header__menu_games {
@@ -267,16 +270,17 @@ header {
 /* Окремі елементи списку */
 .menu_games__item .menu_games__link {
     display: block;
-    padding: 1rem;
+    padding: 0.6rem 1.5rem; /* Збільшені відступи для більшої висоти */
     color: #CDCDCD;
-    font-weight: 500;
+    font-weight: 600;
+    font-size: max(1vw, 12px);
+    font-family: "Lexend Deca", sans-serif;
+    line-height: 1.5;
     transition: background-color 0.3s, color 0.3s;
     text-align: center;
-    border-radius: 20px; /* Такий самий border radius як у меню */
+    border-radius: 30px; /* Такий самий border radius як у меню */
     margin: 0.3rem 0; /* Збільшені відступи між елементами для відокремлення */
-    background: rgba(29, 31, 46, 0.8); /* Фон для кожного блоку */
-    backdrop-filter: blur(var(--blur-medium)); /* Блюр для кожного блоку */
-    -webkit-backdrop-filter: blur(var(--blur-medium));
+    background: rgba(29, 31, 46, 0.95); /* Більш непрозорий фон без blur */
     border: 1px solid rgba(67, 67, 67, 0.6); /* Рамка для кожного блоку */
     width: 100%; /* Повна ширина контейнера */
     box-sizing: border-box;
@@ -284,8 +288,14 @@ header {
 
 /* Ефект наведення на елементи списку */
 .menu_games__item .menu_games__link:hover {
-    background-color: rgba(48, 127, 246, 0.2);
-    color: #FFF;
+    background-color: rgba(205, 205, 205, 0.15);
+}
+
+/* Активний стан для dropdown елементів */
+.menu_games__item .menu_games__link.active {
+    background-color: #CDCDCD;
+    color: #222;
+    font-weight: 700;
 }
 
 /* ============================================= */
@@ -599,7 +609,9 @@ h1 {
     grid-column: span 2;
     /* background: rgba(255, 255, 255, 0.05); */
     background: linear-gradient(146deg, rgba(41, 22, 217, 0.1) 4.59%, rgba(20, 69, 137, 0.10) 78.97%);
-    transition: background 0.8s ease;
+    transition: transform 0.8s cubic-bezier(0.03, 0.98, 0.52, 0.99),
+                box-shadow 0.8s cubic-bezier(0.03, 0.98, 0.52, 0.99),
+                background 0.8s cubic-bezier(0.03, 0.98, 0.52, 0.99);
 }
 
 .card__portfolio:hover {
@@ -645,7 +657,9 @@ h1 {
 .card__linkedin{ 
     /* background: rgba(255, 255, 255, 0.05); */
     background: linear-gradient(146deg, rgba(60, 117, 198, 0.10) 4.59%, rgba(20, 69, 137, 0.10) 78.97%); 
-    transition: background 0.8s ease;
+    transition: transform 0.8s cubic-bezier(0.03, 0.98, 0.52, 0.99),
+                box-shadow 0.8s cubic-bezier(0.03, 0.98, 0.52, 0.99),
+                background 0.8s cubic-bezier(0.03, 0.98, 0.52, 0.99);
 }
 
 .card__linkedin:hover {
@@ -656,7 +670,9 @@ h1 {
 .card__tumblr{
     /* background: rgba(255, 255, 255, 0.05); */
     background: linear-gradient(146deg, rgba(49, 50, 51, 0.10) 4.59%, rgba(1, 1, 2, 0.10) 78.97%); 
-    transition: background 0.8s ease;
+    transition: transform 0.8s cubic-bezier(0.03, 0.98, 0.52, 0.99),
+                box-shadow 0.8s cubic-bezier(0.03, 0.98, 0.52, 0.99),
+                background 0.8s cubic-bezier(0.03, 0.98, 0.52, 0.99);
 }
 
 .card__tumblr:hover {
@@ -668,7 +684,9 @@ h1 {
     /* background: rgba(255, 255, 255, 0.05); */
     /* background: linear-gradient(134deg, rgba(197, 21, 21, 0.10) 7.08%, rgba(95, 10, 10, 0.10) 94.87%); */
     background: linear-gradient(134deg, rgba(197, 21, 21, 0.10) 7.08%, rgba(95, 10, 10, 0.10) 94.87%);
-    transition: background 0.8s ease;
+    transition: transform 0.8s cubic-bezier(0.03, 0.98, 0.52, 0.99),
+                box-shadow 0.8s cubic-bezier(0.03, 0.98, 0.52, 0.99),
+                background 0.8s cubic-bezier(0.03, 0.98, 0.52, 0.99);
 }
 
 .card__itchio:hover {
@@ -802,7 +820,7 @@ h1 {
 
 .game__sub_header {
     margin: 0;
-    color: #D9DA7B;
+    color: var(--section-accent-color, #D9DA7B);
     font-family: "Lexend Deca";
     font-size: max(1.2vw, 16px);
     font-style: normal;

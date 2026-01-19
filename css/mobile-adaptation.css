@@ -270,13 +270,13 @@
 /* Дуже малі екрани (480px і менше) */
 @media (max-width: 480px) {
     .about__grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 0.5rem;
         padding: max(1vw, 12px);
     }
     
     .card__main {
-        grid-column: span 2;
+        grid-column: span 3;
         order: 1;
     }
     
@@ -286,12 +286,12 @@
     }
     
     .card__games-created {
-        grid-column: 2;
+        grid-column: 2 / 4;
         order: 2;
     }
     
     .card__portfolio {
-        grid-column: span 2;
+        grid-column: span 3;
         order: 3;
     }
     
@@ -306,7 +306,8 @@
     }
     
     .card__itchio {
-        display: none; /* Приховуємо на дуже малих екранах */
+        grid-column: 3;
+        order: 4;
     }
 }
 

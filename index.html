@@ -58,12 +58,12 @@
 							<img src="assets/img/DropDown.svg" alt="" class="menu_games__drop-down">
 						</a>
 						<ul class="menu_games__list" id="dropdownMenu">
-							<li class="menu_games__item"><a
-									href="https://thedeiw.github.io/TheDeiwGames/Blocky_langs/Blocky_ua.html" target="_blank"
-									role="menuitem" class="menu_games__link">Blocky</a></li>
-							<li class="menu_games__item"><a
-									href="https://thedeiw.github.io/TheDeiwGames/Fall_Balls_langs/Fall_Balls_ua.html"
-									target="_blank" role="menuitem" class="menu_games__link">Fall Balls</a></li>
+							<li class="menu_games__item">
+								<a href="#blocky-game" class="menu_games__link" data-scroll-to="blocky-game">Blocky</a>
+							</li>
+							<li class="menu_games__item">
+								<a href="#fallballs-game" class="menu_games__link" data-scroll-to="fallballs-game">Fall Balls</a>
+							</li>
 						</ul>
 					</div>
 				</li>
@@ -161,7 +161,7 @@
 			</div>
 		</section>
 
-		<section id="blocky-game" class="section gradient-section" data-bg-color="#3d3200">
+	<section id="blocky-game" class="section gradient-section" data-bg-color="#483a00" style="--section-accent-color: #FBBC05;">
 			<div class="game__container">
 				<div class="game__image-wrapper">
 					<img src="assets/img/GamesPhotos/Blocky/Blocky.png" alt="Blocky" class="game__logo">
@@ -176,18 +176,34 @@
 						<a href="pages/Blocky.html" class="game__button">View game</a>
 						<div class="game__platforms">
 							<!-- <img src="assets/img/GamePlatforms/Linux.svg" alt="Linux" class="platforms__platform"> -->
-							<img src="assets/img/GamePlatforms/Windows.svg" alt="Windows" class="platforms__platform">
+							<img src="assets/img/GamePlatforms/windows.svg" alt="Windows" class="platforms__platform">
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section id="fallballs-game" class="section gradient-section" data-bg-color="#2e2e2e">
-			<!-- <canvas class="background_canvas" data-animation-type="fallballs"></canvas> -->
-			<h2>FallBalls</h2>
-			<p>Catch the falling balls and score points in this fun and challenging game!</p>
-			<a href="games/fallballs/" class="play-button">Play FallBalls</a>
+	<section id="fallballs-game" class="section gradient-section" data-bg-color="#111111" style="--section-accent-color: #d7d7d7;">
+			<div class="game__container">
+				<div class="game__image-wrapper">
+					<img src="assets/img/GamesPhotos/FallBalls/FallBalls.png" alt="Fall Balls" class="game__logo">
+				</div>
+				<div class="game__content">
+					<div class="game__content_text">
+						<h2 class="game__header">Fall Balls</h2>
+						<p class="game__sub_header">Arcade</p>
+						<p class="game__description">A small game in which you need to catch multi-colored balls so that they do not go out in eternal darkness.</p>	
+					</div>
+					<div class="game__button_platforms">
+						<a href="pages/FallBalls.html" class="game__button">View game</a>
+						<div class="game__platforms">
+							<img src="assets/img/GamePlatforms/windows.svg" alt="Windows" class="platforms__platform">
+							<img src="assets/img/GamePlatforms/linux.svg" alt="Linux" class="platforms__platform">
+
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
 	</main>
 	<script src="js/performance-detector.js"></script>

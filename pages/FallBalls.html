@@ -1,95 +1,133 @@
 <!DOCTYPE html>
+<html lang="en" style="--game-accent-color: #d7d7d7;">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="shortcut icon" href="../images/favicon.ico">
-	<link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-	<link href="../css/games.css" rel="stylesheet">
-	<link href="../css/mediaGames.css" rel="stylesheet">
-	<title>Fall_Balls_ua</title>
+	<link rel="shortcut icon" href="../assets/img/Logo/favicon.ico">
+	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+	<link href="../css/game-page.css" rel="stylesheet">
+	<title>Fall Balls - TheDeiw Games</title>
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-50EVT105MT"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-BH2CRK7V9M"></script>
 	<script>
- 	 window.dataLayer = window.dataLayer || [];
- 	 function gtag(){dataLayer.push(arguments);}
- 	  gtag('js', new Date());
-
-	  gtag('config', 'G-50EVT105MT');
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-BH2CRK7V9M');
 	</script>
-
 </head>
 
 <body>
+	<!-- Background Blur Effects -->
+	<!-- <div class="bg-blur bg-blur-1"></div>
+	<div class="bg-blur bg-blur-2"></div> -->
 
-	<div>
-		<a class="backLinkFl" href="../index.html"><img class="backButtonFl" src="../images/GamesLinks/Back.png"></a>
+	<!-- Header - Fixed Top Right -->
+	<header class="game-header">
+		<a href="../index.html">Other games</a>
+	</header>
+
+	<!-- Video Section -->
+	<section class="video-section" id="videoThumbnail" data-video-url="https://www.youtube.com/embed/HVgRHYtuen0?autoplay=1">
+		<img 
+			src="../assets/img/GamesPhotos/FallBalls/FallBallsMain.png" 
+			alt="Fall Balls Game Thumbnail" 
+			class="video-thumbnail"
+			id="heroImage">
+		<div class="play-button"></div>
+	</section>
+
+	<!-- Video Modal -->
+	<div class="video-modal" id="videoModal">
+		<div class="video-modal-content">
+			<button class="close-modal" id="closeModal">✕</button>
+			<iframe 
+				id="videoFrame"
+				src="" 
+				title="FallBalls_Trailer" 
+				frameborder="0" 
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+				referrerpolicy="strict-origin-when-cross-origin" 
+				allowfullscreen>
+			</iframe>
+		</div>
 	</div>
 
-	<section class="represent">
+	<!-- About Game Section -->
+	<section class="about-game">
+		<div class="game-content">
+			<h1 class="game-title">Fall Balls</h1>
 
-		<img class="logoFl" src="../images/GamesPhotos/Fall_Balls/FallBalls.png">
-
-		<div class="textFl">
-			<h1 class="nameFl">
-				Fall Balls
-			</h1>
-
-		<div class="languages">
-			<p class="choosenFl" id="uaFl">Ua</p>
-			<p class="notchoosenFl" id="enFl">En</p>
-		</div>
-
-			<p class="descriptionFl" id="txFl">
-				Невелика гра, в якій вам треба ловити різнокольрові кульки, щоб вони не погасли у вічній темряві. Ви граєте за платформу, яка може рухатись лише вліво та вправо. Цього разу в грі присутні меню та пауза, завдяки яким ви можете зупинити гру та попити чай </br> Преспективи розробки: гра завершена, оновлення не плануються.
-			</p>
-		</div>
-
-	</section>
-
-	<script>
-		const uaFl = document.getElementById('uaFl');
-		const enFl = document.getElementById('enFl');
-		const tx = document.getElementById('txFl');
-
-		uaFl.addEventListener('click', function handleClick() {
-  		tx.innerHTML = "Невелика гра, в якій вам треба ловити різнокольрові кульки, щоб вони не погасли у вічній темряві. Ви граєте за платформу, яка може рухатись лише вліво та вправо. Цього разу в грі присутні меню та пауза, завдяки яким ви можете зупинити гру та попити чай </br> Преспективи розробки: гра завершена, оновлення не плануються.";
-  		document.getElementById('enFl').classList = "notchoosenFl";
-  		document.getElementById('uaFl').classList = "choosenFl";
-		});
-
-		enFl.addEventListener('click', function handleClick() {
-  		tx.innerHTML = "A small game in which you need to catch multi-colored balls so that they do not go out in eternal darkness. You play as a platform that can only move left and right. This time the game has a menu and a pause, thanks to which you can stop the game and drink tea.</br>  Development prospects: the game is over, no updates are planned.";
-  		document.getElementById('enFl').classList = "choosenFl";
-  		document.getElementById('uaFl').classList = "notchoosenFl";
-		});
-	</script>
-
-	<section class="example">
-
-		<div class="linksFl">
-			<div class="linksList">
-				<a class="link" href="https://thedeiw.itch.io/fall-balls"><img class="itchFl" src="../images/GamesLinks/itchio.png"></a>
-				<a class="link" href="https://www.dropbox.com/s/xd4emxg8gbkaavx/Fall_Balls.zip?dl=0"><img class="dropboxFl" src="../images/GamesLinks/dropbox.png"></a>
+			<div class="game-tags">
+				<span class="tag">Arcade</span>
+				<span class="tag">Action</span>
 			</div>
-			<a class="link" href="https://drive.google.com/file/d/1fFPHh8Z89UX4OKKnYLA53pVAQDLQ8-1v/view"><img class="googledriveFl" src="../images/GamesLinks/google drive.png"></a>
+
+			<!-- Description -->
+			<div class="info-section">
+				<span class="info-label">Description</span>
+				<p class="info-content">
+				A small game in which you need to catch multi-colored balls so that they do not go out in eternal darkness. You play as a platform that can only move left and right. This time the game has a menu and a pause, thanks to which you can stop the game and drink tea.				</p>
+			</div>
+
+			<!-- Release Date -->
+			<div class="info-section">
+				<span class="info-label">Release date</span>
+				<p class="info-content">February 2022</p>
+			</div>
+
+			<!-- Platforms -->
+			<div class="info-section">
+				<span class="info-label">Platforms</span>
+				<p class="info-content">Windows, Linux</p>
+			</div>
 		</div>
 
-		<!-- <img class="videoFl" src="../images/GamesPhotos/Fall_Balls/Fall-balls.gif"> -->
-		<iframe class="videoFl" src="https://www.youtube.com/embed/HVgRHYtuen0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+		<!-- Screenshots -->
+		<div class="screenshots-section">
+			<span class="info-label">Screenshots</span>
+			<div class="screenshots-grid">
+				<img src="../assets/img/GamesPhotos/FallBalls/sc3.png" alt="Fall Balls Screenshot 1" class="screenshot">
+				<img src="../assets/img/GamesPhotos/FallBalls/sc2.png" alt="Fall Balls Screenshot 2" class="screenshot">
+				<img src="../assets/img/GamesPhotos/FallBalls/sc4.png" alt="Fall Balls Screenshot 3" class="screenshot">
+				<img src="../assets/img/GamesPhotos/FallBalls/sc1.png" alt="Fall Balls Screenshot 4" class="screenshot">
+			</div>
+		</div>
 	</section>
 
+	<!-- Install Section -->
+	<aside class="install-section" id="installSection">
+		<h2>Get the game</h2>
+		<div class="install-links">
+			<a href="https://thedeiw.itch.io/fallballs" class="install-link" target="_blank" rel="noopener">
+				<img src="../assets/img/GameDownloadLinks/itch.io.svg" alt="Itch.io">
+				<span>Itch.io</span>
+			</a>
+			<a href="https://drive.google.com/file/d/1lqfOnZF-W6BK72DfBar7rd0-gdzAQuLb/view" class="install-link" target="_blank" rel="noopener">
+				<img src="../assets/img/GameDownloadLinks/g-drive.svg" alt="Google Drive">
+				<span>Google Drive</span>
+			</a>
+			<a href="https://www.dropbox.com/s/dxd3lfrhc67gqpq/It%20is%20game.zip?dl=0" class="install-link" target="_blank" rel="noopener">
+				<img src="../assets/img/GameDownloadLinks/dropbox.svg" alt="Dropbox">
+				<span>Dropbox</span>
+			</a>
+		</div>
+	</aside>
 
-
-	<section class="screenshots">
-		<img class="screenshFl" src="../images/GamesPhotos/Fall_Balls/sc1.png">
-		<img class="screenshFl" src="../images/GamesPhotos/Fall_Balls/sc2.png">
-		<img class="screenshFl" src="../images/GamesPhotos/Fall_Balls/sc3.png">
-		<img class="screenshFl" src="../images/GamesPhotos/Fall_Balls/sc4.png">
-	</section>
+	<!-- Scripts -->
+	<script src="../js/performance-detector.js"></script>
+	<script src="../js/video-modal.js"></script>
+	<script src="../js/parallax.js"></script>
+	<script src="../js/install-section-autohide.js"></script>
+	<script>
+		// Apply performance class to body for game page
+		if (typeof DeviceCapability !== 'undefined') {
+			const tier = DeviceCapability.capabilities.performanceTier;
+			document.body.classList.add(`perf-${tier}`);
+		}
+	</script>
 </body>
+</html>
