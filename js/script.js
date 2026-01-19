@@ -1,4 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // --- Performance Detection & Optimization ---
+    // Apply performance class to body based on device capabilities
+    if (typeof DeviceCapability !== "undefined") {
+        const applyPerformanceClass = () => {
+            const tier = DeviceCapability.capabilities.performanceTier;
+
+            // Remove existing performance classes
+            document.body.classList.remove("perf-low", "perf-medium", "perf-high");
+
+            // Add current performance class
+            document.body.classList.add(`perf-${tier}`);
+
+            console.log(`Performance tier applied: ${tier}`);
+        };
+
+        // Apply initial performance class
+        applyPerformanceClass();
+
+        // Listen for performance changes (e.g., battery status change)
+        window.addEventListener("performancechange", applyPerformanceClass);
+    }
+
     // --- Система динамічних градієнтів ---
     //
     // Використання:
@@ -105,17 +127,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const globalBgColor = document.getElementById("global-background-color");
 
     if (globalCanvas) {
+        // Get performance tier for canvas optimization
+        const performanceTier =
+            typeof DeviceCapability !== "undefined" ? DeviceCapability.capabilities.performanceTier : "high";
+
         // Initialize single global background with mixed shapes
         // Using neutral colors for shapes to be visible on different backgrounds
         new CanvasBackground(globalCanvas, {
             shapeType: "mixed",
-            shapeCount: 12, // Reduced for performance
+            shapeCount: 12, // Will be reduced based on performance tier
             colors: ["#ffffff", "#e0e0e0", "#c0c0c0", "#a0a0a0"],
             speed: 0.3,
             rotationSpeed: 0.003,
             minSize: 20,
             maxSize: 100,
             opacity: 0.2,
+            performanceTier: performanceTier,
         });
     }
 
@@ -201,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
             colors.push(
                 `#${r.toString(16).padStart(2, "0")}${g.toString(16).padStart(2, "0")}${b
                     .toString(16)
-                    .padStart(2, "0")}`
+                    .padStart(2, "0")}`,
             );
         }
 

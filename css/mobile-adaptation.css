@@ -41,25 +41,27 @@
 		transition: transform 0.1s ease;
 	}
 
-	/* Зменшуємо backdrop-filter для кращої продуктивності на мобільних */
-	header {
-		backdrop-filter: blur(20px);
-		-webkit-backdrop-filter: blur(20px);
-	}
+	/* Mobile devices automatically get reduced blur via :root overrides */
+	/* These rules are kept for browsers that don't support CSS variables */
+	@supports not (backdrop-filter: blur(var(--blur-heavy))) {
+		header {
+			backdrop-filter: blur(20px);
+			-webkit-backdrop-filter: blur(20px);
+		}
 
-	.card {
-		backdrop-filter: blur(20px);
-		-webkit-backdrop-filter: blur(20px);
-	}
+		.card {
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+		}
 
-	.menu_games__item .menu_games__link {
-		backdrop-filter: blur(10px);
-		-webkit-backdrop-filter: blur(10px);
-	}
+		.menu_games__item .menu_games__link {
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+		}
 
-	/* Зменшуємо blur для canvas на мобільних для кращої продуктивності */
-	.background_canvas {
-		filter: blur(4px);
+		.background_canvas {
+			filter: blur(4px);
+		}
 	}
 
 	/* Відключаємо анімації на мобільних для кращої продуктивності */

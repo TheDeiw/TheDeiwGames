@@ -9,14 +9,18 @@ const videoUrl = "https://www.youtube.com/embed/eN5y_5Yjnl4?autoplay=1";
 videoThumbnail.addEventListener("click", function () {
     videoModal.classList.add("active");
     videoFrame.src = videoUrl;
-    document.body.style.overflow = "hidden";
+
+    // Блокуємо скрол без зміни ширини
+    document.documentElement.style.overflowY = "hidden";
 });
 
 // Close modal
 function closeVideoModal() {
     videoModal.classList.remove("active");
     videoFrame.src = "";
-    document.body.style.overflow = "auto";
+
+    // Відновлюємо скрол
+    document.documentElement.style.overflowY = "";
 }
 
 closeModal.addEventListener("click", closeVideoModal);

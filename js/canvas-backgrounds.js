@@ -22,18 +22,51 @@ class CanvasBackground {
             minSize: options.minSize || 30,
             maxSize: options.maxSize || 80,
             opacity: options.opacity || 0.6,
+            performanceTier: options.performanceTier || "high", // 'low', 'medium', 'high'
         };
 
         // Перевірка можливостей пристрою
         this.isMobile = window.matchMedia("(max-width: 767.98px)").matches;
         this.prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        // Зменшення кількості фігур на мобільних
+        // Оптимізація на основі рівня продуктивності
+        this.applyPerformanceOptimizations();
+
+        this.init();
+    }
+
+    applyPerformanceOptimizations() {
+        // Застосовуємо оптимізації на основі рівня продуктивності
+        const tier = this.options.performanceTier;
+
+        if (tier === "low") {
+            // Низька продуктивність: мінімальні ефекти
+            this.options.shapeCount = Math.floor(this.options.shapeCount * 0.2); // 80% зменшення
+            this.options.speed *= 0.5;
+            this.options.rotationSpeed *= 0.5;
+            this.options.opacity *= 0.5;
+            // Використовуємо тільки прості фігури
+            if (this.options.shapeType === "mixed") {
+                this.options.shapeType = "triangles";
+            }
+        } else if (tier === "medium") {
+            // Середня продуктивність: помірні ефекти
+            this.options.shapeCount = Math.floor(this.options.shapeCount * 0.5); // 50% зменшення
+            this.options.speed *= 0.75;
+            this.options.rotationSpeed *= 0.75;
+            // Обмежуємо типи фігур
+            if (this.options.shapeType === "mixed") {
+                this.options.shapeType = "cubes"; // Простіші 3D фігури
+            }
+        }
+
+        // Мобільні пристрої: додаткове зменшення
         if (this.isMobile) {
             this.options.shapeCount = Math.floor(this.options.shapeCount * 0.5);
         }
 
-        this.init();
+        // Мінімум фігур - хоча б 2
+        this.options.shapeCount = Math.max(2, this.options.shapeCount);
     }
 
     init() {
@@ -299,7 +332,7 @@ class CanvasBackground {
             size * 0.1, // Offset highlight
             0,
             0,
-            size / 2
+            size / 2,
         );
 
         gradient.addColorStop(0, this.adjustBrightness(color, 1.5)); // Highight
@@ -407,7 +440,7 @@ class CanvasBackground {
 // Фабричні функції для різних типів фонів
 const CanvasBackgrounds = {
     // Для секції About - трикутники та гексагони
-    createAboutBackground(canvas, colors) {
+    createAboutBackground(canvas, colors, performanceTier = "high") {
         return new CanvasBackground(canvas, {
             shapeType: "hexagons",
             shapeCount: 15,
@@ -417,11 +450,12 @@ const CanvasBackgrounds = {
             minSize: 40,
             maxSize: 90,
             opacity: 0.5,
+            performanceTier: performanceTier,
         });
     },
 
     // Для секції Blocky - куби
-    createBlockyBackground(canvas, colors) {
+    createBlockyBackground(canvas, colors, performanceTier = "high") {
         return new CanvasBackground(canvas, {
             shapeType: "cubes",
             shapeCount: 12,
@@ -431,11 +465,12 @@ const CanvasBackgrounds = {
             minSize: 50,
             maxSize: 100,
             opacity: 0.6,
+            performanceTier: performanceTier,
         });
     },
 
     // Для секції FallBalls - кола
-    createFallBallsBackground(canvas, colors) {
+    createFallBallsBackground(canvas, colors, performanceTier = "high") {
         return new CanvasBackground(canvas, {
             shapeType: "circles",
             shapeCount: 20,
@@ -445,6 +480,7 @@ const CanvasBackgrounds = {
             minSize: 30,
             maxSize: 70,
             opacity: 0.5,
+            performanceTier: performanceTier,
         });
     },
 };

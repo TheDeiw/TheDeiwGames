@@ -33,7 +33,7 @@
 	<!-- Video Section -->
 	<section class="video-section" id="videoThumbnail">
 		<img 
-			src="../assets/img/GamesPhotos/Blocky/Blocky.png" 
+			src="../assets/img/GamesPhotos/Blocky/BlockyMain.png" 
 			alt="Blocky Game Thumbnail" 
 			class="video-thumbnail"
 			id="heroImage">
@@ -55,25 +55,6 @@
 			</iframe>
 		</div>
 	</div>
-
-	<!-- Install Section - Fixed Bottom Right (stops at screenshots on scroll) -->
-	<aside class="install-section" id="installSection">
-		<h2>Get the game</h2>
-		<div class="install-links">
-			<a href="https://thedeiw.itch.io/blocky" class="install-link" target="_blank" rel="noopener">
-				<img src="../assets/img/GameDownloadLinks/itch.io.svg" alt="Itch.io">
-				<span>Itch.io</span>
-			</a>
-			<a href="https://drive.google.com/file/d/1lqfOnZF-W6BK72DfBar7rd0-gdzAQuLb/view" class="install-link" target="_blank" rel="noopener">
-				<img src="../assets/img/GameDownloadLinks/g-drive.svg" alt="Google Drive">
-				<span>Google Drive</span>
-			</a>
-			<a href="https://www.dropbox.com/s/dxd3lfrhc67gqpq/It%20is%20game.zip?dl=0" class="install-link" target="_blank" rel="noopener">
-				<img src="../assets/img/GameDownloadLinks/dropbox.svg" alt="Dropbox">
-				<span>Dropbox</span>
-			</a>
-		</div>
-	</aside>
 
 	<!-- About Game Section -->
 	<section class="about-game">
@@ -119,9 +100,36 @@
 		</div>
 	</section>
 
+	<!-- Install Section -->
+	<aside class="install-section" id="installSection">
+		<h2>Get the game</h2>
+		<div class="install-links">
+			<a href="https://thedeiw.itch.io/blocky" class="install-link" target="_blank" rel="noopener">
+				<img src="../assets/img/GameDownloadLinks/itch.io.svg" alt="Itch.io">
+				<span>Itch.io</span>
+			</a>
+			<a href="https://drive.google.com/file/d/1lqfOnZF-W6BK72DfBar7rd0-gdzAQuLb/view" class="install-link" target="_blank" rel="noopener">
+				<img src="../assets/img/GameDownloadLinks/g-drive.svg" alt="Google Drive">
+				<span>Google Drive</span>
+			</a>
+			<a href="https://www.dropbox.com/s/dxd3lfrhc67gqpq/It%20is%20game.zip?dl=0" class="install-link" target="_blank" rel="noopener">
+				<img src="../assets/img/GameDownloadLinks/dropbox.svg" alt="Dropbox">
+				<span>Dropbox</span>
+			</a>
+		</div>
+	</aside>
+
 	<!-- Scripts -->
+	<script src="../js/performance-detector.js"></script>
 	<script src="../js/video-modal.js"></script>
 	<script src="../js/parallax.js"></script>
 	<script src="../js/install-section-autohide.js"></script>
+	<script>
+		// Apply performance class to body for game page
+		if (typeof DeviceCapability !== 'undefined') {
+			const tier = DeviceCapability.capabilities.performanceTier;
+			document.body.classList.add(`perf-${tier}`);
+		}
+	</script>
 </body>
 </html>

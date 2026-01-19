@@ -1,9 +1,54 @@
+:root {
+    /* Performance-based blur variables */
+    --blur-heavy: 64px;
+    --blur-medium: 20px;
+    --blur-light: 10px;
+    --blur-canvas: 8px;
+    
+    /* Animation variables */
+    --transition-normal: 0.3s;
+    --transition-slow: 0.8s;
+}
+
+/* Low performance mode - reduced blur */
+.perf-low {
+    --blur-heavy: 0px;
+    --blur-medium: 0px;
+    --blur-light: 0px;
+    --blur-canvas: 0px;
+    --transition-normal: 0.2s;
+    --transition-slow: 0.3s;
+}
+
+/* Medium performance mode - moderate blur */
+.perf-medium {
+    --blur-heavy: 20px;
+    --blur-medium: 10px;
+    --blur-light: 5px;
+    --blur-canvas: 4px;
+    --transition-normal: 0.3s;
+    --transition-slow: 0.5s;
+}
+
+/* Reduced motion preference - disable blur and fast transitions */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --blur-heavy: 0px;
+        --blur-medium: 0px;
+        --blur-light: 0px;
+        --blur-canvas: 0px;
+        --transition-normal: 0.1s;
+        --transition-slow: 0.2s;
+    }
+}
+
 html {
     height: 100%;
     margin: 0;
     padding: 0;
     background-color: #222;
-    overflow-y: hidden;
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
     font-size: max(2vw, 16px);
     font-family: "Lexend Deca", sans-serif;
     scroll-behavior: smooth;
@@ -114,8 +159,8 @@ header {
     border-radius: 50px; 
     border: 1.5px solid rgba(67, 67, 67, 0.6);
     background: rgba(29, 31, 46, 0.5);
-    backdrop-filter: blur(64px);
-    -webkit-backdrop-filter: blur(64px);
+    backdrop-filter: blur(var(--blur-heavy));
+    -webkit-backdrop-filter: blur(var(--blur-heavy));
     padding: 0.3rem 0.5rem; 
     will-change: transform;
 }
@@ -172,9 +217,14 @@ header {
 
 /* State when menu is open */
 .main-blurred {
-    filter: blur(8px) brightness(0.7);
-    transition: filter 0.3s ease-in-out;
+    filter: blur(var(--blur-canvas)) brightness(0.7);
+    transition: filter var(--transition-normal) ease-in-out;
     pointer-events: none;
+}
+
+/* Disable blur on low performance */
+.perf-low .main-blurred {
+    filter: brightness(0.7);
 }
 
 .header__menu_games {
@@ -225,7 +275,8 @@ header {
     border-radius: 20px; /* Такий самий border radius як у меню */
     margin: 0.3rem 0; /* Збільшені відступи між елементами для відокремлення */
     background: rgba(29, 31, 46, 0.8); /* Фон для кожного блоку */
-    backdrop-filter: blur(20px); /* Блюр для кожного блоку */
+    backdrop-filter: blur(var(--blur-medium)); /* Блюр для кожного блоку */
+    -webkit-backdrop-filter: blur(var(--blur-medium));
     border: 1px solid rgba(67, 67, 67, 0.6); /* Рамка для кожного блоку */
     width: 100%; /* Повна ширина контейнера */
     box-sizing: border-box;
@@ -339,7 +390,7 @@ h1 {
     width: 100%;
     height: 100%;
     z-index: 0; /* Canvas на найнижчому шарі (під градієнтом) */
-    filter: blur(8px); /* Розмиття фону */
+    filter: blur(var(--blur-canvas)); /* Розмиття фону */
 }
 
 /* Відключаємо blur та зменшуємо opacity для користувачів з prefers-reduced-motion */
@@ -388,8 +439,8 @@ h1 {
     /* Frosted Glass Effect */
     border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
     background: rgba(255, 255, 255, 0.01); /* Very light transparent background */
-    backdrop-filter: blur(10px); /* Blurs what's behind the card */
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(var(--blur-light)); /* Blurs what's behind the card */
+    -webkit-backdrop-filter: blur(var(--blur-light));
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
 
     color: #CDCDCD;
@@ -692,8 +743,8 @@ h1 {
     border-radius: max(1.5vw, 32px);
     border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
     background: rgba(255, 255, 255, 0.01); /* Very light transparent background */
-    backdrop-filter: blur(10px); /* Blurs what's behind the card */
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(var(--blur-light)); /* Blurs what's behind the card */
+    -webkit-backdrop-filter: blur(var(--blur-light));
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
     
     display: flex;
@@ -894,6 +945,105 @@ footer {
     padding: 1rem 0;
     background: #222;
     color: #fff;
+}
+
+/* ============================================= */
+/* Performance Optimizations */
+/* ============================================= */
+
+/* Disable complex animations on low-performance devices */
+.perf-low .card {
+    animation: none !important;
+    transition: transform 0.2s ease, background 0.2s ease !important;
+    will-change: auto;
+}
+
+.perf-low .logo_container__logo,
+.perf-low h1 {
+    animation: none !important;
+    opacity: 1 !important;
+}
+
+.perf-low .card::before {
+    display: none; /* Remove spotlight effect */
+}
+
+/* Medium performance: simpler animations */
+.perf-medium .card {
+    transition-duration: 0.5s;
+}
+
+/* ============================================= */
+/* Reduced Motion Support - Accessibility */
+/* ============================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    /* Remove ALL animations */
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Disable neon flicker animations */
+    .logo_container__logo {
+        animation: none !important;
+        opacity: 1 !important;
+        filter: drop-shadow(0 0 10px #307FF6) drop-shadow(0 0 20px #307FF6);
+    }
+
+    h1 {
+        animation: none !important;
+        opacity: 1 !important;
+        text-shadow: 0 0 10px #307FF6, 0 0 20px #307FF6;
+    }
+
+    /* Disable card float animations */
+    .card {
+        animation: none !important;
+        will-change: auto;
+    }
+
+    /* Simplify card hover effects */
+    .card {
+        transition: background 0.15s ease, transform 0.15s ease !important;
+    }
+
+    /* Remove spotlight effect */
+    .card::before {
+        display: none;
+    }
+
+    /* Disable 3D tilt */
+    .card:hover {
+        transform: none !important;
+    }
+
+    /* Disable canvas blur */
+    .background_canvas {
+        filter: none !important;
+        opacity: 0.3;
+    }
+
+    /* Disable video thumbnail animation */
+    .video-section:hover .video-thumbnail {
+        transform: none !important;
+    }
+
+    /* Simplify button hover effects */
+    .game__button:hover,
+    .play-button:hover,
+    .menu__link:hover {
+        transform: none !important;
+    }
+
+    /* Remove will-change to save resources */
+    * {
+        will-change: auto !important;
+    }
 }
 
 
