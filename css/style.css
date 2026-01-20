@@ -366,7 +366,7 @@ header {
 h1 {
     text-align: center;
     color: #FFF;
-    font-family: Pacifico;
+    font-family: 'Pacifico', cursive;
     font-size: max(6vw, 40px);
     font-style: normal;
     font-weight: 300;
