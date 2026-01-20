@@ -48,6 +48,7 @@ html {
     padding: 0;
     background-color: #222;
     overflow-y: scroll;
+    overflow-x: hidden;
     scrollbar-gutter: stable;
     font-size: max(2vw, 16px);
     font-family: "Lexend Deca", sans-serif;
@@ -57,7 +58,9 @@ html {
 
 body {
     min-height: 100vh;
-    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
     line-height: 1;
     touch-action: pan-y;
     -webkit-touch-callout: none;
@@ -139,7 +142,7 @@ h1 {
 }
 
 .section {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
