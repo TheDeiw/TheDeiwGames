@@ -75,19 +75,18 @@ body {
     border-radius: max(1.5vw, 25px);
     padding: max(0.8vw, 12px) max(2vw, 35px);
     transition: all 0.3s ease;
+    font-size: max(1.2vw, 20px);
+    font-weight: 600;
+    color: #CDCDCD;
+    text-decoration: none;
+    line-height: 24px;
+    display: block;
 }
 
 .game-header:hover {
     transform: scale(1.05);
 }
 
-.game-header a {
-    font-size: max(1.2vw, 20px);
-    font-weight: 600;
-    color: #CDCDCD;
-    text-decoration: none;
-    line-height: 24px;
-}
 
 /* Video Section - Parallax Background */
 .video-section {

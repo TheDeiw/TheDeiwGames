@@ -208,6 +208,14 @@ header {
     display: flex;
     align-items: center;
     cursor: pointer;
+    /* background-color: rgba(103, 118, 158, 0.15); */
+    padding: 0.2rem 0.5rem;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu_games__button:hover {
+    background-color: rgba(205, 205, 205, 0.25);
 }
 
 .menu_games__drop-down {
@@ -983,6 +991,12 @@ footer {
 .perf-low h1 {
     animation: none !important;
     opacity: 1 !important;
+    /* Залишаємо легкий drop-shadow навіть на low */
+    filter: drop-shadow(0 0 5px #307FF6) !important;
+}
+
+.perf-low h1 {
+    text-shadow: 0 0 5px #307FF6, 0 0 10px #307FF6 !important;
 }
 
 .perf-low .card::before {
