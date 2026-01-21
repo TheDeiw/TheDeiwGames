@@ -152,6 +152,31 @@ h1 {
     -webkit-touch-callout: none;
 }
 
+/* Landscape Mode Adaptations */
+/* Smartphones in landscape (limited height) */
+@media (max-height: 600px) and (orientation: landscape) {
+    .fullpage {
+        scroll-snap-type: y proximity; /* Softer snap for better scrolling */
+    }
+    
+    .section {
+        min-height: 85vh; /* Allow sections to be slightly shorter */
+        padding: 2vh 0;
+    }
+}
+
+/* Tablets in landscape */
+@media (min-width: 768px) and (max-height: 800px) and (orientation: landscape) {
+    .fullpage {
+        scroll-snap-type: y proximity; /* Softer snap */
+    }
+    
+    .section {
+        min-height: 90vh; /* Tablets can handle taller sections */
+        padding: 3vh 0;
+    }
+}
+
 /* ============================================= */
 header {
     position: fixed;
@@ -166,6 +191,26 @@ header {
     -webkit-backdrop-filter: blur(var(--blur-heavy));
     padding: 0.3rem 0.5rem; 
     will-change: transform;
+}
+
+/* Landscape header optimization */
+@media (max-height: 600px) and (orientation: landscape) {
+    header {
+        top: 1.5vh;
+        padding: 0.2rem 0.4rem;
+    }
+    
+    .menu__list {
+        gap: 0.5vw;
+    }
+    
+    .menu__item {
+        font-size: max(0.9vw, 11px);
+    }
+    
+    .menu__link, .menu__link_downloader {
+        padding: 0.15rem 0.4rem;
+    }
 }
 
 .menu__list {
@@ -271,6 +316,21 @@ header {
     z-index: 20; /* Вищий z-index ніж у хедера */
 }
 
+/* Landscape dropdown adaptation */
+@media (max-height: 600px) and (orientation: landscape) {
+    .menu_games__list {
+        top: calc(1.5vh + 50px);
+        min-width: 160px;
+        max-width: 250px;
+    }
+    
+    .menu_games__item .menu_games__link {
+        padding: 0.4rem 1rem;
+        margin: 0.2rem 0;
+        font-size: max(0.9vw, 11px);
+    }
+}
+
 .menu_games__list.is-open {
     opacity: 1;
     visibility: visible;
@@ -323,6 +383,45 @@ header {
     justify-content: center;
     text-align: center;
     gap: 10vh;
+}
+
+/* Landscape Hero adaptation */
+@media (max-height: 600px) and (orientation: landscape) {
+    .hero__logo__container {
+        flex-direction: row;
+        gap: 3vw;
+    }
+    
+    .logo_container__logo {
+        height: 60vh;
+        max-height: 280px;
+        width: auto;
+    }
+    
+    h1 {
+        font-size: clamp(32px, 5vh, 48px);
+        line-height: 110%;
+        text-align: left;
+    }
+    
+    .indented-line {
+        padding-left: 2rem;
+    }
+}
+
+@media (min-width: 768px) and (max-height: 800px) and (orientation: landscape) {
+    .hero__logo__container {
+        gap: 6vh;
+    }
+    
+    .logo_container__logo {
+        height: 50vh;
+        max-height: 350px;
+    }
+    
+    h1 {
+        font-size: clamp(40px, 6vh, 55px);
+    }
 }
 
 @keyframes neonFlicker {
@@ -433,6 +532,86 @@ h1 {
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: auto;
     gap: 0.5rem;;
+}
+
+/* Landscape About grid adaptation */
+@media (max-height: 700px) and (orientation: landscape) {
+    .about__grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.4rem;
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+    
+    .card {
+        padding: 0.6rem;
+    }
+    
+    .card__main {
+        grid-column: span 2;
+        grid-row: span 1; /* Single row in landscape */
+    }
+    
+    .card__main .card__icon {
+        width: 8vh;
+        margin-bottom: 0.5rem;
+    }
+    
+    .card__main h2 {
+        font-size: max(1.3vw, 18px);
+    }
+    
+    .card_main__description {
+        font-size: max(0.9vw, 11px);
+        line-height: 145%;
+    }
+    
+    .card__location {
+        grid-row: span 1;
+        flex-direction: row;
+        gap: 1rem;
+    }
+    
+    .card__location_block {
+        gap: 0.4rem;
+    }
+    
+    .card__location .card__icon {
+        width: 4vh;
+    }
+    
+    .card__location_block_h,
+    .card__location_block_p {
+        font-size: max(1vw, 11px);
+    }
+    
+    .card__portfolio {
+        grid-column: span 2;
+    }
+    
+    .card__icon_portfolio {
+        width: 3vw;
+    }
+    
+    .card h3 {
+        font-size: max(1vw, 13px);
+    }
+    
+    .card__social p {
+        font-size: max(0.9vw, 12px);
+    }
+    
+    .card__social .card__icon {
+        width: 1.8vw;
+    }
+    
+    .card__games-created .card__icon {
+        width: 2.5vw;
+    }
+    
+    .card__games_number {
+        font-size: max(1.8vw, 24px);
+    }
 }
 
 /* Passive floating animation for all cards */
@@ -910,6 +1089,48 @@ h1 {
     .game__container {
         width: 60vw;
         height: calc(60vw * 1.35);
+    }
+}
+
+/* Landscape game container adaptation */
+@media (orientation: landscape) and (max-height: 700px) {
+    .game__container {
+        width: 70vw;
+        height: auto;
+        max-height: 85vh;
+        flex-direction: row;
+    }
+    
+    .game__image-wrapper {
+        width: 50%;
+        flex-shrink: 0;
+    }
+    
+    .game__content {
+        width: 50%;
+        padding: max(1.2vw, 16px);
+    }
+    
+    .game__header {
+        font-size: max(2vw, 24px);
+    }
+    
+    .game__sub_header {
+        font-size: max(1vw, 14px);
+    }
+    
+    .game__description {
+        font-size: max(0.9vw, 12px);
+        line-height: 140%;
+    }
+    
+    .game__button {
+        font-size: max(0.7vw, 16px);
+        padding: max(0.3vw, 8px) max(1vw, 14px);
+    }
+    
+    .platforms__platform {
+        width: max(1.8vw, 20px);
     }
 }
 

@@ -1,3 +1,49 @@
+/* ============================================= */
+/* LANDSCAPE MODE ADAPTATIONS */
+/* ============================================= */
+
+/* Smartphones in landscape mode */
+@media (max-height: 600px) and (orientation: landscape) {
+    /* Reduce logo animation for better UX */
+    .logo_container__logo {
+        animation-duration: 1.5s;
+    }
+    
+    h1 {
+        animation-duration: 1.5s;
+    }
+    
+    /* Disable floating animations to save vertical space */
+    .about__grid .card {
+        animation: none;
+    }
+    
+    /* Compact header */
+    .menu__item {
+        font-size: max(1.5vw, 12px);
+    }
+    
+    .menu__link, .menu__link_downloader {
+        padding: 0.25rem 0.6rem;
+    }
+    
+    header {
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+/* Tablets in landscape mode */
+@media (min-width: 768px) and (max-height: 800px) and (orientation: landscape) {
+    /* Similar optimizations but less aggressive */
+    .about__grid .card {
+        animation-duration: 3s; /* Faster animation */
+    }
+}
+
+/* ============================================= */
+/* PORTRAIT MODE ADAPTATIONS (Original) */
+/* ============================================= */
+
 /* Mobile screens (768px and below) */
 @media (max-width: 767.98px) {
 	.logo_container__logo{
@@ -321,6 +367,92 @@
     .card__itchio {
         grid-column: 3;
         order: 4;
+    }
+}
+
+/* ============================================= */
+/* LANDSCAPE MODE - Mobile Specific */
+/* ============================================= */
+
+/* Mobile portrait devices rotated to landscape */
+@media (max-width: 767.98px) and (orientation: landscape) {
+    /* Override portrait settings for landscape */
+    .logo_container__logo {
+        width: auto;
+        height: 50vh;
+        max-height: 250px;
+    }
+    
+    /* Compact grid for landscape phones */
+    .about__grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.4rem;
+        padding: max(1vw, 12px);
+    }
+    
+    .card {
+        padding: 0.5rem;
+    }
+    
+    .card__main {
+        grid-column: span 2;
+        grid-row: span 1;
+        order: 1;
+    }
+    
+    .card__location {
+        grid-column: 1;
+        grid-row: auto;
+        order: 2;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .card__games-created {
+        grid-column: 2;
+        grid-row: auto;
+        order: 2;
+        gap: 0.3rem;
+    }
+    
+    .card__portfolio {
+        grid-column: span 2;
+        order: 3;
+        gap: 0.3rem;
+    }
+    
+    .card__linkedin {
+        grid-column: 1;
+        order: 4;
+    }
+    
+    .card__tumblr {
+        grid-column: 2;
+        order: 4;
+    }
+    
+    .card__itchio {
+        grid-column: 3;
+        order: 4;
+    }
+    
+    /* Game sections in landscape mobile */
+    .game__container {
+        width: 85vw;
+        height: auto;
+        max-height: 80vh;
+    }
+    
+    .game__header {
+        font-size: max(5vw, 24px);
+    }
+    
+    .game__sub_header {
+        font-size: max(3.5vw, 16px);
+    }
+    
+    .game__description {
+        font-size: max(3vw, 13px);
     }
 }
 

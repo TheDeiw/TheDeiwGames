@@ -3,7 +3,10 @@ const videoSection = document.querySelector(".video-section");
 
 function updateParallax() {
     // Disable parallax on mobile devices (width <= 768px)
-    if (window.innerWidth <= 768) {
+    // Also disable on landscape phones with limited height
+    const isLandscapePhone = window.matchMedia("(max-height: 600px) and (orientation: landscape)").matches;
+
+    if (window.innerWidth <= 768 || isLandscapePhone) {
         return;
     }
 
@@ -21,7 +24,8 @@ window.addEventListener("scroll", updateParallax, { passive: true });
 window.addEventListener(
     "resize",
     () => {
-        if (window.innerWidth <= 768 && videoSection) {
+        const isLandscapePhone = window.matchMedia("(max-height: 600px) and (orientation: landscape)").matches;
+        if ((window.innerWidth <= 768 || isLandscapePhone) && videoSection) {
             videoSection.style.transform = "none";
         }
     },

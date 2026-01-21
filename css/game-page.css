@@ -100,6 +100,19 @@ body {
     z-index: -1;
 }
 
+/* Landscape mode adaptations for video section */
+@media (max-height: 600px) and (orientation: landscape) {
+    .video-section {
+        height: 50vh; /* Reduce height on landscape phones */
+    }
+}
+
+@media (min-width: 768px) and (max-height: 800px) and (orientation: landscape) {
+    .video-section {
+        height: 70vh; /* Moderate height on landscape tablets */
+    }
+}
+
 .video-section::after {
     content: '';
     position: absolute;
@@ -267,6 +280,37 @@ body {
     flex-wrap: wrap;
 }
 
+/* Landscape adaptations for about-game */
+@media (max-height: 600px) and (orientation: landscape) {
+    .about-game {
+        margin-top: 50vh; /* Reduced margin */
+        min-height: auto;
+        padding: max(2vw, 30px) max(4vw, 60px);
+    }
+    
+    .game-title {
+        font-size: max(2.5vw, 40px);
+        margin-bottom: max(1vw, 15px);
+    }
+    
+    .info-section {
+        margin-bottom: max(1vw, 15px);
+    }
+    
+    .screenshots-section {
+        margin-top: max(5vw, 80px);
+        width: max(18vw, 300px);
+    }
+}
+
+@media (min-width: 768px) and (max-height: 800px) and (orientation: landscape) {
+    .about-game {
+        margin-top: 70vh;
+        min-height: auto;
+        padding: max(2.5vw, 40px) max(5vw, 80px);
+    }
+}
+
 .game-title {
     font-size: max(3.5vw, 64px);
     font-weight: 600;
@@ -359,6 +403,35 @@ body {
     transition: transform 0.3s ease, opacity 0.3s ease;
     transform: translateX(0);
     opacity: 1;
+}
+
+/* Landscape adaptations for install section */
+@media (max-height: 600px) and (orientation: landscape) {
+    .install-section {
+        bottom: max(2vw, 30px);
+        right: max(2vw, 30px);
+        width: max(18vw, 280px);
+        padding: max(1.2vw, 20px);
+    }
+    
+    .install-section h2 {
+        font-size: max(1.8vw, 28px);
+        margin-bottom: max(1.2vw, 20px);
+    }
+    
+    .install-link {
+        padding: max(0.4vw, 8px) max(0.8vw, 15px);
+        font-size: max(1vw, 16px);
+        height: max(2.5vw, 44px);
+    }
+}
+
+@media (min-width: 768px) and (max-height: 800px) and (orientation: landscape) {
+    .install-section {
+        bottom: max(3vw, 40px);
+        right: max(3vw, 40px);
+        width: max(18vw, 300px);
+    }
 }
 
 .install-section.hidden {

@@ -35,10 +35,16 @@ class PerformanceDetector {
     detectMobile() {
         // Перевірка на мобільний пристрій
         const mobileMediaQuery = window.matchMedia("(max-width: 767.98px)");
+        const landscapeLimited = window.matchMedia("(max-height: 600px) and (orientation: landscape)");
         const touchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
         const userAgent = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-        this.capabilities.isMobile = mobileMediaQuery.matches || (touchDevice && userAgent);
+        // Consider device mobile if: narrow width OR limited height in landscape (with touch)
+        this.capabilities.isMobile =
+            mobileMediaQuery.matches || (landscapeLimited.matches && touchDevice) || (touchDevice && userAgent);
+
+        // Store orientation info for other checks
+        this.capabilities.isLandscape = window.matchMedia("(orientation: landscape)").matches;
     }
 
     detectReducedMotion() {

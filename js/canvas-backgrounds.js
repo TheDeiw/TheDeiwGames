@@ -39,6 +39,9 @@ class CanvasBackground {
         // Застосовуємо оптимізації на основі рівня продуктивності
         const tier = this.options.performanceTier;
 
+        // Check for landscape orientation with limited height
+        const isLandscapeLimited = window.matchMedia("(orientation: landscape) and (max-height: 700px)").matches;
+
         if (tier === "low") {
             // Низька продуктивність: мінімальні ефекти
             this.options.shapeCount = Math.floor(this.options.shapeCount * 0.2); // 80% зменшення
@@ -63,6 +66,12 @@ class CanvasBackground {
         // Мобільні пристрої: додаткове зменшення
         if (this.isMobile) {
             this.options.shapeCount = Math.floor(this.options.shapeCount * 0.5);
+        }
+
+        // Landscape mode with limited height: reduce particles further
+        if (isLandscapeLimited) {
+            this.options.shapeCount = Math.floor(this.options.shapeCount * 0.7);
+            this.options.opacity *= 0.8; // Make slightly more transparent
         }
 
         // Мінімум фігур - хоча б 2

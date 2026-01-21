@@ -333,10 +333,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Initialize 3D tilt effect only on desktop devices with hover capability
+    // Exclude landscape orientation to avoid tilt on rotated tablets/phones
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isDesktop = window.matchMedia("(min-width: 768px) and (hover: hover)").matches;
+    const isLandscape = window.matchMedia("(orientation: landscape) and (max-height: 800px)").matches;
 
-    if (!prefersReducedMotion && isDesktop) {
+    if (!prefersReducedMotion && isDesktop && !isLandscape) {
         const cards = document.querySelectorAll(".about__grid .card");
         cards.forEach((card) => {
             new CardTilt(card, {
