@@ -297,9 +297,9 @@ header {
     top: calc(3vh + 60px); /* Позиція під хедером (3vh + приблизна висота хедера) */
     left: 50%;
     transform: translateX(-50%);
-    width: auto; /* Автоматична ширина під контент */
-    min-width: 200px; /* Мінімальна ширина */
-    max-width: 300px; /* Максимальна ширина для блоків ігор */
+    width: 80%; /* Автоматична ширина під контент */
+    /* min-width: 200px; 
+    max-width: 100%;  */
     
     background: transparent; /* Прибираємо фон */
     backdrop-filter: none; /* Прибираємо блюр */
@@ -1069,7 +1069,7 @@ h1 {
 }
 
 .platforms__platform {
-    width: max(2.2vw, 24px);
+    height: max(2.2vw, 24px);
     height: auto;
     object-fit: contain;
     justify-self: center;
