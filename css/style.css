@@ -47,9 +47,7 @@ html {
     margin: 0;
     padding: 0;
     background-color: #222;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    scrollbar-gutter: stable;
+    overflow: hidden;
     font-size: max(2vw, 16px);
     font-family: "Lexend Deca", sans-serif;
     scroll-behavior: smooth;
@@ -139,6 +137,25 @@ h1 {
     scroll-snap-type: y mandatory;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
+    scrollbar-color: #55555f #121216;
+    scrollbar-width: thin;
+}
+
+.fullpage::-webkit-scrollbar {
+    width: 6px;
+}
+
+.fullpage::-webkit-scrollbar-track {
+    background: #121216;
+}
+
+.fullpage::-webkit-scrollbar-thumb {
+    background: #55555f;
+    border-radius: 3px;
+}
+
+.fullpage::-webkit-scrollbar-thumb:hover {
+    background: #88888f;
 }
 
 .section {
