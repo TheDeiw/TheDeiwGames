@@ -288,6 +288,7 @@
         order: 4;
     }
     
+    .card__meta-store,
     .card__tumblr {
         grid-column: 2;
         order: 4;
@@ -305,6 +306,8 @@
     
     .card__linkedin h3,
     .card__linkedin p,
+    .card__meta-store h3,
+    .card__meta-store p,
     .card__tumblr h3,
     .card__tumblr p,
     .card__itchio h3,
@@ -317,6 +320,7 @@
         order: 4;
     }
     
+    .card__meta-store,
     .card__tumblr {
         order: 4;
     }
@@ -359,6 +363,7 @@
         order: 4;
     }
     
+    .card__meta-store,
     .card__tumblr {
         grid-column: 2;
         order: 4;
@@ -426,6 +431,7 @@
         order: 4;
     }
     
+    .card__meta-store,
     .card__tumblr {
         grid-column: 2;
         order: 4;

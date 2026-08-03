@@ -874,17 +874,19 @@ h1 {
     box-shadow: 0 8px 16px rgba(60, 117, 198, 0.2);
 }
 
+.card__meta-store,
 .card__tumblr{
     /* background: rgba(255, 255, 255, 0.05); */
-    background: linear-gradient(146deg, rgba(49, 50, 51, 0.10) 4.59%, rgba(1, 1, 2, 0.10) 78.97%); 
+    background: linear-gradient(146deg, rgba(0, 129, 251, 0.10) 4.59%, rgba(0, 100, 224, 0.10) 78.97%); 
     transition: transform 0.8s cubic-bezier(0.03, 0.98, 0.52, 0.99),
                 box-shadow 0.8s cubic-bezier(0.03, 0.98, 0.52, 0.99),
                 background 0.8s cubic-bezier(0.03, 0.98, 0.52, 0.99);
 }
 
+.card__meta-store:hover,
 .card__tumblr:hover {
-    background: linear-gradient(146deg, rgba(49, 50, 51, 0.25) 4.59%, rgba(1, 1, 2, 0.25) 78.97%);
-    box-shadow: 0 8px 16px rgba(49, 50, 51, 0.2);
+    background: linear-gradient(146deg, rgba(0, 129, 251, 0.25) 4.59%, rgba(0, 100, 224, 0.25) 78.97%);
+    box-shadow: 0 8px 16px rgba(0, 129, 251, 0.2);
 }
 
 .card__itchio{
