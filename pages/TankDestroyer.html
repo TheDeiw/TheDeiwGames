@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" style="--game-accent-color: #30c042;">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#121216">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+	<link href="../css/game-page.css" rel="stylesheet">
+	<link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico">
+	<title>Tank Destroyer - TheDeiw Games</title>
+</head>
+
+<body>
+	<!-- Background Blur Effects -->
+	<!-- <div class="bg-blur bg-blur-1"></div>
+	<div class="bg-blur bg-blur-2"></div> -->
+
+	<!-- Header - Fixed Top Right -->
+	<a href="../index.html" class="game-header">Other games</a>
+
+	<!-- Video / Banner Section (without video as requested) -->
+	<section class="video-section" id="videoThumbnail">
+		<img 
+			src="../assets/img/GamesPhotos/TankDestroyer/Tank_DestroyerMain.png" 
+			alt="Tank Destroyer Game Thumbnail" 
+			class="video-thumbnail"
+			id="heroImage">
+	</section>
+
+	<!-- About Game Section -->
+	<section class="about-game">
+		<div class="game-content">
+			<h1 class="game-title">Tank Destroyer</h1>
+
+			<div class="game-tags">
+				<span class="tag">Action</span>
+				<span class="tag">Arcade</span>
+			</div>
+
+			<!-- Description -->
+			<div class="info-section">
+				<span class="info-label">Description</span>
+				<p class="info-content">
+				An exciting tank battle game where you take control of a tank to destroy enemy forces and survive the battlefield.</p>
+			</div>
+
+			<!-- Release Date -->
+			<div class="info-section">
+				<span class="info-label">Release date</span>
+				<p class="info-content">August 2026</p>
+			</div>
+
+			<!-- Platforms -->
+			<div class="info-section">
+				<span class="info-label">Platforms</span>
+				<p class="info-content">Web browser, Windows</p>
+			</div>
+		</div>
+
+		<!-- Screenshots -->
+		<div class="screenshots-section">
+			<span class="info-label">Screenshots</span>
+			<div class="screenshots-grid">
+				<img src="../assets/img/GamesPhotos/TankDestroyer/sc1.png" alt="Tank Destroyer Screenshot 1" class="screenshot">
+				<img src="../assets/img/GamesPhotos/TankDestroyer/sc2.png" alt="Tank Destroyer Screenshot 2" class="screenshot">
+				<img src="../assets/img/GamesPhotos/TankDestroyer/sc3.png" alt="Tank Destroyer Screenshot 3" class="screenshot">
+			</div>
+		</div>
+	</section>
+
+	<!-- Install Section -->
+	<aside class="install-section" id="installSection">
+		<h2>Get the game</h2>
+		<div class="install-links">
+			<a href="https://thedeiw.itch.io/tank-destroyer" class="install-link" target="_blank" rel="noopener">
+				<img src="../assets/img/GameDownloadLinks/itch.io.svg" alt="Itch.io">
+				<span>Itch.io</span>
+			</a>
+			<a href="https://github.com/TheDeiw/Tank-Destroyer" class="install-link" target="_blank" rel="noopener">
+				<img src="../assets/img/GameDownloadLinks/github.svg" alt="GitHub">
+				<span>GitHub</span>
+			</a>
+		</div>
+	</aside>
+
+	<!-- Scripts -->
+	<script src="../js/performance-detector.js"></script>
+	<script src="../js/parallax.js"></script>
+	<script src="../js/install-section-autohide.js"></script>
+	<script>
+		// Apply performance class to body for game page
+		if (typeof DeviceCapability !== 'undefined') {
+			const tier = DeviceCapability.capabilities.performanceTier;
+			document.body.classList.add(`perf-${tier}`);
+		}
+	</script>
+</body>
+</html>
