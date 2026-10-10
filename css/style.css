@@ -266,126 +266,6 @@ header {
     font-weight: 700;
 }
 
-.menu_games__button {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    /* background-color: rgba(103, 118, 158, 0.15); */
-    padding: 0.2rem 0.5rem;
-    border-radius: 30px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.menu_games__button:hover {
-    background-color: rgba(205, 205, 205, 0.25);
-}
-
-.menu_games__drop-down {
-    margin-left: 8px;
-    width: 12px; /* Зменшений розмір іконки */
-    height: auto;
-    filter: brightness(0) invert(1); /* Робимо іконку білою */
-    stroke-width: 2px; /* Збільшуємо товщину */
-    transition: transform 0.3s ease-in-out;
-}
-
-/* Анімація перевертання при відкритті меню */
-.is-open .menu_games__drop-down {
-    transform: rotate(180deg);
-}
-
-/* --- Dropdown Menu Styles --- */
-
-/* State when menu is open */
-.main-blurred {
-    filter: brightness(0.5);
-    transition: filter var(--transition-normal) ease-in-out;
-    pointer-events: none;
-}
-
-.header__menu_games {
-    position: relative;
-}
-
-.menu_games__list {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: calc(3vh + 60px); /* Позиція під хедером (3vh + приблизна висота хедера) */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%; /* Автоматична ширина під контент */
-    /* min-width: 200px; 
-    max-width: 100%;  */
-    
-    background: transparent; /* Прибираємо фон */
-    backdrop-filter: none; /* Прибираємо блюр */
-    border: none; /* Прибираємо рамку */
-    
-    padding: 0; /* Прибираємо відступи */
-    box-sizing: border-box;
-
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(-50%) translateY(-10px);
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-    pointer-events: none;
-    z-index: 20; /* Вищий z-index ніж у хедера */
-}
-
-/* Landscape dropdown adaptation */
-@media (max-height: 600px) and (orientation: landscape) {
-    .menu_games__list {
-        top: calc(1.5vh + 50px);
-        min-width: 160px;
-        max-width: 250px;
-    }
-    
-    .menu_games__item .menu_games__link {
-        padding: 0.4rem 1rem;
-        margin: 0.2rem 0;
-        font-size: max(0.9vw, 11px);
-    }
-}
-
-.menu_games__list.is-open {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-    pointer-events: auto;
-}
-
-/* Окремі елементи списку */
-.menu_games__item .menu_games__link {
-    display: block;
-    padding: 0.6rem 1.5rem; /* Збільшені відступи для більшої висоти */
-    color: #CDCDCD;
-    font-weight: 600;
-    font-size: max(1vw, 12px);
-    font-family: "Lexend Deca", sans-serif;
-    line-height: 1.5;
-    transition: background-color 0.3s, color 0.3s;
-    text-align: center;
-    border-radius: 30px; /* Такий самий border radius як у меню */
-    margin: 0.3rem 0; /* Збільшені відступи між елементами для відокремлення */
-    background: rgba(29, 31, 46, 0.95); /* Більш непрозорий фон без blur */
-    border: 1px solid rgba(67, 67, 67, 0.6); /* Рамка для кожного блоку */
-    width: 100%; /* Повна ширина контейнера */
-    box-sizing: border-box;
-}
-
-/* Ефект наведення на елементи списку */
-.menu_games__item .menu_games__link:hover {
-    background-color: rgba(205, 205, 205, 0.15);
-}
-
-/* Активний стан для dropdown елементів */
-.menu_games__item .menu_games__link.active {
-    background-color: #CDCDCD;
-    color: #222;
-    font-weight: 700;
-}
-
 /* ============================================= */
 
 #hero {
@@ -1206,6 +1086,419 @@ h1 {
     .game__container {
         width: 30vw;
         height: calc(30vw * 1.35);
+    }
+}
+
+/* ============================================= */
+/* Featured: нескінченна карусель                */
+/* ============================================= */
+
+.featured {
+    --card-gap: max(2vw, 20px);
+    position: relative;
+    width: 100%;
+}
+
+/* Усі слайди лежать в одній клітинці гріда; games.js зсуває їх через transform */
+.featured__track {
+    position: relative;
+    display: grid;
+    place-items: center;
+    padding: 2vh 0;
+    overflow: hidden;
+    overflow: clip; /* clip, а не hidden: фокус на посиланні не зсуватиме вміст */
+    /* Вертикальний скрол сторінки лишається нативним, горизонтальні жести обробляє games.js */
+    touch-action: pan-y;
+    cursor: grab;
+    outline: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.featured__track.is-dragging,
+.featured__track.is-dragging * {
+    cursor: grabbing;
+}
+
+.featured__track:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline-offset: -2px;
+}
+
+.featured__slide {
+    grid-area: 1 / 1;
+    box-sizing: border-box;
+    /* Ширина слайда = картка + проміжок, тому вона ж є кроком каруселі */
+    padding: 0 calc(var(--card-gap) / 2);
+    will-change: transform;
+}
+
+.featured__slide:not(.is-active) {
+    cursor: pointer;
+}
+
+/* Рухомий backdrop-blur перемальовується кожен кадр, тому в каруселі його немає.
+   Затемнення неактивних карток — накладка, її прозорість games.js веде плавно від відстані до центру. */
+.featured__slide .game__container {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.featured__slide .game__container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 20, 0.55);
+    opacity: var(--dim, 0);
+    pointer-events: none;
+    z-index: 3;
+}
+
+.featured__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max(3vw, 44px);
+    height: max(3vw, 44px);
+    border-radius: 50%;
+    border: 1.5px solid rgba(67, 67, 67, 0.6);
+    background: rgba(29, 31, 46, 0.7);
+    backdrop-filter: blur(var(--blur-light));
+    -webkit-backdrop-filter: blur(var(--blur-light));
+    color: #CDCDCD;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.featured__arrow--prev {
+    left: max(1.5vw, 12px);
+}
+
+.featured__arrow--next {
+    right: max(1.5vw, 12px);
+}
+
+.featured__arrow:hover {
+    background: #CDCDCD;
+    color: #222;
+}
+
+.featured__arrow:focus-visible,
+.featured__dot:focus-visible {
+    outline: 2px solid #FFF;
+    outline-offset: 2px;
+}
+
+.featured__dots {
+    display: flex;
+    justify-content: center;
+    gap: max(0.2vw, 2px);
+    margin-top: max(0.8vw, 8px);
+}
+
+.featured__dot {
+    box-sizing: content-box;
+    width: max(0.6vw, 10px);
+    height: max(0.6vw, 10px);
+    /* Прозора рамка збільшує зону натискання, не змінюючи вигляду крапки */
+    border: 8px solid transparent;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.3);
+    background-clip: padding-box;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: width 0.35s ease, background-color 0.35s ease;
+}
+
+.featured__dot[aria-current="true"] {
+    width: max(2vw, 28px);
+    background-color: #CDCDCD;
+    background-clip: padding-box;
+}
+
+/* На телефонах і вузьких вікнах гортають свайпом, стрілки лише заважали б */
+@media (max-width: 767.98px), (hover: none) {
+    .featured__arrow {
+        display: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .featured {
+        --card-gap: 3vw;
+    }
+}
+
+/* ============================================= */
+/* All games: каталог з фільтрами                */
+/* ============================================= */
+
+#all-games {
+    box-sizing: border-box;
+    /* Зверху, а не по центру: при фільтрації заголовок і чіпи не мають стрибати */
+    justify-content: flex-start;
+    /* Запас під фіксований header, щоб контент не ховався під ним, коли каталог вищий за екран */
+    padding: calc(3vh + 3.5rem) 0 6vh;
+}
+
+.catalog__container {
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 max(1.5vw, 16px);
+    display: flex;
+    flex-direction: column;
+    gap: max(1.4vw, 18px);
+}
+
+.catalog__title {
+    margin: 0;
+    color: #FFF;
+    font-size: max(2.5vw, 30px);
+    font-weight: 700;
+    line-height: normal;
+}
+
+/* --- Фільтри --- */
+.catalog__filters {
+    display: flex;
+    flex-direction: column;
+    gap: max(0.6vw, 10px);
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: max(1vw, 12px);
+}
+
+.filter-group__label {
+    flex: 0 0 5.5em;
+    color: #B3B3B3;
+    font-size: max(0.8vw, 12px);
+    font-weight: 200;
+    letter-spacing: max(0.12vw, 2px);
+    text-transform: uppercase;
+}
+
+.filter-group__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: max(0.4vw, 6px);
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    padding: 0.5em 0.95em;
+    border-radius: 999px;
+    border: 1px solid rgba(67, 67, 67, 0.6);
+    background: rgba(29, 31, 46, 0.5);
+    color: #CDCDCD;
+    font-family: "Lexend Deca", sans-serif;
+    font-size: max(0.85vw, 13px);
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hover лише для миші: на дотиковому екрані він «залипає» після тапу й фарбує чіп у сірий */
+@media (hover: hover) {
+    .chip:hover:not(:disabled):not([aria-pressed="true"]) {
+        background: rgba(205, 205, 205, 0.15);
+    }
+}
+
+.chip[aria-pressed="true"] {
+    background: #CDCDCD;
+    border-color: #CDCDCD;
+    color: #222;
+    font-weight: 700;
+}
+
+.chip:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.chip:focus-visible,
+.catalog-card:focus-visible {
+    outline: 2px solid #FFF;
+    outline-offset: 2px;
+}
+
+.chip__icon {
+    height: 1.2em;
+    width: auto;
+}
+
+/* Іконки білі — на світлому активному чіпі їх треба затемнити */
+.chip[aria-pressed="true"] .chip__icon {
+    filter: invert(1);
+}
+
+.chip__count {
+    font-size: 0.85em;
+    font-weight: 200;
+    opacity: 0.6;
+}
+
+/* --- Сітка карток --- */
+.catalog__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: max(1vw, 12px);
+}
+
+.catalog__item[hidden] {
+    display: none;
+}
+
+.catalog__item.is-entering {
+    animation: catalog-item-in 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) var(--enter-delay, 0ms) both;
+}
+
+@keyframes catalog-item-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.catalog-card {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%;
+    overflow: hidden;
+    border-radius: max(1vw, 16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(var(--blur-light));
+    -webkit-backdrop-filter: blur(var(--blur-light));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #FFF;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.catalog-card:focus-visible {
+    transform: translateY(-4px);
+    border-color: var(--section-accent-color, #D9DA7B);
+    box-shadow: 0 12px 28px -10px color-mix(in srgb, var(--section-accent-color, #D9DA7B) 60%, transparent);
+}
+
+@media (hover: hover) {
+    .catalog-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--section-accent-color, #D9DA7B);
+        box-shadow: 0 12px 28px -10px color-mix(in srgb, var(--section-accent-color, #D9DA7B) 60%, transparent);
+    }
+
+    .catalog-card:hover .catalog-card__cover img {
+        transform: scale(1.06);
+    }
+}
+
+.catalog-card__cover {
+    display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.catalog-card__cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.catalog-card:focus-visible .catalog-card__cover img {
+    transform: scale(1.06);
+}
+
+.catalog-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: max(0.4vw, 6px);
+    padding: max(0.8vw, 12px);
+}
+
+.catalog-card__title {
+    font-size: max(1.1vw, 15px);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.catalog-card__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5em;
+}
+
+.catalog-card__genre {
+    color: var(--section-accent-color, #D9DA7B);
+    font-size: max(0.8vw, 12px);
+    font-weight: 300;
+    letter-spacing: max(0.1vw, 1px);
+}
+
+.catalog-card__platforms {
+    display: flex;
+    align-items: center;
+    gap: max(0.35vw, 5px);
+}
+
+.catalog-card__platform {
+    height: max(1.2vw, 16px);
+    width: auto;
+}
+
+@media (max-width: 990.98px) {
+    .catalog__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767.98px) {
+    .catalog__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .filter-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .filter-group__label {
+        flex-basis: auto;
+    }
+
+    .chip {
+        gap: 0.35em;
+        padding: 0.45em 0.75em;
+    }
+}
+
+@media (min-width: 2200px) {
+    .catalog__grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
     }
 }
 

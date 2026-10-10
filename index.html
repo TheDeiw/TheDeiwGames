@@ -52,32 +52,10 @@
 					<a href="#about" class="menu__link" data-scroll-to="about">About</a>
 				</li>
 				<li class="menu__item">
-					<div class="header__menu_games" role="menu">
-						<a class="menu_games__button menu__link_downloader" id="dropdownBtn" data-key="download_games">
-							Games
-							<img src="assets/img/DropDown.svg" alt="" class="menu_games__drop-down">
-						</a>
-						<ul class="menu_games__list" id="dropdownMenu">
-							<li class="menu_games__item">
-								<a href="#deminingacademy-game" class="menu_games__link" data-scroll-to="deminingacademy-game">Demining Academy</a>
-							</li>
-							<li class="menu_games__item">
-								<a href="#spacedodger-game" class="menu_games__link" data-scroll-to="spacedodger-game">Space Dodger</a>
-							</li>
-							<li class="menu_games__item">
-								<a href="#cuberunner-game" class="menu_games__link" data-scroll-to="cuberunner-game">Cube Runner</a>
-							</li>
-							<li class="menu_games__item">
-								<a href="#tankdestroyer-game" class="menu_games__link" data-scroll-to="tankdestroyer-game">Tank Destroyer</a>
-							</li>
-							<li class="menu_games__item">
-								<a href="#fallballs-game" class="menu_games__link" data-scroll-to="fallballs-game">Fall Balls</a>
-							</li>
-							<li class="menu_games__item">
-								<a href="#blocky-game" class="menu_games__link" data-scroll-to="blocky-game">Blocky</a>
-							</li>
-						</ul>
-					</div>
+					<a href="#featured" class="menu__link" data-scroll-to="featured">Featured</a>
+				</li>
+				<li class="menu__item">
+					<a href="#all-games" class="menu__link" data-scroll-to="all-games">Games</a>
 				</li>
 			</ul>
 		</nav>
@@ -147,7 +125,7 @@
 					<!-- Картка "Games created" -->
 					<div class="card card__games-created">
 						<img src="assets/img/AboutSection/Controller.svg" alt="Games" class="card__icon">
-						<p class="card__games_number">6</p>
+						<p class="card__games_number">7</p>
 						<p>Games created</p>
 					</div>
 
@@ -173,142 +151,32 @@
 			</div>
 		</section>
 
-	<section id="deminingacademy-game" class="section gradient-section" data-bg-color="#1a3d20" style="--section-accent-color: #83CC8F;">
-			<div class="game__container">
-				<div class="game__image-wrapper">
-					<img src="assets/img/GamesPhotos/DeminigAcademy/DeminingAcademy.png" alt="Demining Academy" class="game__logo">
+	<!-- The #featured carousel is inserted above this section by js/games.js; all games come from js/games-data.js -->
+	<section id="all-games" class="section gradient-section" data-bg-color="#1e1e2f">
+		<div class="catalog__container">
+			<div class="catalog__top">
+				<h2 class="catalog__title">All games</h2>
+			</div>
+			<div class="catalog__filters">
+				<div class="filter-group" role="group" aria-label="Filter by genre">
+					<span class="filter-group__label">Genre</span>
+					<div class="filter-group__chips" id="genreFilters"></div>
 				</div>
-				<div class="game__content">
-					<div class="game__content_text">
-						<h2 class="game__header">Demining Academy</h2>
-						<p class="game__sub_header">VR Simulator</p>
-						<p class="game__description">Virtual Reality simulation for mine awareness and the demining process.</p>
-					</div>
-					<div class="game__button_platforms">
-						<a href="pages/DeminingAcademy.html" class="game__button">View game</a>
-						<div class="game__platforms">
-							<img src="assets/img/GamePlatforms/vr.svg" alt="VR" class="platforms__platform">							
-							<img src="assets/img/GamePlatforms/meta-quest.svg" alt="Meta Quest" class="platforms__platform">
-						</div>
-					</div>
+				<div class="filter-group" role="group" aria-label="Filter by platform">
+					<span class="filter-group__label">Platform</span>
+					<div class="filter-group__chips" id="platformFilters"></div>
 				</div>
 			</div>
-		</section>
-
-	<section id="spacedodger-game" class="section gradient-section" data-bg-color="#040e33" style="--section-accent-color: #7692f4;">
-			<div class="game__container">
-				<div class="game__image-wrapper">
-					<img src="assets/img/GamesPhotos/SpaceDodger/SpaceDodger.png" alt="Space Dodger" class="game__logo">
-				</div>
-				<div class="game__content">
-					<div class="game__content_text">
-						<h2 class="game__header">Space Dodger</h2>
-						<p class="game__sub_header">Action</p>
-						<p class="game__description">Trained agent with Reinforcement Learning using ml-agents toolkit.</p>
-					</div>
-					<div class="game__button_platforms">
-						<a href="pages/SpaceDodger.html" class="game__button">View game</a>
-						<div class="game__platforms">
-							<img src="assets/img/GamePlatforms/web.svg" alt="Web browser" class="platforms__platform">
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-	<section id="cuberunner-game" class="section gradient-section" data-bg-color="#143a12" style="--section-accent-color: #2bcb22;">
-			<div class="game__container">
-				<div class="game__image-wrapper">
-					<img src="assets/img/GamesPhotos/CubeRunner/CubeRunner.png" alt="Cube Runner" class="game__logo">
-				</div>
-				<div class="game__content">
-					<div class="game__content_text">
-						<h2 class="game__header">Cube Runner</h2>
-						<p class="game__sub_header">Platformer</p>
-						<p class="game__description">Fast-paced 3D platformer, where you will test your reaction, speed and ability to cope with unexpected traps.</p>	
-					</div>
-					<div class="game__button_platforms">
-						<a href="pages/CubeRunner.html" class="game__button">View game</a>
-						<div class="game__platforms">
-							<img src="assets/img/GamePlatforms/windows.svg" alt="Windows" class="platforms__platform">
-							<img src="assets/img/GamePlatforms/web.svg" alt="Web browser" class="platforms__platform">
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-	<section id="tankdestroyer-game" class="section gradient-section" data-bg-color="#0F4011" style="--section-accent-color: #30c042;">
-			<div class="game__container">
-				<div class="game__image-wrapper">
-					<img src="assets/img/GamesPhotos/TankDestroyer/Tank_destroyer.png" alt="Tank Destroyer" class="game__logo">
-				</div>
-				<div class="game__content">
-					<div class="game__content_text">
-						<h2 class="game__header">Tank Destroyer</h2>
-						<p class="game__sub_header">Action</p>
-						<p class="game__description">An exciting tank battle game where you take control of a tank to destroy enemy forces and survive the battlefield.</p>	
-					</div>
-					<div class="game__button_platforms">
-						<a href="pages/TankDestroyer.html" class="game__button">View game</a>
-						<div class="game__platforms">
-							<img src="assets/img/GamePlatforms/windows.svg" alt="Windows" class="platforms__platform">
-							<img src="assets/img/GamePlatforms/web.svg" alt="Web browser" class="platforms__platform">
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-	<section id="fallballs-game" class="section gradient-section" data-bg-color="#111111" style="--section-accent-color: #d7d7d7;">
-			<div class="game__container">
-				<div class="game__image-wrapper">
-					<img src="assets/img/GamesPhotos/FallBalls/FallBalls.png" alt="Fall Balls" class="game__logo">
-				</div>
-				<div class="game__content">
-					<div class="game__content_text">
-						<h2 class="game__header">Fall Balls</h2>
-						<p class="game__sub_header">Arcade</p>
-						<p class="game__description">A small game in which you need to catch multi-colored balls so that they do not go out in eternal darkness.</p>	
-					</div>
-					<div class="game__button_platforms">
-						<a href="pages/FallBalls.html" class="game__button">View game</a>
-						<div class="game__platforms">
-							<img src="assets/img/GamePlatforms/windows.svg" alt="Windows" class="platforms__platform">
-							<img src="assets/img/GamePlatforms/linux.svg" alt="Linux" class="platforms__platform">
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-			<section id="blocky-game" class="section gradient-section" data-bg-color="#483a00" style="--section-accent-color: #FBBC05;">
-			<div class="game__container">
-				<div class="game__image-wrapper">
-					<img src="assets/img/GamesPhotos/Blocky/Blocky.png" alt="Blocky" class="game__logo">
-				</div>
-				<div class="game__content">
-					<div class="game__content_text">
-						<h2 class="game__header">Blocky</h2>
-						<p class="game__sub_header">Puzzle</p>
-						<p class="game__description">Simple 3D puzzle with orthographic camera. Made a video tutorial.<br>You're playing for a red rectangle that needs to be freed from this trap.</p>	
-					</div>
-					<div class="game__button_platforms">
-						<a href="pages/Blocky.html" class="game__button">View game</a>
-						<div class="game__platforms">
-							<!-- <img src="assets/img/GamePlatforms/Linux.svg" alt="Linux" class="platforms__platform"> -->
-							<img src="assets/img/GamePlatforms/windows.svg" alt="Windows" class="platforms__platform">
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+			<ul class="catalog__grid" id="catalogGrid"></ul>
+		</div>
+	</section>
 
 
 	</main>
 	<script src="js/performance-detector.js"></script>
 	<script src="js/canvas-backgrounds.js"></script>
+	<script src="js/games-data.js"></script>
+	<script src="js/games.js"></script>
 	<script src="js/script.js"></script>
 </body>
 

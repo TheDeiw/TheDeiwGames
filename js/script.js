@@ -91,39 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // --- Частина для Dropdown меню ---
-    const dropdownBtn = document.getElementById("dropdownBtn");
-    const dropdownMenu = document.getElementById("dropdownMenu");
-    const mainContent = document.querySelector("main.fullpage") || document.querySelector("main");
-    const gamesButtonContainer = document.querySelector(".header__menu_games");
-
-    function openMenu() {
-        dropdownMenu.classList.add("is-open");
-        gamesButtonContainer.classList.add("is-open");
-        mainContent.classList.add("main-blurred");
-    }
-
-    function closeMenu() {
-        dropdownMenu.classList.remove("is-open");
-        gamesButtonContainer.classList.remove("is-open");
-        mainContent.classList.remove("main-blurred");
-    }
-
-    dropdownBtn.addEventListener("click", (event) => {
-        event.stopPropagation();
-        if (dropdownMenu.classList.contains("is-open")) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
-    });
-
-    window.addEventListener("click", (event) => {
-        if (dropdownMenu.classList.contains("is-open") && !gamesButtonContainer.contains(event.target)) {
-            closeMenu();
-        }
-    });
-
     // --- Global Background Manager ---
     const globalCanvas = document.getElementById("global-canvas");
     const globalBgColor = document.getElementById("global-background-color");
@@ -151,7 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- Active Section Tracking (Nav & Background) ---
     const sections = document.querySelectorAll(".section");
     const navLinks = document.querySelectorAll(".menu__link[data-scroll-to]");
-    const dropdownLinks = document.querySelectorAll(".menu_games__link[data-scroll-to]");
 
     const observerOptions = {
         root: null,
@@ -172,16 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     correspondingLink.classList.add("active");
                 }
 
-                // 2. Update Dropdown Navigation
-                dropdownLinks.forEach((link) => link.classList.remove("active"));
-                const correspondingDropdownLink = document.querySelector(
-                    `.menu_games__link[data-scroll-to="${sectionId}"]`,
-                );
-                if (correspondingDropdownLink) {
-                    correspondingDropdownLink.classList.add("active");
-                }
-
-                // 3. Update Background Color
+                // 2. Update Background Color
                 const bgColor = section.getAttribute("data-bg-color");
                 if (bgColor && globalBgColor) {
                     globalBgColor.style.backgroundColor = bgColor;
@@ -207,11 +164,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const targetSection = document.getElementById(targetId);
 
             if (targetSection) {
-                // Закриваємо dropdown меню якщо воно відкрите
-                if (dropdownMenu && dropdownMenu.classList.contains("is-open")) {
-                    closeMenu();
-                }
-
                 // Плавна прокрутка до секції
                 targetSection.scrollIntoView({
                     behavior: "smooth",
