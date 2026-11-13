@@ -50,8 +50,8 @@ const GAMES = [
         image: "assets/img/GamesPhotos/TurretRush/TurretRush.jpg",
         page: "pages/TurretRush.html",
         platforms: ["android"],
-        bg: "#4a1710",
-        accent: "#ff5a36",
+        bg: "#0d2552",
+        accent: "#3f8cff",
         featured: true,
     },
     {
