@@ -3,7 +3,7 @@
 Usage (from the repo root, needs Pillow):  python tools/build-covers.py
 
 For each game it reads `id` and `image` (the original artwork) and writes
-assets/img/covers/<id>-640.webp  and  assets/img/covers/<id>-1280.webp.
+assets/img/covers/<id>-640.webp, <id>-1280.webp and <id>-og.jpg (social preview).
 The site (js/games.js) serves them through srcset. Covers that are already
 newer than their source image are skipped.
 """
@@ -12,13 +12,14 @@ import re
 import sys
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageOps
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_FILE = ROOT / "js" / "games-data.js"
 OUT_DIR = ROOT / "assets" / "img" / "covers"
 WIDTHS = (640, 1280)
 QUALITY = 82
+OG_SIZE = (1200, 630)
 
 
 def read_games():
@@ -52,6 +53,12 @@ def build(game_id, source_path):
             height = round(img.height * width / img.width)
             img.resize((width, height), Image.LANCZOS).save(target, "WEBP", quality=QUALITY, method=6)
             print(f"  + {target.name}  {width}x{height}  {target.stat().st_size // 1024} KB")
+
+        # Social preview (og:image) used by pages/<Game>.html: 1200x630 JPEG, the size Facebook/Telegram/X expect.
+        target = OUT_DIR / f"{game_id}-og.jpg"
+        if not (target.exists() and target.stat().st_mtime >= source.stat().st_mtime):
+            ImageOps.fit(img.convert("RGB"), OG_SIZE, Image.LANCZOS).save(target, "JPEG", quality=85, optimize=True)
+            print(f"  + {target.name}  {target.stat().st_size // 1024} KB")
 
 
 def main():
