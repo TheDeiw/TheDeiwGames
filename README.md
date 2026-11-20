@@ -1,5 +1,5 @@
 # My Portfolio
-Visit [Website](https://thedeiw.github.io/TheDeiwGames/index.html)
+Visit [Website](https://thedeiwsgames.github.io/)
 
 I am interested in game development. Additionally, I want people to see my projects, so I am also practicing web development to create a website where I can showcase my games. This way, my website will also serve as a portfolio with links to my other social media.
 
